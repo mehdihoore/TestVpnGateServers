@@ -53,7 +53,7 @@ if tbody is not None:
     sorted_df.to_excel('sstp.xlsx', sheet_name='Servers')
     sorted_df['sstp_link'] = '<a href="' + sorted_df['sstp'] + '">' + sorted_df['sstp'] + '</a>'
     sorted_df.to_html('sstp.html', escape=False, index=False)
-    ser = pd.DataFrame(sorted_df[[ 'server','sstp_link' ]])
+    ser = pd.DataFrame(sorted_df[[ 'country','server','sstp_link' ]])
     ser['server'].to_csv('sstp.csv', index=False)
     print(sorted_df)
 
@@ -90,6 +90,7 @@ testspeed = pd.DataFrame({'speed_test_r':speed_test_results, 'server':ss})
 
 # merge the top 10 servers back into the original DataFrame
 result = pd.merge(ser, testspeed,on='server', how='left')
+result = result.drop('server', axis=1)
 result.to_html('sstp.html', escape=False, index=False)
 result.to_excel('sstp.xlsx', sheet_name='Servers')
 
