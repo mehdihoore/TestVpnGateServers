@@ -5,10 +5,31 @@ import sqlite3
 import speedtest
 from tqdm import tqdm
 import ping3
-
+import os
 #etes = rs.get('http://103.201.129.226:14684/en/').text
 # get user input for URL
-
+def process_file(file_path, name_of_dataframe):
+    try:
+        # Attempt to write to the file
+        # Your code to write to the file goes here
+        name_of_dataframe.to_excel(file_path, index=False)
+        print(f"File write successful: {file_path}")
+    except PermissionError:
+        # If a permission error occurs, create a new file with a different name
+        counter = 1
+        while True:
+            new_file_path = f"sstp_{counter}.xlsx"
+            try:
+                # Attempt to write to the new file
+                # Your code to write to the new file goes here
+                name_of_dataframe.to_excel(new_file_path, index=False)
+                print(f"File write successful. Created new file: {new_file_path}")
+                break
+            except Exception as e:
+                print(f"Error occurred: {str(e)}")
+                counter += 1
+    except Exception as e:
+        print(f"Error occurred: {str(e)}")
 url = input("Please enter a valid URL: ")
 
 while True:
@@ -78,10 +99,9 @@ if tbody is not None:
     # separate the server name and port number in column 'sstp'
     new_df[['server', 'port']] = new_df['sstp'].str.split(':', expand=True)
     # export the resulting DataFrame to an Excel file
-    df[7].to_excel('rowsstp.xlsx')
+    process_file('rowsstp.xlsx', df[7])
     sorted_df = new_df.sort_values(by=['Ping Time'], ascending=True)
     sorted_df.reset_index(drop=True, inplace=True)
-    #sorted_df.to_excel('sstp.xlsx', sheet_name='Servers')
     sorted_df['sstp_link'] = '<a href="' + sorted_df['sstp'] + '">' + sorted_df['sstp'] + '</a>'
     #sorted_df.to_html('sstp.html', escape=False, index=False)
     pingi = []
@@ -100,8 +120,6 @@ if tbody is not None:
     ser = pd.DataFrame(sorted_df[['country', 'Ping Time', 'Ping in', 'server', 'sstp_link']])
     ser['server'].to_csv('sstp.csv', index=False)
     ser.to_csv('data.csv', index=False)
-    # sorted_df.to_excel('\\\srv1\\General\\hoore\\sstp.xlsx', sheet_name='Servers')
-    # sorted_df.to_html('\\\srv1\General\\hoore\\sstp.html', escape=False, index=False)
     print(sorted_df)
 
 # create a DataFrame from the table
@@ -156,7 +174,7 @@ result = result.drop('server', axis=1)
 
 # Generate a single button that triggers ping for all servers
 ping_button = '<button onclick="pingAllServers()">Ping All</button>'
-result.to_excel('sstp.xlsx', index=False)
+process_file('sstp.xlsx', result)
 result.to_html('sstp.html', escape=False, index=False)
 
 # Replace the placeholder string with the ping button
@@ -202,3 +220,34 @@ for i in range(len(servers)):
 # commit changes and close the connection
 conn.commit()
 conn.close()
+try:
+    os.remove('sstp.csv')
+    print(f"Deleted file: {'sstp.csv'}")
+except FileNotFoundError:
+    print(f"File not found: {'sstp.csv'}")
+except PermissionError:
+    print(f"Permission denied: Cannot delete file: {'sstp.csv'}")
+
+try:
+    os.remove('sstp_a.csv')
+    print(f"Deleted file: {'sstp_a.csv'}")
+except FileNotFoundError:
+    print(f"File not found: {'sstp_a.csv'}")
+except PermissionError:
+    print(f"Permission denied: Cannot delete file: {'sstp_a.csv'}")
+
+try:
+    os.remove('country.csv')
+    print(f"Deleted file: {'country.csv'}")
+except FileNotFoundError:
+    print(f"File not found: {'country.csv'}")
+except PermissionError:
+    print(f"Permission denied: Cannot delete file: {'country.csv'}")
+
+try:
+    os.remove('server.csv')
+    print(f"Deleted file: {'server.csv'}")
+except FileNotFoundError:
+    print(f"File not found: {'server.csv'}")
+except PermissionError:
+    print(f"Permission denied: Cannot delete file: {'server.csv'}")
