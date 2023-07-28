@@ -92,7 +92,7 @@ testspeed = pd.DataFrame({'speed_test_r':speed_test_results, 'server':ss})
 result = pd.merge(ser, testspeed,on='server', how='left')
 result = result.drop('server', axis=1)
 result.to_html('sstp.html', escape=False, index=False)
-result.to_excel('sstp.xlsx', sheet_name='Servers')
+
 
 
 
