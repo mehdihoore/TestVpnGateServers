@@ -1,26 +1,21 @@
-name: Python Script
+name: Run Python Script
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: "0 0 * * *"   # This schedule will run the job every day at midnight UTC (adjust to your timezone)
 
 jobs:
-  build:
+  run_script:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-      - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10   # Replace 'x' with your desired Python version (e.g., 3.6, 3.7, 3.8, etc.)
 
-      - name: Set up Python
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.10
+    - name: Check out code
+      uses: actions/checkout@v2
 
-      - run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          python sstpTableWithSpeddtest.py
-
-      - uses: ad-m/github-push-action@v0.6.0
-        with:
-          branch: main
+    - name: Run Python script
+      run: python sstpTableWithSpeddtest.py  # Replace 'path/to/your/script.py' with the actual path to your Python script
