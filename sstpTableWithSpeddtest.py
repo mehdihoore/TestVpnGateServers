@@ -65,7 +65,7 @@ if tbody is not None:
         ])\
         .set_caption(f"SSTP SERVER LIST @ {shamsi_date}")\
         .set_properties(**{'text-align': 'center'})\
-        .hide_index()
+       
 
     # Add filter for every column
     for col in sorted_df.columns:
@@ -77,7 +77,7 @@ if tbody is not None:
 
     # Add dropdown filter for the 'country' column
     country_filter = sorted_df['country'].unique().tolist()
-    country_filter.insert(0, 'Select All')
+    country_filter.insert(1, 'Select All')
     country_dropdown_html = '<select id="filterCountry" onchange="filterTable()">{}</select>'.format(
         ''.join([f'<option value="{country}">{country}</option>' for country in country_filter])
     )
@@ -149,7 +149,7 @@ if tbody is not None:
         <input type="text" id="filterPingTime" oninput="filterTable()" placeholder="Filter by Ping Time">
         
         <input type="text" id="filterSstpLink" oninput="filterTable()" placeholder="Filter by SSTP Link">
-        {styled_df.hide().render()}
+        {styled_df.to_html(index=False)}
         
         <script>
           // Function to populate the country filter dropdown menu
@@ -189,9 +189,9 @@ if tbody is not None:
 
             for (let i = 1; i < rows.length; i++) {{
               const row = rows[i];
-              const country = row.children[0].innerText.toLowerCase();
-              const pingTime = row.children[1].innerText.toLowerCase();
-              const sstpLink = row.children[2].innerText.toLowerCase();
+              const country = row.children[1].innerText.toLowerCase();
+              const pingTime = row.children[2].innerText.toLowerCase();
+              const sstpLink = row.children[3].innerText.toLowerCase();
 
               if (
                 country.includes(inputCountry) &&
