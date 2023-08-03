@@ -1,9 +1,7 @@
 import requests as rs
 import pandas as pd
 from bs4 import BeautifulSoup
-import re
-import subprocess
-import speedtest
+from jdatetime import date as jdate
 
 etes = rs.get('http://103.201.129.226:14684/en/').text
 soup = BeautifulSoup(etes, "html.parser")
@@ -47,54 +45,170 @@ if tbody is not None:
     # separate the server name and port number in column 'sstp'
     new_df[['server', 'port']] = new_df['sstp'].str.split(':', expand=True)
     # export the resulting DataFrame to an Excel file
-    df[7].to_excel('rowsstp.xlsx')
+    df[7].to_csv('rowsstp.csv', index=False)
     sorted_df = new_df.sort_values(by=['Ping Time'], ascending=True)
     sorted_df.reset_index(drop=True, inplace=True)
-    sorted_df.to_excel('sstp.xlsx', sheet_name='Servers')
+    sorted_df.to_csv('sstps.csv')
     sorted_df['sstp_link'] = '<a href="' + sorted_df['sstp'] + '">' + sorted_df['sstp'] + '</a>'
     sorted_df.to_html('sstp.html', escape=False, index=False)
-    ser = pd.DataFrame(sorted_df[[ 'country','server','sstp_link' ]])
-    ser['server'].to_csv('sstp.csv', index=False)
-    print(sorted_df)
-
+    ser = pd.DataFrame(sorted_df[[ 'country','Ping Time','sstp_link' ]])
     
+    print(sorted_df)
+    ser.to_html('sstp.html', escape=False, index=False)
+    shamsi_date = jdate.today().strftime('%Y-%m-%d')
 
-# create a DataFrame from the table
-df = pd.read_csv('sstp.csv', sep='\t')
+    # Style the DataFrame for HTML representation without index
+    styled_df = ser.style\
+        .set_table_attributes('class="dataframe"')\
+        .set_table_styles([
+            {'selector': 'thead', 'props': [('background-color', 'lightgrey')]}
+        ])\
+        .set_caption(f"SSTP SERVER LIST @ {shamsi_date}")\
+        .set_properties(**{'text-align': 'center'})\
+        .hide_index()
 
-# select the top 5 servers. 
-#You can adjust the number of rows to test by changing the df.head() function call to df.head(n) where n is the number of rows you want to test. 
-top_10_servers = df.head(10)
+    # Add filter for every column
+    for col in sorted_df.columns:
+        if col != 'sstp_link':
+            styled_df = styled_df.set_table_styles([{
+                'selector': f'th.col_heading_{col}',
+                'props': 'font-size: 14px'
+            }])
 
-# create a Speedtest object
-st = speedtest.Speedtest(secure=True)
+    # Add dropdown filter for the 'country' column
+    country_filter = sorted_df['country'].unique().tolist()
+    country_filter.insert(0, 'Select All')
+    country_dropdown_html = '<select id="filterCountry" onchange="filterTable()">{}</select>'.format(
+        ''.join([f'<option value="{country}">{country}</option>' for country in country_filter])
+    )
 
-# create a list to store the speed test results
-speed_test_results = []
-ss = []
+    # HTML template with JavaScript for filtering
+    html_template = f'''
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          /* Add some basic CSS styles to make the table responsive */
+          table {{
+            width: 100%;
+            border-collapse: collapse;
+          }}
+        
+          th,
+          td {{
+            border: 1px solid #dddddd;
+            /* Light gray border between cells */
+            padding: 8px;
+            text-align: left;
+            /* Align table cell text to the left */
+            min-width: 1px;
+            /* Set minimum width to 1px */
+            max-width: 100%;
+            /* Set maximum width to 100% */
+            overflow: hidden;
+            /* Hide any overflowing content */
+            white-space: nowrap;
+            /* Prevent text from wrapping */
+          }}
+        
+          /* Apply styles for the table header */
+          thead th {{
+            background-color: #f2f2f2;
+            /* Light gray background color */
+            color: #333333;
+            /* Dark gray text color */
+            font-weight: bold;
+            /* Bold font weight for header text */
+            text-align: center;
+            /* Center header text */
+          }}
+        
+          /* Apply custom font to the table */
+          table {{
+            font-family: Tahoma, sans-serif;
+          }}
+        
+          /* Make the table responsive */
+          @media screen and (max-width: 200px) {{
+        
+            /* For smaller screens, reduce font size and wrap table cells */
+            th,
+            td {{
+              font-size: 14px;
+              white-space: wrap;
+            }}
+          }}
+        </style>
+        <div class="header" style="background-color: #f2f2f2;">
+          <h1>SSTP SERVER LIST @ {shamsi_date}</h1>
+        </div>
+    </head>
+    <body>
+        {country_dropdown_html}
+        
+        <input type="text" id="filterPingTime" oninput="filterTable()" placeholder="Filter by Ping Time">
+        
+        <input type="text" id="filterSstpLink" oninput="filterTable()" placeholder="Filter by SSTP Link">
+        {styled_df.hide().render()}
+        
+        <script>
+          // Function to populate the country filter dropdown menu
+          function populateCountryFilter() {{
+            const filterCountry = document.getElementById('filterCountry');
+            const countries = new Set(); // Use a Set to collect unique country names
 
-# loop through the top 10 servers and check the speed
-for server in top_10_servers['server']:
-    print(f"Checking speed for server: {server}")
-    st.get_best_server()
-    download_speed = st.download() / 1024 / 1024
-    upload_speed = st.upload() / 1024 / 1024
-    print(f"Download speed: {download_speed:.2f} Mbps")
-    print(f"Upload speed: {upload_speed:.2f} Mbps")
-    speed_test_results.append(f"Download speed: {download_speed:.2f} Mbps , Upload speed: {upload_speed:.2f} Mbps")
-    ss.append(server)
+            // Iterate through the table rows and collect unique country names
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {{
+              const countryCell = row.querySelector('td:nth-child(1)');
+              if (countryCell) {{
+                countries.add(countryCell.textContent.trim());
+              }}
+            }});
 
-# add the speed test results as a new column to the DataFrame
-testspeed = pd.DataFrame({'speed_test_r':speed_test_results, 'server':ss})
+            // Clear previous options and add new options for each country
+            filterCountry.innerHTML = '<option value="">All Countries</option>';
+            countries.forEach(country => {{
+              const option = document.createElement('option');
+              option.value = country;
+              option.textContent = country;
+              filterCountry.appendChild(option);
+            }});
+          }}
 
+          // Call the populateCountryFilter function initially to populate the dropdown menu
+          populateCountryFilter();
 
-# merge the top 10 servers back into the original DataFrame
-result = pd.merge(ser, testspeed,on='server', how='left')
-result = result.drop('server', axis=1)
-result.to_html('sstp.html', escape=False, index=False)
+          // Add event listeners to the input fields for filtering
+          function filterTable() {{
+            const inputCountry = document.getElementById('filterCountry').value.toLowerCase();
+            const inputPingTime = document.getElementById('filterPingTime').value.toLowerCase();
+            const inputSstpLink = document.getElementById('filterSstpLink').value.toLowerCase();
 
+            const rows = document.getElementsByTagName('tr');
 
+            for (let i = 1; i < rows.length; i++) {{
+              const row = rows[i];
+              const country = row.children[0].innerText.toLowerCase();
+              const pingTime = row.children[1].innerText.toLowerCase();
+              const sstpLink = row.children[2].innerText.toLowerCase();
 
+              if (
+                country.includes(inputCountry) &&
+                pingTime.includes(inputPingTime) &&
+                sstpLink.includes(inputSstpLink)
+              ) {{
+                row.style.display = 'table-row';
+              }} else {{
+                row.style.display = 'none';
+              }}
+            }}
+          }}
+        </script>
+    </body>
+    </html>
+    '''
 
-
-
+    # Save the HTML with styles and filters to a file
+    with open('sstp.html', 'w', encoding='utf-8') as file:
+        file.write(html_template)
