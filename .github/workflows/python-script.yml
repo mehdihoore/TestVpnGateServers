@@ -1,34 +1,30 @@
-name: Run Python Script
+name: Update SSTP Server List
+
 on:
   schedule:
-    - cron: '*/60 * * * *'  
+    - cron: '0 * * * *'  # Run every hour at the start of the hour
+
 jobs:
   build:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout@v2
- # This schedule will run the job every day at midnight UTC (adjust to your timezone)
-
-
-  run_script:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8  
-    - name: Check out code
-      uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: Run Python script
-      run: |
-            python -m pip install -r requirements.txt
-            python sstpTableWithSpeddtest.py 
-            git config --global user.email "mehdi.hoore@gmail.com"
-            git config --global user.name "mehdihoore"
-            git add -A
-            git commit -m "🚀 Servers Updated - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M:%S')"
-            git push
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
 
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+
+      - name: Run Python script and commit changes
+        run: |
+          python sstpTableWithSpeddtest.py
+          git config --global user.email "mehdi.hoore@gmail.com"
+          git config --global user.name "mehdihoore"
+          git add -A
+          git commit -m "🚀 Servers Updated - $(date '+%Y-%m-%d %H:%M:%S')"
+          git push
