@@ -1,0 +1,110 @@
+import pandas as pd
+
+# Read the existing CSV file with the sorted data
+df = pd.read_csv('sstps.csv', usecols=['country', 'Ping Time'])
+
+# Recreate the 'sstp_link' column using the 'sstp' column from the existing DataFrame
+df['sstp'] = df['country'] + ': ' + df['Ping Time'].astype(str)
+df['sstp_link'] = '<a href="' + df['sstp'] + '">' + df['sstp'] + '</a>'
+
+# Add filter dropdown for the 'country' column
+country_filter = sorted(df['country'].unique().tolist())
+country_filter.insert(0, 'All Countries')
+
+# Generate the HTML table with filtering capabilities
+html_table = df.to_html(index=False, escape=False, classes='dataframe', na_rep='')
+html_table = html_table.replace('<thead>', f'<thead>\n<tr><th>Country</th><th>Ping Time</th><th>SSTP Link</th></tr>\n')
+html_table = html_table.replace('<tbody>', '<tbody>\n')
+
+# Insert the JavaScript for filtering into the HTML content
+js_script = f'''
+<script>
+function filterTable() {{
+  const inputCountry = document.getElementById('filterCountry').value.toLowerCase();
+  const rows = document.querySelectorAll('tbody tr');
+
+  for (let i = 0; i < rows.length; i++) {{
+    const row = rows[i];
+    const country = row.children[0].innerText.toLowerCase();
+
+    if (inputCountry === 'all countries' || country.includes(inputCountry)) {{
+      row.style.display = 'table-row';
+    }} else {{
+      row.style.display = 'none';
+    }}
+  }}
+}}
+</script>
+'''
+
+# Generate the final HTML content with the filtering functionality
+html_content = f'''
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Add some basic CSS styles to make the table responsive */
+      table {{
+        width: 100%;
+        border-collapse: collapse;
+      }}
+
+      th, td {{
+        border: 1px solid #dddddd;
+        /* Light gray border between cells */
+        padding: 8px;
+        text-align: left;
+        /* Align table cell text to the left */
+        min-width: 1px;
+        /* Set minimum width to 1px */
+        max-width: 100%;
+        /* Set maximum width to 100% */
+        overflow: hidden;
+        /* Hide any overflowing content */
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+      }}
+
+      /* Apply styles for the table header */
+      thead th {{
+        background-color: #f2f2f2;
+        /* Light gray background color */
+        color: #333333;
+        /* Dark gray text color */
+        font-weight: bold;
+        /* Bold font weight for header text */
+        text-align: center;
+        /* Center header text */
+      }}
+
+      /* Apply custom font to the table */
+      table {{
+        font-family: Tahoma, sans-serif;
+      }}
+
+      /* Make the table responsive */
+      @media screen and (max-width: 200px) {{
+
+        /* For smaller screens, reduce font size and wrap table cells */
+        th, td {{
+          font-size: 14px;
+          white-space: wrap;
+        }}
+      }}
+    </style>
+</head>
+<body>
+    <select id="filterCountry" onchange="filterTable()">
+        {''.join([f'<option value="{country}">{country}</option>' for country in country_filter])}
+    </select>
+    {js_script}
+    {html_table}
+</body>
+</html>
+'''
+
+# Save the updated HTML content to a new file
+with open('filtered_sstp.html', 'w', encoding='utf-8') as file:
+    file.write(html_content)
+
+print("The filtered_sstp.html file with filtering functionality has been created.")
