@@ -1,0 +1,521 @@
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Add some basic CSS styles to make the table responsive */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        border: 1px solid #dddddd;
+        /* Light gray border between cells */
+        padding: 8px;
+        text-align: left;
+        /* Align table cell text to the left */
+        min-width: 1px;
+        /* Set minimum width to 1px */
+        max-width: 100%;
+        /* Set maximum width to 100% */
+        overflow: hidden;
+        /* Hide any overflowing content */
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+      }
+
+      /* Apply styles for the table header */
+      thead th {
+        background-color: #f2f2f2;
+        /* Light gray background color */
+        color: #333333;
+        /* Dark gray text color */
+        font-weight: bold;
+        /* Bold font weight for header text */
+        text-align: center;
+        /* Center header text */
+      }
+
+      /* Apply custom font to the table */
+      table {
+        font-family: Tahoma, sans-serif;
+      }
+
+      /* Make the table responsive */
+      @media screen and (max-width: 200px) {
+
+        /* For smaller screens, reduce font size and wrap table cells */
+        th, td {
+          font-size: 14px;
+          white-space: wrap;
+        }
+      }
+    </style>
+</head>
+<body>
+    <select id="filterCountry" onchange="filterTable()">
+        <option value="All Countries">All Countries</option><option value="Germany">Germany</option><option value="Japan">Japan</option><option value="Korea Republic of">Korea Republic of</option><option value="Russian Federation">Russian Federation</option><option value="United States">United States</option><option value="Viet Nam">Viet Nam</option>
+    </select>
+    
+<script>
+function filterTable() {
+  const inputCountry = document.getElementById('filterCountry').value.toLowerCase();
+  const rows = document.querySelectorAll('tbody tr');
+
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    const country = row.children[0].innerText.toLowerCase();
+
+    if (inputCountry === 'all countries' || country.includes(inputCountry)) {
+      row.style.display = 'table-row';
+    } else {
+      row.style.display = 'none';
+    }
+  }
+}
+</script>
+
+    <table border="1" class="dataframe dataframe">
+  <thead>
+<tr><th>Country</th><th>Ping Time</th><th>SSTP Link</th></tr>
+
+    <tr style="text-align: right;">
+      <th>country</th>
+      <th>Ping Time</th>
+      <th>sstp</th>
+      <th>sstp_link</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>United States</td>
+      <td>1</td>
+      <td>United States: 1</td>
+      <td><a href="United States: 1">United States: 1</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>2</td>
+      <td>Japan: 2</td>
+      <td><a href="Japan: 2">Japan: 2</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>2</td>
+      <td>Japan: 2</td>
+      <td><a href="Japan: 2">Japan: 2</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>2</td>
+      <td>Japan: 2</td>
+      <td><a href="Japan: 2">Japan: 2</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>2</td>
+      <td>Japan: 2</td>
+      <td><a href="Japan: 2">Japan: 2</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>3</td>
+      <td>Japan: 3</td>
+      <td><a href="Japan: 3">Japan: 3</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>3</td>
+      <td>Japan: 3</td>
+      <td><a href="Japan: 3">Japan: 3</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>4</td>
+      <td>Japan: 4</td>
+      <td><a href="Japan: 4">Japan: 4</a></td>
+    </tr>
+    <tr>
+      <td>United States</td>
+      <td>4</td>
+      <td>United States: 4</td>
+      <td><a href="United States: 4">United States: 4</a></td>
+    </tr>
+    <tr>
+      <td>United States</td>
+      <td>4</td>
+      <td>United States: 4</td>
+      <td><a href="United States: 4">United States: 4</a></td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+      <td>5</td>
+      <td>Germany: 5</td>
+      <td><a href="Germany: 5">Germany: 5</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>5</td>
+      <td>Japan: 5</td>
+      <td><a href="Japan: 5">Japan: 5</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>6</td>
+      <td>Japan: 6</td>
+      <td><a href="Japan: 6">Japan: 6</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>7</td>
+      <td>Japan: 7</td>
+      <td><a href="Japan: 7">Japan: 7</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>8</td>
+      <td>Japan: 8</td>
+      <td><a href="Japan: 8">Japan: 8</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>8</td>
+      <td>Japan: 8</td>
+      <td><a href="Japan: 8">Japan: 8</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>8</td>
+      <td>Japan: 8</td>
+      <td><a href="Japan: 8">Japan: 8</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>9</td>
+      <td>Japan: 9</td>
+      <td><a href="Japan: 9">Japan: 9</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>10</td>
+      <td>Japan: 10</td>
+      <td><a href="Japan: 10">Japan: 10</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>13</td>
+      <td>Japan: 13</td>
+      <td><a href="Japan: 13">Japan: 13</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>14</td>
+      <td>Japan: 14</td>
+      <td><a href="Japan: 14">Japan: 14</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>16</td>
+      <td>Japan: 16</td>
+      <td><a href="Japan: 16">Japan: 16</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>16</td>
+      <td>Japan: 16</td>
+      <td><a href="Japan: 16">Japan: 16</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>17</td>
+      <td>Japan: 17</td>
+      <td><a href="Japan: 17">Japan: 17</a></td>
+    </tr>
+    <tr>
+      <td>Russian Federation</td>
+      <td>19</td>
+      <td>Russian Federation: 19</td>
+      <td><a href="Russian Federation: 19">Russian Federation: 19</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>22</td>
+      <td>Japan: 22</td>
+      <td><a href="Japan: 22">Japan: 22</a></td>
+    </tr>
+    <tr>
+      <td>Viet Nam</td>
+      <td>23</td>
+      <td>Viet Nam: 23</td>
+      <td><a href="Viet Nam: 23">Viet Nam: 23</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>24</td>
+      <td>Korea Republic of: 24</td>
+      <td><a href="Korea Republic of: 24">Korea Republic of: 24</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>25</td>
+      <td>Korea Republic of: 25</td>
+      <td><a href="Korea Republic of: 25">Korea Republic of: 25</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>25</td>
+      <td>Korea Republic of: 25</td>
+      <td><a href="Korea Republic of: 25">Korea Republic of: 25</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>25</td>
+      <td>Korea Republic of: 25</td>
+      <td><a href="Korea Republic of: 25">Korea Republic of: 25</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>26</td>
+      <td>Korea Republic of: 26</td>
+      <td><a href="Korea Republic of: 26">Korea Republic of: 26</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>27</td>
+      <td>Korea Republic of: 27</td>
+      <td><a href="Korea Republic of: 27">Korea Republic of: 27</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>27</td>
+      <td>Korea Republic of: 27</td>
+      <td><a href="Korea Republic of: 27">Korea Republic of: 27</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>28</td>
+      <td>Korea Republic of: 28</td>
+      <td><a href="Korea Republic of: 28">Korea Republic of: 28</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>28</td>
+      <td>Korea Republic of: 28</td>
+      <td><a href="Korea Republic of: 28">Korea Republic of: 28</a></td>
+    </tr>
+    <tr>
+      <td>Viet Nam</td>
+      <td>29</td>
+      <td>Viet Nam: 29</td>
+      <td><a href="Viet Nam: 29">Viet Nam: 29</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>29</td>
+      <td>Korea Republic of: 29</td>
+      <td><a href="Korea Republic of: 29">Korea Republic of: 29</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>30</td>
+      <td>Korea Republic of: 30</td>
+      <td><a href="Korea Republic of: 30">Korea Republic of: 30</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>30</td>
+      <td>Korea Republic of: 30</td>
+      <td><a href="Korea Republic of: 30">Korea Republic of: 30</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>Korea Republic of: 31</td>
+      <td><a href="Korea Republic of: 31">Korea Republic of: 31</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>Korea Republic of: 31</td>
+      <td><a href="Korea Republic of: 31">Korea Republic of: 31</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>Korea Republic of: 31</td>
+      <td><a href="Korea Republic of: 31">Korea Republic of: 31</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>Korea Republic of: 31</td>
+      <td><a href="Korea Republic of: 31">Korea Republic of: 31</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>Korea Republic of: 31</td>
+      <td><a href="Korea Republic of: 31">Korea Republic of: 31</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>Korea Republic of: 31</td>
+      <td><a href="Korea Republic of: 31">Korea Republic of: 31</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>Korea Republic of: 31</td>
+      <td><a href="Korea Republic of: 31">Korea Republic of: 31</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>Korea Republic of: 32</td>
+      <td><a href="Korea Republic of: 32">Korea Republic of: 32</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>Korea Republic of: 32</td>
+      <td><a href="Korea Republic of: 32">Korea Republic of: 32</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>Korea Republic of: 32</td>
+      <td><a href="Korea Republic of: 32">Korea Republic of: 32</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>Korea Republic of: 32</td>
+      <td><a href="Korea Republic of: 32">Korea Republic of: 32</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>Korea Republic of: 32</td>
+      <td><a href="Korea Republic of: 32">Korea Republic of: 32</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>34</td>
+      <td>Korea Republic of: 34</td>
+      <td><a href="Korea Republic of: 34">Korea Republic of: 34</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>34</td>
+      <td>Korea Republic of: 34</td>
+      <td><a href="Korea Republic of: 34">Korea Republic of: 34</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>35</td>
+      <td>Korea Republic of: 35</td>
+      <td><a href="Korea Republic of: 35">Korea Republic of: 35</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>37</td>
+      <td>Korea Republic of: 37</td>
+      <td><a href="Korea Republic of: 37">Korea Republic of: 37</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>37</td>
+      <td>Korea Republic of: 37</td>
+      <td><a href="Korea Republic of: 37">Korea Republic of: 37</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>37</td>
+      <td>Korea Republic of: 37</td>
+      <td><a href="Korea Republic of: 37">Korea Republic of: 37</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>37</td>
+      <td>Korea Republic of: 37</td>
+      <td><a href="Korea Republic of: 37">Korea Republic of: 37</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>38</td>
+      <td>Korea Republic of: 38</td>
+      <td><a href="Korea Republic of: 38">Korea Republic of: 38</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>38</td>
+      <td>Korea Republic of: 38</td>
+      <td><a href="Korea Republic of: 38">Korea Republic of: 38</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>39</td>
+      <td>Korea Republic of: 39</td>
+      <td><a href="Korea Republic of: 39">Korea Republic of: 39</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>39</td>
+      <td>Korea Republic of: 39</td>
+      <td><a href="Korea Republic of: 39">Korea Republic of: 39</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>39</td>
+      <td>Korea Republic of: 39</td>
+      <td><a href="Korea Republic of: 39">Korea Republic of: 39</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>43</td>
+      <td>Korea Republic of: 43</td>
+      <td><a href="Korea Republic of: 43">Korea Republic of: 43</a></td>
+    </tr>
+    <tr>
+      <td>Russian Federation</td>
+      <td>57</td>
+      <td>Russian Federation: 57</td>
+      <td><a href="Russian Federation: 57">Russian Federation: 57</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>61</td>
+      <td>Korea Republic of: 61</td>
+      <td><a href="Korea Republic of: 61">Korea Republic of: 61</a></td>
+    </tr>
+    <tr>
+      <td>United States</td>
+      <td>72</td>
+      <td>United States: 72</td>
+      <td><a href="United States: 72">United States: 72</a></td>
+    </tr>
+    <tr>
+      <td>Russian Federation</td>
+      <td>123</td>
+      <td>Russian Federation: 123</td>
+      <td><a href="Russian Federation: 123">Russian Federation: 123</a></td>
+    </tr>
+    <tr>
+      <td>Russian Federation</td>
+      <td>666</td>
+      <td>Russian Federation: 666</td>
+      <td><a href="Russian Federation: 666">Russian Federation: 666</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>666</td>
+      <td>Korea Republic of: 666</td>
+      <td><a href="Korea Republic of: 666">Korea Republic of: 666</a></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
