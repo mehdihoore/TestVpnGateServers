@@ -23,6 +23,7 @@ jobs:
       - name: Run Python script and commit changes
         run: |
           python sstpTableWithSpeddtest.py
+          python chsangeHTML.py
           git add -A
           git commit -m "🚀 Servers Updated - $(date '+%Y-%m-%d %H:%M:%S')"
           git push
