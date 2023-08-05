@@ -105,7 +105,7 @@ html_content = f'''
 </head>
 <body>
     <h1>SSTP SERVERS @ {persian_now}</h1>
-    <h2>Username: vpn | Password: vpn</h2>
+    <h2>Username: <font color:"red">vpn</font> | Password: <font color:"red">vpn</font></h2>
     <select id="filterCountry" onchange="filterTable()">
         {''.join([f'<option value="{country}">{country}</option>' for country in country_filter])}
     </select>
