@@ -1,5 +1,3 @@
-name: Update SSTP Server List
-
 on:
   schedule:
     - cron: '0 * * * *'  # Run every hour at the start of the hour
@@ -24,12 +22,8 @@ jobs:
         run: |
           python sstpTableWithSpeddtest.py
           python chsangeHTML.py
-
-          # Get the current Persian date and time
-          persian_now=$(date '+%Y/%m/%d %H:%M:%S' | iconv -f ascii -t utf-8 | LC_CTYPE=en_US.utf-8 sed 's/\([۰-۹]\)/\1/g')
-
           git config --global user.email "mehdi.hoore@gmail.com"
           git config --global user.name "mehdihoore"
           git add -A
-          git commit -m "🚀 Servers Updated - $persian_now"
+          git commit -m "🚀 Servers Updated - $(date '+%Y-%m-%d %H:%M:%S')"
           git push
