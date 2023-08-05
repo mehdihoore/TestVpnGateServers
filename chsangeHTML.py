@@ -54,6 +54,15 @@ function copySstp(sstpValue) {{
   document.execCommand('copy');
   document.body.removeChild(tempInput);
 }}
+
+function copyUsernamePassword() {{
+  const tempInput = document.createElement('input');
+  tempInput.value = 'vpn';
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempInput);
+}}
 </script>
 '''
 
@@ -114,7 +123,7 @@ html_content = f'''
 </head>
 <body>
     <h1>SSTP SERVERS @ {persian_now}</h1>
-    <h2>Username: <font color="red">vpn</font> | Password: <font color="red">vpn</font></h2>
+    <h2>Username: <a href="#" onclick="copyUsernamePassword()">vpn</a> | Password: <a href="#" onclick="copyUsernamePassword()">vpn</a></h2>
     <h3><font color="pink">The servers are updated every hour.</font></h3>
     <select id="filterCountry" onchange="filterTable()">
         {''.join([f'<option value="{country}">{country}</option>' for country in country_filter])}
@@ -131,4 +140,4 @@ html_content = f'''
 with open('filtered_sstp.html', 'w', encoding='utf-8') as file:
     file.write(html_content)
 
-print("The filtered_sstp.html file with filtering functionality and Persian date and time in the header has been created.")
+print("The filtered_sstp.html file with filtering functionality, Persian date and time in the header, and copy-on-click for 'vpn' has been created.")
