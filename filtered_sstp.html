@@ -44,7 +44,6 @@
 
       /* Make the table responsive */
       @media screen and (max-width: 200px) {
-
         /* For smaller screens, reduce font size and wrap table cells */
         th, td {
           font-size: 14px;
@@ -54,11 +53,11 @@
     </style>
 </head>
 <body>
-    <h1>SSTP SERVERS @ Saturday, 14 Mordad 1402 - 14:07:20</h1>
-    <h2>Username: <font color="red">vpn</font> | Password: <font color="red">vpn</font></h2>
+    <h1>SSTP SERVERS @ Saturday, 14 Mordad 1402 - 17:07:16</h1>
+    <h2>Username: <a href="#" onclick="copyUsernamePassword()">vpn</a> | Password: <a href="#" onclick="copyUsernamePassword()">vpn</a></h2>
     <h3><font color="pink">The servers are updated every hour.</font></h3>
     <select id="filterCountry" onchange="filterTable()">
-        <option value="All Countries">All Countries</option><option value="Germany">Germany</option><option value="Japan">Japan</option><option value="Korea Republic of">Korea Republic of</option><option value="Russian Federation">Russian Federation</option><option value="Singapore">Singapore</option><option value="United States">United States</option>
+        <option value="All Countries">All Countries</option><option value="Japan">Japan</option><option value="Korea Republic of">Korea Republic of</option><option value="Romania">Romania</option><option value="Russian Federation">Russian Federation</option><option value="Thailand">Thailand</option><option value="United States">United States</option><option value="Viet Nam">Viet Nam</option>
     </select>
     
 <script>
@@ -77,469 +76,507 @@ function filterTable() {
     }
   }
 }
+
+function copySstp(sstpValue) {
+  const tempInput = document.createElement('input');
+  tempInput.value = sstpValue;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempInput);
+}
+
+function copyUsernamePassword() {
+  const tempInput = document.createElement('input');
+  tempInput.value = 'vpn';
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempInput);
+}
 </script>
 
-    <table border="1" class="dataframe dataframe">
+    <table>
+        <table border="1" class="dataframe dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>country</th>
       <th>Ping Time</th>
       <th>sstp</th>
-      <th>sstp_link</th>
+      <th>Click to copy</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>Romania</td>
+      <td>1</td>
+      <td>vpn704294482.opengw.net</td>
+      <td><a href="#" onclick="copySstp('vpn704294482.opengw.net')">vpn704294482.opengw.net</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>1</td>
+      <td>vpn599391101.opengw.net:1622</td>
+      <td><a href="#" onclick="copySstp('vpn599391101.opengw.net:1622')">vpn599391101.opengw.net:1622</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>1</td>
+      <td>vpn409513264.opengw.net:1848</td>
+      <td><a href="#" onclick="copySstp('vpn409513264.opengw.net:1848')">vpn409513264.opengw.net:1848</a></td>
+    </tr>
+    <tr>
+      <td>Romania</td>
+      <td>1</td>
+      <td>vpn551989303.opengw.net</td>
+      <td><a href="#" onclick="copySstp('vpn551989303.opengw.net')">vpn551989303.opengw.net</a></td>
+    </tr>
+    <tr>
       <td>United States</td>
       <td>1</td>
       <td>vpn906128495.opengw.net</td>
-      <td><a href="vpn906128495.opengw.net">vpn906128495.opengw.net</a></td>
+      <td><a href="#" onclick="copySstp('vpn906128495.opengw.net')">vpn906128495.opengw.net</a></td>
     </tr>
     <tr>
-      <td>Singapore</td>
-      <td>2</td>
-      <td>vpn126587861.opengw.net:1633</td>
-      <td><a href="vpn126587861.opengw.net:1633">vpn126587861.opengw.net:1633</a></td>
+      <td>Japan</td>
+      <td>1</td>
+      <td>vpn380747109.opengw.net:1815</td>
+      <td><a href="#" onclick="copySstp('vpn380747109.opengw.net:1815')">vpn380747109.opengw.net:1815</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>1</td>
+      <td>vpn853872483.opengw.net</td>
+      <td><a href="#" onclick="copySstp('vpn853872483.opengw.net')">vpn853872483.opengw.net</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>2</td>
-      <td>vpn691270468.opengw.net:1347</td>
-      <td><a href="vpn691270468.opengw.net:1347">vpn691270468.opengw.net:1347</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>2</td>
-      <td>vpn957234584.opengw.net:1579</td>
-      <td><a href="vpn957234584.opengw.net:1579">vpn957234584.opengw.net:1579</a></td>
+      <td>vpn717170548.opengw.net:1470</td>
+      <td><a href="#" onclick="copySstp('vpn717170548.opengw.net:1470')">vpn717170548.opengw.net:1470</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>3</td>
-      <td>vpn447177167.opengw.net:1575</td>
-      <td><a href="vpn447177167.opengw.net:1575">vpn447177167.opengw.net:1575</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>3</td>
-      <td>vpn280748893.opengw.net:1910</td>
-      <td><a href="vpn280748893.opengw.net:1910">vpn280748893.opengw.net:1910</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>3</td>
-      <td>vpn743369021.opengw.net:1835</td>
-      <td><a href="vpn743369021.opengw.net:1835">vpn743369021.opengw.net:1835</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>3</td>
-      <td>vpn378704797.opengw.net:1315</td>
-      <td><a href="vpn378704797.opengw.net:1315">vpn378704797.opengw.net:1315</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>3</td>
-      <td>vpn475501975.opengw.net:1462</td>
-      <td><a href="vpn475501975.opengw.net:1462">vpn475501975.opengw.net:1462</a></td>
-    </tr>
-    <tr>
-      <td>United States</td>
-      <td>4</td>
-      <td>vpn719329406.opengw.net</td>
-      <td><a href="vpn719329406.opengw.net">vpn719329406.opengw.net</a></td>
+      <td>vpn658982327.opengw.net:1989</td>
+      <td><a href="#" onclick="copySstp('vpn658982327.opengw.net:1989')">vpn658982327.opengw.net:1989</a></td>
     </tr>
     <tr>
       <td>United States</td>
       <td>4</td>
       <td>vpn431396938.opengw.net</td>
-      <td><a href="vpn431396938.opengw.net">vpn431396938.opengw.net</a></td>
+      <td><a href="#" onclick="copySstp('vpn431396938.opengw.net')">vpn431396938.opengw.net</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>4</td>
+      <td>vpn983920455.opengw.net:1770</td>
+      <td><a href="#" onclick="copySstp('vpn983920455.opengw.net:1770')">vpn983920455.opengw.net:1770</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>4</td>
+      <td>vpn171066133.opengw.net:1972</td>
+      <td><a href="#" onclick="copySstp('vpn171066133.opengw.net:1972')">vpn171066133.opengw.net:1972</a></td>
+    </tr>
+    <tr>
+      <td>United States</td>
+      <td>4</td>
+      <td>vpn719329406.opengw.net</td>
+      <td><a href="#" onclick="copySstp('vpn719329406.opengw.net')">vpn719329406.opengw.net</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>4</td>
+      <td>vpn879850303.opengw.net:1955</td>
+      <td><a href="#" onclick="copySstp('vpn879850303.opengw.net:1955')">vpn879850303.opengw.net:1955</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>5</td>
-      <td>vpn187166463.opengw.net:1750</td>
-      <td><a href="vpn187166463.opengw.net:1750">vpn187166463.opengw.net:1750</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>5</td>
-      <td>vpn190064852.opengw.net:1785</td>
-      <td><a href="vpn190064852.opengw.net:1785">vpn190064852.opengw.net:1785</a></td>
-    </tr>
-    <tr>
-      <td>Germany</td>
-      <td>5</td>
-      <td>vpn612823739.opengw.net:222</td>
-      <td><a href="vpn612823739.opengw.net:222">vpn612823739.opengw.net:222</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>5</td>
-      <td>vpn646608839.opengw.net:1913</td>
-      <td><a href="vpn646608839.opengw.net:1913">vpn646608839.opengw.net:1913</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>7</td>
-      <td>vpn752564215.opengw.net:1460</td>
-      <td><a href="vpn752564215.opengw.net:1460">vpn752564215.opengw.net:1460</a></td>
+      <td>vpn967907815.opengw.net:1561</td>
+      <td><a href="#" onclick="copySstp('vpn967907815.opengw.net:1561')">vpn967907815.opengw.net:1561</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>8</td>
-      <td>vpn945081971.opengw.net:1803</td>
-      <td><a href="vpn945081971.opengw.net:1803">vpn945081971.opengw.net:1803</a></td>
+      <td>vpn225336753.opengw.net:1308</td>
+      <td><a href="#" onclick="copySstp('vpn225336753.opengw.net:1308')">vpn225336753.opengw.net:1308</a></td>
     </tr>
     <tr>
       <td>Japan</td>
-      <td>12</td>
-      <td>vpn735119480.opengw.net:1462</td>
-      <td><a href="vpn735119480.opengw.net:1462">vpn735119480.opengw.net:1462</a></td>
+      <td>8</td>
+      <td>vpn768681602.opengw.net:1614</td>
+      <td><a href="#" onclick="copySstp('vpn768681602.opengw.net:1614')">vpn768681602.opengw.net:1614</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>9</td>
+      <td>vpn571367253.opengw.net:1783</td>
+      <td><a href="#" onclick="copySstp('vpn571367253.opengw.net:1783')">vpn571367253.opengw.net:1783</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>9</td>
+      <td>public-vpn-167.opengw.net</td>
+      <td><a href="#" onclick="copySstp('public-vpn-167.opengw.net')">public-vpn-167.opengw.net</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>11</td>
+      <td>vpn588800087.opengw.net:1731</td>
+      <td><a href="#" onclick="copySstp('vpn588800087.opengw.net:1731')">vpn588800087.opengw.net:1731</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>11</td>
+      <td>vpn119196604.opengw.net:1650</td>
+      <td><a href="#" onclick="copySstp('vpn119196604.opengw.net:1650')">vpn119196604.opengw.net:1650</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>13</td>
-      <td>vpn968701927.opengw.net:1447</td>
-      <td><a href="vpn968701927.opengw.net:1447">vpn968701927.opengw.net:1447</a></td>
+      <td>public-vpn-138.opengw.net</td>
+      <td><a href="#" onclick="copySstp('public-vpn-138.opengw.net')">public-vpn-138.opengw.net</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>13</td>
+      <td>vpn778888611.opengw.net:1535</td>
+      <td><a href="#" onclick="copySstp('vpn778888611.opengw.net:1535')">vpn778888611.opengw.net:1535</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>14</td>
-      <td>vpn193195706.opengw.net:995</td>
-      <td><a href="vpn193195706.opengw.net:995">vpn193195706.opengw.net:995</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>15</td>
-      <td>vpn457474405.opengw.net:1490</td>
-      <td><a href="vpn457474405.opengw.net:1490">vpn457474405.opengw.net:1490</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>15</td>
       <td>kozakura0623.opengw.net</td>
-      <td><a href="kozakura0623.opengw.net">kozakura0623.opengw.net</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>16</td>
-      <td>vpn231365761.opengw.net:1361</td>
-      <td><a href="vpn231365761.opengw.net:1361">vpn231365761.opengw.net:1361</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>16</td>
-      <td>public-vpn-76.opengw.net</td>
-      <td><a href="public-vpn-76.opengw.net">public-vpn-76.opengw.net</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
-      <td>16</td>
-      <td>vpn590910866.opengw.net:1897</td>
-      <td><a href="vpn590910866.opengw.net:1897">vpn590910866.opengw.net:1897</a></td>
+      <td><a href="#" onclick="copySstp('kozakura0623.opengw.net')">kozakura0623.opengw.net</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>17</td>
-      <td>public-vpn-124.opengw.net</td>
-      <td><a href="public-vpn-124.opengw.net">public-vpn-124.opengw.net</a></td>
+      <td>vpn768176322.opengw.net:1409</td>
+      <td><a href="#" onclick="copySstp('vpn768176322.opengw.net:1409')">vpn768176322.opengw.net:1409</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>17</td>
-      <td>vpn123982227.opengw.net:1286</td>
-      <td><a href="vpn123982227.opengw.net:1286">vpn123982227.opengw.net:1286</a></td>
+      <td>vpn618161475.opengw.net:1438</td>
+      <td><a href="#" onclick="copySstp('vpn618161475.opengw.net:1438')">vpn618161475.opengw.net:1438</a></td>
     </tr>
     <tr>
-      <td>Russian Federation</td>
-      <td>19</td>
-      <td>vpn287307138.opengw.net:1411</td>
-      <td><a href="vpn287307138.opengw.net:1411">vpn287307138.opengw.net:1411</a></td>
+      <td>Japan</td>
+      <td>18</td>
+      <td>public-vpn-100.opengw.net</td>
+      <td><a href="#" onclick="copySstp('public-vpn-100.opengw.net')">public-vpn-100.opengw.net</a></td>
     </tr>
     <tr>
-      <td>Russian Federation</td>
+      <td>Japan</td>
+      <td>18</td>
+      <td>vpn766018619.opengw.net:1682</td>
+      <td><a href="#" onclick="copySstp('vpn766018619.opengw.net:1682')">vpn766018619.opengw.net:1682</a></td>
+    </tr>
+    <tr>
+      <td>Japan</td>
       <td>20</td>
-      <td>vpn279292340.opengw.net:1870</td>
-      <td><a href="vpn279292340.opengw.net:1870">vpn279292340.opengw.net:1870</a></td>
+      <td>public-vpn-255.opengw.net</td>
+      <td><a href="#" onclick="copySstp('public-vpn-255.opengw.net')">public-vpn-255.opengw.net</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
-      <td>22</td>
-      <td>vpn705903972.opengw.net:995</td>
-      <td><a href="vpn705903972.opengw.net:995">vpn705903972.opengw.net:995</a></td>
+      <td>24</td>
+      <td>vpn737729231.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn737729231.opengw.net:995')">vpn737729231.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
-      <td>22</td>
-      <td>vpn331463767.opengw.net:995</td>
-      <td><a href="vpn331463767.opengw.net:995">vpn331463767.opengw.net:995</a></td>
+      <td>25</td>
+      <td>vpn161316670.opengw.net:1941</td>
+      <td><a href="#" onclick="copySstp('vpn161316670.opengw.net:1941')">vpn161316670.opengw.net:1941</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
-      <td>22</td>
-      <td>vpn786712054.opengw.net:995</td>
-      <td><a href="vpn786712054.opengw.net:995">vpn786712054.opengw.net:995</a></td>
+      <td>25</td>
+      <td>vpn547898081.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn547898081.opengw.net:995')">vpn547898081.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
-      <td>22</td>
-      <td>vpn797900844.opengw.net:995</td>
-      <td><a href="vpn797900844.opengw.net:995">vpn797900844.opengw.net:995</a></td>
+      <td>25</td>
+      <td>vpn241651166.opengw.net:1958</td>
+      <td><a href="#" onclick="copySstp('vpn241651166.opengw.net:1958')">vpn241651166.opengw.net:1958</a></td>
     </tr>
     <tr>
       <td>Japan</td>
-      <td>22</td>
-      <td>vpn498198299.opengw.net:1670</td>
-      <td><a href="vpn498198299.opengw.net:1670">vpn498198299.opengw.net:1670</a></td>
+      <td>26</td>
+      <td>vpn223857877.opengw.net:1754</td>
+      <td><a href="#" onclick="copySstp('vpn223857877.opengw.net:1754')">vpn223857877.opengw.net:1754</a></td>
+    </tr>
+    <tr>
+      <td>Viet Nam</td>
+      <td>26</td>
+      <td>vpn953077690.opengw.net:1241</td>
+      <td><a href="#" onclick="copySstp('vpn953077690.opengw.net:1241')">vpn953077690.opengw.net:1241</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
-      <td>23</td>
-      <td>vpn961687971.opengw.net:995</td>
-      <td><a href="vpn961687971.opengw.net:995">vpn961687971.opengw.net:995</a></td>
+      <td>26</td>
+      <td>vpn510493195.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn510493195.opengw.net:995')">vpn510493195.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>27</td>
-      <td>vpn475250452.opengw.net:995</td>
-      <td><a href="vpn475250452.opengw.net:995">vpn475250452.opengw.net:995</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>27</td>
-      <td>vpn639795250.opengw.net:995</td>
-      <td><a href="vpn639795250.opengw.net:995">vpn639795250.opengw.net:995</a></td>
+      <td>vpn647741191.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn647741191.opengw.net:995')">vpn647741191.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>28</td>
-      <td>vpn289293280.opengw.net:1998</td>
-      <td><a href="vpn289293280.opengw.net:1998">vpn289293280.opengw.net:1998</a></td>
+      <td>vpn275439756.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn275439756.opengw.net:995')">vpn275439756.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>28</td>
-      <td>vpn721245849.opengw.net:1313</td>
-      <td><a href="vpn721245849.opengw.net:1313">vpn721245849.opengw.net:1313</a></td>
+      <td>vpn967003186.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn967003186.opengw.net:995')">vpn967003186.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>28</td>
+      <td>vpn175315517.opengw.net:1236</td>
+      <td><a href="#" onclick="copySstp('vpn175315517.opengw.net:1236')">vpn175315517.opengw.net:1236</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>29</td>
-      <td>vpn268782967.opengw.net:1410</td>
-      <td><a href="vpn268782967.opengw.net:1410">vpn268782967.opengw.net:1410</a></td>
+      <td>vpn776304934.opengw.net:1958</td>
+      <td><a href="#" onclick="copySstp('vpn776304934.opengw.net:1958')">vpn776304934.opengw.net:1958</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>29</td>
-      <td>vpn190344078.opengw.net:1287</td>
-      <td><a href="vpn190344078.opengw.net:1287">vpn190344078.opengw.net:1287</a></td>
+      <td>vpn522434295.opengw.net:1291</td>
+      <td><a href="#" onclick="copySstp('vpn522434295.opengw.net:1291')">vpn522434295.opengw.net:1291</a></td>
     </tr>
     <tr>
-      <td>Japan</td>
+      <td>Thailand</td>
       <td>29</td>
-      <td>vpn819956906.opengw.net:1671</td>
-      <td><a href="vpn819956906.opengw.net:1671">vpn819956906.opengw.net:1671</a></td>
+      <td>vpn228401193.opengw.net:1564</td>
+      <td><a href="#" onclick="copySstp('vpn228401193.opengw.net:1564')">vpn228401193.opengw.net:1564</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>29</td>
       <td>vpn482687082.opengw.net:1933</td>
-      <td><a href="vpn482687082.opengw.net:1933">vpn482687082.opengw.net:1933</a></td>
+      <td><a href="#" onclick="copySstp('vpn482687082.opengw.net:1933')">vpn482687082.opengw.net:1933</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>29</td>
-      <td>vpn685922375.opengw.net:995</td>
-      <td><a href="vpn685922375.opengw.net:995">vpn685922375.opengw.net:995</a></td>
+      <td>vpn640710698.opengw.net:1589</td>
+      <td><a href="#" onclick="copySstp('vpn640710698.opengw.net:1589')">vpn640710698.opengw.net:1589</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>30</td>
-      <td>vpn167056781.opengw.net:995</td>
-      <td><a href="vpn167056781.opengw.net:995">vpn167056781.opengw.net:995</a></td>
+      <td>vpn644199177.opengw.net:1234</td>
+      <td><a href="#" onclick="copySstp('vpn644199177.opengw.net:1234')">vpn644199177.opengw.net:1234</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>30</td>
-      <td>vpn231774152.opengw.net:995</td>
-      <td><a href="vpn231774152.opengw.net:995">vpn231774152.opengw.net:995</a></td>
+      <td>vpn492516201.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn492516201.opengw.net:995')">vpn492516201.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>30</td>
-      <td>vpn461892137.opengw.net:995</td>
-      <td><a href="vpn461892137.opengw.net:995">vpn461892137.opengw.net:995</a></td>
+      <td>vpn341008704.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn341008704.opengw.net:995')">vpn341008704.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>31</td>
-      <td>vpn600498504.opengw.net:1549</td>
-      <td><a href="vpn600498504.opengw.net:1549">vpn600498504.opengw.net:1549</a></td>
+      <td>vpn212987761.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn212987761.opengw.net:995')">vpn212987761.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>31</td>
-      <td>vpn906377080.opengw.net:995</td>
-      <td><a href="vpn906377080.opengw.net:995">vpn906377080.opengw.net:995</a></td>
+      <td>vpn649538938.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn649538938.opengw.net:995')">vpn649538938.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>United States</td>
+      <td>31</td>
+      <td>vpn490761523.opengw.net:1255</td>
+      <td><a href="#" onclick="copySstp('vpn490761523.opengw.net:1255')">vpn490761523.opengw.net:1255</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>31</td>
-      <td>vpn250010374.opengw.net:1440</td>
-      <td><a href="vpn250010374.opengw.net:1440">vpn250010374.opengw.net:1440</a></td>
+      <td>vpn688769463.opengw.net:1872</td>
+      <td><a href="#" onclick="copySstp('vpn688769463.opengw.net:1872')">vpn688769463.opengw.net:1872</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>31</td>
-      <td>vpn295987823.opengw.net:1321</td>
-      <td><a href="vpn295987823.opengw.net:1321">vpn295987823.opengw.net:1321</a></td>
+      <td>vpn653820096.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn653820096.opengw.net:995')">vpn653820096.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>vpn664335511.opengw.net:1725</td>
+      <td><a href="#" onclick="copySstp('vpn664335511.opengw.net:1725')">vpn664335511.opengw.net:1725</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>vpn268668428.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn268668428.opengw.net:995')">vpn268668428.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>31</td>
+      <td>vpn117920411.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn117920411.opengw.net:995')">vpn117920411.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>32</td>
-      <td>vpn175997957.opengw.net:1746</td>
-      <td><a href="vpn175997957.opengw.net:1746">vpn175997957.opengw.net:1746</a></td>
+      <td>vpn167878385.opengw.net:1310</td>
+      <td><a href="#" onclick="copySstp('vpn167878385.opengw.net:1310')">vpn167878385.opengw.net:1310</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>vpn604205026.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn604205026.opengw.net:995')">vpn604205026.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>vpn527710305.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn527710305.opengw.net:995')">vpn527710305.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>vpn517009561.opengw.net:1943</td>
+      <td><a href="#" onclick="copySstp('vpn517009561.opengw.net:1943')">vpn517009561.opengw.net:1943</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>vpn103203081.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn103203081.opengw.net:995')">vpn103203081.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>32</td>
+      <td>vpn410893295.opengw.net:1354</td>
+      <td><a href="#" onclick="copySstp('vpn410893295.opengw.net:1354')">vpn410893295.opengw.net:1354</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>33</td>
-      <td>vpn281076434.opengw.net:1303</td>
-      <td><a href="vpn281076434.opengw.net:1303">vpn281076434.opengw.net:1303</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>33</td>
-      <td>vpn443783929.opengw.net:995</td>
-      <td><a href="vpn443783929.opengw.net:995">vpn443783929.opengw.net:995</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>33</td>
-      <td>vpn780759758.opengw.net:1258</td>
-      <td><a href="vpn780759758.opengw.net:1258">vpn780759758.opengw.net:1258</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>33</td>
-      <td>vpn209865610.opengw.net:995</td>
-      <td><a href="vpn209865610.opengw.net:995">vpn209865610.opengw.net:995</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>33</td>
-      <td>vpn443733019.opengw.net:1435</td>
-      <td><a href="vpn443733019.opengw.net:1435">vpn443733019.opengw.net:1435</a></td>
+      <td>vpn307282395.opengw.net:1203</td>
+      <td><a href="#" onclick="copySstp('vpn307282395.opengw.net:1203')">vpn307282395.opengw.net:1203</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>34</td>
-      <td>vpn851505352.opengw.net:995</td>
-      <td><a href="vpn851505352.opengw.net:995">vpn851505352.opengw.net:995</a></td>
+      <td>vpn303866408.opengw.net:1542</td>
+      <td><a href="#" onclick="copySstp('vpn303866408.opengw.net:1542')">vpn303866408.opengw.net:1542</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>34</td>
+      <td>vpn249258656.opengw.net:1752</td>
+      <td><a href="#" onclick="copySstp('vpn249258656.opengw.net:1752')">vpn249258656.opengw.net:1752</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>35</td>
-      <td>vpn588556831.opengw.net:1795</td>
-      <td><a href="vpn588556831.opengw.net:1795">vpn588556831.opengw.net:1795</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>35</td>
-      <td>vpn787377746.opengw.net:1824</td>
-      <td><a href="vpn787377746.opengw.net:1824">vpn787377746.opengw.net:1824</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>35</td>
-      <td>vpn147796427.opengw.net:1584</td>
-      <td><a href="vpn147796427.opengw.net:1584">vpn147796427.opengw.net:1584</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>35</td>
-      <td>vpn765211355.opengw.net:995</td>
-      <td><a href="vpn765211355.opengw.net:995">vpn765211355.opengw.net:995</a></td>
+      <td>vpn319249450.opengw.net:1534</td>
+      <td><a href="#" onclick="copySstp('vpn319249450.opengw.net:1534')">vpn319249450.opengw.net:1534</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>36</td>
-      <td>vpn715939168.opengw.net:1847</td>
-      <td><a href="vpn715939168.opengw.net:1847">vpn715939168.opengw.net:1847</a></td>
+      <td>vpn803771754.opengw.net:1889</td>
+      <td><a href="#" onclick="copySstp('vpn803771754.opengw.net:1889')">vpn803771754.opengw.net:1889</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>36</td>
-      <td>vpn297671535.opengw.net:995</td>
-      <td><a href="vpn297671535.opengw.net:995">vpn297671535.opengw.net:995</a></td>
+      <td>vpn689936704.opengw.net:1577</td>
+      <td><a href="#" onclick="copySstp('vpn689936704.opengw.net:1577')">vpn689936704.opengw.net:1577</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
       <td>37</td>
-      <td>vpn313927407.opengw.net:1880</td>
-      <td><a href="vpn313927407.opengw.net:1880">vpn313927407.opengw.net:1880</a></td>
+      <td>vpn683836071.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn683836071.opengw.net:995')">vpn683836071.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Korea Republic of</td>
-      <td>38</td>
-      <td>vpn477154162.opengw.net</td>
-      <td><a href="vpn477154162.opengw.net">vpn477154162.opengw.net</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>38</td>
-      <td>vpn110557153.opengw.net:1798</td>
-      <td><a href="vpn110557153.opengw.net:1798">vpn110557153.opengw.net:1798</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>38</td>
-      <td>vpn654766042.opengw.net:995</td>
-      <td><a href="vpn654766042.opengw.net:995">vpn654766042.opengw.net:995</a></td>
-    </tr>
-    <tr>
-      <td>Japan</td>
       <td>40</td>
-      <td>vpn767552919.opengw.net:1948</td>
-      <td><a href="vpn767552919.opengw.net:1948">vpn767552919.opengw.net:1948</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>41</td>
-      <td>vpn543558193.opengw.net:1959</td>
-      <td><a href="vpn543558193.opengw.net:1959">vpn543558193.opengw.net:1959</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>43</td>
-      <td>vpn199642068.opengw.net:1710</td>
-      <td><a href="vpn199642068.opengw.net:1710">vpn199642068.opengw.net:1710</a></td>
-    </tr>
-    <tr>
-      <td>Korea Republic of</td>
-      <td>44</td>
-      <td>vpn628670995.opengw.net:1435</td>
-      <td><a href="vpn628670995.opengw.net:1435">vpn628670995.opengw.net:1435</a></td>
+      <td>vpn825599351.opengw.net:1483</td>
+      <td><a href="#" onclick="copySstp('vpn825599351.opengw.net:1483')">vpn825599351.opengw.net:1483</a></td>
     </tr>
     <tr>
       <td>Japan</td>
       <td>52</td>
       <td>vpn407782665.opengw.net</td>
-      <td><a href="vpn407782665.opengw.net">vpn407782665.opengw.net</a></td>
+      <td><a href="#" onclick="copySstp('vpn407782665.opengw.net')">vpn407782665.opengw.net</a></td>
     </tr>
     <tr>
       <td>Russian Federation</td>
       <td>56</td>
       <td>tlt.opengw.net:996</td>
-      <td><a href="tlt.opengw.net:996">tlt.opengw.net:996</a></td>
+      <td><a href="#" onclick="copySstp('tlt.opengw.net:996')">tlt.opengw.net:996</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>61</td>
+      <td>vpn567168674.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn567168674.opengw.net:995')">vpn567168674.opengw.net:995</a></td>
     </tr>
     <tr>
       <td>Russian Federation</td>
-      <td>99</td>
-      <td>vpn877123293.opengw.net:1970</td>
-      <td><a href="vpn877123293.opengw.net:1970">vpn877123293.opengw.net:1970</a></td>
+      <td>73</td>
+      <td>vpn860535844.opengw.net:1753</td>
+      <td><a href="#" onclick="copySstp('vpn860535844.opengw.net:1753')">vpn860535844.opengw.net:1753</a></td>
+    </tr>
+    <tr>
+      <td>Viet Nam</td>
+      <td>77</td>
+      <td>vpn371064429.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn371064429.opengw.net:995')">vpn371064429.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>Russian Federation</td>
+      <td>129</td>
+      <td>vpn120199724.opengw.net:1212</td>
+      <td><a href="#" onclick="copySstp('vpn120199724.opengw.net:1212')">vpn120199724.opengw.net:1212</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>666</td>
+      <td>vpn543687977.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn543687977.opengw.net:995')">vpn543687977.opengw.net:995</a></td>
+    </tr>
+    <tr>
+      <td>Korea Republic of</td>
+      <td>666</td>
+      <td>vpn135697489.opengw.net:995</td>
+      <td><a href="#" onclick="copySstp('vpn135697489.opengw.net:995')">vpn135697489.opengw.net:995</a></td>
     </tr>
   </tbody>
 </table>
+    </table>
 </body>
 </html>
