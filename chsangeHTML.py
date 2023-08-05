@@ -104,7 +104,7 @@ html_content = f'''
     </style>
 </head>
 <body>
-    <h1>Persian Date and Time: {persian_now}</h1>
+    <h1>SSTP SERVERS @ {persian_now}</h1>
     <select id="filterCountry" onchange="filterTable()">
         {''.join([f'<option value="{country}">{country}</option>' for country in country_filter])}
     </select>
