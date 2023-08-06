@@ -2,6 +2,8 @@ import pandas as pd
 import jdatetime
 from datetime import datetime, timedelta
 import locale
+
+# Set the desired locale to 'fa_IR.UTF-8'
 locale.setlocale(locale.LC_TIME, 'fa_IR.UTF-8')
 jdatetime.set_locale('fa_IR')
 
@@ -70,7 +72,6 @@ function copyUsernamePassword() {{
 </script>
 '''
 
-# Generate the final HTML content with the filtering functionality
 html_content = f'''
 <html>
 <head>
@@ -82,7 +83,25 @@ html_content = f'''
         border-collapse: collapse;
       }}
 
-      th, td {{
+      th {{
+        border: 1px solid #dddddd;
+        /* Light gray border between cells */
+        padding: 8px;
+        text-align: left;
+        /* Align table cell text to the left */
+        min-width: 1px;
+        /* Set minimum width to 1px */
+        max-width: 100%;
+        /* Set maximum width to 100% */
+        overflow: hidden;
+        /* Hide any overflowing content */
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+        text-transform: uppercase;
+        /* Convert table headers to uppercase */
+      }}
+
+      td {{
         border: 1px solid #dddddd;
         /* Light gray border between cells */
         padding: 8px;
