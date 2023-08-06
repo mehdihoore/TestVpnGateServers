@@ -1,7 +1,10 @@
 import pandas as pd
 import jdatetime
 from datetime import datetime, timedelta
+import locale
+locale.setlocale(locale.LC_TIME, 'fa_IR.UTF-8')
 jdatetime.set_locale('fa_IR')
+
 jdatetime.datetime.now().strftime('%A %B')
 def get_persian_date_time():
     # Get the current date and time in Persian (Jalali) calendar
