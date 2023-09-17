@@ -89,7 +89,7 @@ def get_sstp_data():
         sorted_df = new_df.sort_values(by=['Ping Time'], ascending=True)
         sorted_df.reset_index(drop=True, inplace=True)
         sorted_df['sstp_link'] = '<a href="' + sorted_df['SSTP Hostname'] + '">' + sorted_df['SSTP Hostname'] + '</a>'
-        sorted_df.to_html('/home/hemay/sstp.html', escape=False, index=False)
+        sorted_df.to_html('sstp.html', escape=False, index=False)
         print(sorted_df)
         # Get the current Persian date and time
         persian_now = get_persian_date_time()
@@ -192,7 +192,7 @@ def get_sstp_data():
         '''
 
         # Save the updated HTML content to a new file
-        with open('/home/hemay/sstp.html', 'w', encoding='utf-8') as file:
+        with open('sstp.html', 'w', encoding='utf-8') as file:
             file.write(html_content)
 
         print("The filtered_sstp.html file with filtering functionality and Persian date and time in the header has been created.")
@@ -222,7 +222,7 @@ def send_server_list(bot):
     channel = bot.get_chat("@SSTPV2RAY")
     bot.send_message(chat_id=channel.id, text=f'{persian_date} ✅')
 
-    bot.send_document(chat_id=channel.id, document=open('/home/hemay/sstp.html', 'rb'),
+    bot.send_document(chat_id=channel.id, document=open('sstp.html', 'rb'),
                       caption=f'SSTP Servers - {persian_date}')
 
     v2ray_links = get_v2ray_data()
