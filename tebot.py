@@ -16,12 +16,6 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
-
-
-
-
-
-
 def get_persian_date_time():
     # Get the current date and time in Persian (Jalali) calendar
     now = datetime.datetime.now()
