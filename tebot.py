@@ -277,31 +277,11 @@ Tor WebTunnel یک سرویس تور امکان می‌دهد از Tor در مر
 
 if __name__ == '__main__':
     updater = Updater(token='6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A', request_kwargs={'read_timeout': 30})
+if __name__ == '__main__':
+    updater = Updater(token='6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A', request_kwargs={'read_timeout': 30})
 
-    # Add your handlers here (start_handler, restart_handler, etc.)
     dispatcher = updater.dispatcher
     start_handler = CommandHandler('start', start)
 
     dispatcher.add_handler(start_handler)
-    # Call send_server_list to send the first message immediately
-    send_server_list(updater.bot)
-   
-
-    # Retry mechanism
-    max_retries = 3
-    retries = 0
-
-    while retries < max_retries:
-        try:
-            updater.start_polling()
-        except telegram.error.TimedOut:
-            # Retry after a short delay
-            time.sleep(5)
-            retries += 1
-            continue
-        else:
-            break
-    else:
-        print("Exceeded maximum retries. Failed to start polling.")
-
-    updater.idle()
+    send_server_list(updater.bot) 
