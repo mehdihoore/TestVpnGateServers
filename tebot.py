@@ -60,7 +60,7 @@ def send_server_list(bot):
     channel = bot.get_chat("@SSTPV2RAY")
     bot.send_message(chat_id=channel.id, text=f'{persian_date} ✅')
 
-    bot.send_document(chat_id=channel.id, document=open('sstp.html', 'rb'),
+    bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
                       caption=f'SSTP Servers - {persian_date}')
 
     v2ray_links = get_v2ray_data()
@@ -194,7 +194,7 @@ def start(update: Update, context: CallbackContext):
     reply_markup = InlineKeyboardMarkup(inline_buttons)
 
     # Send the SSTP data as an HTML file
-    context.bot.send_document(chat_id=update.effective_chat.id, document=open('sstp.html', 'rb'), caption="SSTP Servers")
+    context.bot.send_document(chat_id=update.effective_chat.id, document=open('filtered_sstp.html', 'rb'), caption="SSTP Servers")
     links = [
         'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
         'https://fin.hore.workers.dev/sub/fin.sabaat.ir',
