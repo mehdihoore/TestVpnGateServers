@@ -98,8 +98,8 @@ def send_server_list(bot):
     # Get the latest APK version and download URL
 
     additional_file_urls = [
-        'https://github.com/Gedsh/InviZible/releases/download/v1.9.8-beta/Invizible_Pro__beta_ver.1.9.8.apk',
-        'https://github.com/Gedsh/InviZible/releases/download/v1.9.8-beta/Invizible_Pro__beta_ver.1.9.8_arm64.apk'
+        'https://github.com/Gedsh/InviZible/releases/download/v1.9.9-beta/Invizible_Pro__beta_ver.1.9.9.apk',
+        'https://github.com/Gedsh/InviZible/releases/download/v1.9.9-beta/Invizible_Pro__beta_ver.1.9.9_arm64.apk'
     ]
     additional_file_names = ['Invizible_Pro__beta_ver.1.9.8.apk',
         'Invizible_Pro__beta_ver.1.9.8_arm64.apk'
@@ -107,18 +107,22 @@ def send_server_list(bot):
 
 
     tt = '''
-•	تور به نسخه 4.8.5 به‌روزرسانی شد.
-این نسخه شامل بهبودهای امنیتی و عملکردی است.
-•	استفاده از SNI سفارشی برای اتصال Tor
- مکانیسمی که به وب‌سایت‌ها اجازه می‌دهد بدانند شما از تور استفاده می‌کنید، بدون اینکه آدرس ای‌پی واقعی شما را فاش کنند.
-•	اتصال Tor با TLS fingerprint Chromium
- یک ویژگی امنیتی که نشان می‌دهد در حال اتصال به یک سرور Tor واقعی هستید.
-•	پل Tor WebTunnel به‌روزرسانی شد..
-Tor WebTunnel یک سرویس تور امکان می‌دهد از Tor در مرورگر وب خود استفاده کنید.
-•	خطای ANR در Android 4.4.2 برطرف شد.
- یک خطای سیستمی مربوط به زمانیکه برنامه برای مدت طولانی پاسخ نمی‌دهد.
-•	خطای دکمه درخواست پل‌های جدید در موارد نادر برطرف شد.
-این دکمه به شما امکان می‌دهد تا پل‌های جدید  را درخواست کنید.
+•	تور به نسخه ۴.۸.۵ به روز شده است. 
+•	DNSCrypt  به نسخه ۲.۱.۵ به روز شده است.
+
+•	SNI قابل سفارشی سازی برای اتصالات تور پیاده سازی شده است. 
+
+•	پشتیبانی از پل های تونل وب تور اضافه شده است.
+
+•	گزینه TrackHostExits به تنظیمات تور اضافه شده است.
+
+•	برای اتصالات تور از اثر انگشت TLS کرومیوم به جای اثر انگشت TLS منسوخ فایرفاکس استفاده می شود.
+
+•	مشکل راه اندازی ماژول ها زمانی که پورت‌ها مشغول هستند برطرف شده است. 
+
+•	ترجمه اوکراینی اضافه شده است.
+
+•	رفع اشکالات و بهینه سازی ها.
 
     '''
 
