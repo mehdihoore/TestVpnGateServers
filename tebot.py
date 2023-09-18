@@ -40,7 +40,7 @@ def get_persian_date_time():
 
 def get_v2ray_data():
     v2ray_links = {
-        'Invizible Pro':'https://github.com/Gedsh/InviZible/releases',
+        'Invizible Pro Google Play':'https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp',
         'sabat.ir Help Worker': 'https://fin.sabaat.ir/',
         'sabat.link Help Worker': 'https://f.sabaat.link/',
         'mahdibland Github': 'https://github.com/mahdibland/V2RayAggregator',
@@ -101,8 +101,8 @@ def send_server_list(bot):
         'https://github.com/Gedsh/InviZible/releases/download/v1.9.9-beta/Invizible_Pro__beta_ver.1.9.9.apk',
         'https://github.com/Gedsh/InviZible/releases/download/v1.9.9-beta/Invizible_Pro__beta_ver.1.9.9_arm64.apk'
     ]
-    additional_file_names = ['Invizible_Pro__beta_ver.1.9.8.apk',
-        'Invizible_Pro__beta_ver.1.9.8_arm64.apk'
+    additional_file_names = ['Invizible_Pro__beta_ver.1.9.9.apk',
+        'Invizible_Pro__beta_ver.1.9.9_arm64.apk'
     ]
 
 
