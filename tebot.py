@@ -98,11 +98,11 @@ def send_server_list(bot):
     # Get the latest APK version and download URL
 
     additional_file_urls = [
-        'https://github.com/Gedsh/InviZible/releases/download/v1.9.9-beta/Invizible_Pro__beta_ver.1.9.9.apk',
-        'https://github.com/Gedsh/InviZible/releases/download/v1.9.9-beta/Invizible_Pro__beta_ver.1.9.9_arm64.apk'
+        'https://github.com/Gedsh/InviZible/releases/download/v6.3.0-stable/Invizible_Lite_ver.6.3.0.apk',
+        'https://github.com/Gedsh/InviZible/releases/download/v6.3.0-stable/Invizible_Lite_ver.6.3.0_arm64.apk'
     ]
-    additional_file_names = ['Invizible_Pro__beta_ver.1.9.9.apk',
-        'Invizible_Pro__beta_ver.1.9.9_arm64.apk'
+    additional_file_names = ['Invizible_Lite_ver.6.3.0.apk',
+        'Invizible_Lite_ver.6.3.0_arm64.apk'
     ]
 
 
