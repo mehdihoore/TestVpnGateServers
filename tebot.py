@@ -62,7 +62,10 @@ def send_server_list(bot):
     bot.send_message(chat_id=channel.id, text=f' نیز موجود است.{sabaat}تمامی لینکها در این سایت : ')
     bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
                       caption=f'SSTP Servers - {persian_date}')
-    bot.send_document(chat_id=channel.id, document=open('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html', 'rb'),
+    proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
+    with open('index.html', 'wb') as f:
+                f.write(proxi.content)
+    bot.send_document(chat_id=channel.id, document=open('index.html', 'rb'),
                       caption=f'MtProto Telegram Proxies - {persian_date}')
 
     v2ray_links = get_v2ray_data()
