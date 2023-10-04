@@ -62,7 +62,7 @@ def send_server_list(bot):
 
     bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
                       caption=f'SSTP Servers - {persian_date}')
-     bot.send_document(chat_id=channel.id, document=open('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html', 'rb'),
+    bot.send_document(chat_id=channel.id, document=open('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html', 'rb'),
                       caption=f'MtProto Telegram Proxies - {persian_date}')
 
     v2ray_links = get_v2ray_data()
