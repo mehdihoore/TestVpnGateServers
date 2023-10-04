@@ -66,7 +66,8 @@ def send_server_list(bot):
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
     with open('index.html', 'wb') as f:
                 f.write(proxi.content)
-    bot.send_document(chat_id=channel.id, document=open('index.html', 'rb'),
+    os.rename('index.html','Mtproto.html')
+    bot.send_document(chat_id=channel.id, document=open('Mtproto.html', 'rb'),
                       caption=f'MtProto Telegram Proxies - {persian_date}')
 
     v2ray_links = get_v2ray_data()
