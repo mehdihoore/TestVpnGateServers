@@ -40,6 +40,7 @@ def get_persian_date_time():
 
 def get_v2ray_data():
     v2ray_links = {
+        'لیست همه وی‌پی‌ان‌ها در وبسایت ': 'https://list.sabaat.ir',
         'Invizible Pro Google Play':'https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp',
         'sabat.ir Help Worker': 'https://fin.sabaat.ir/',
         'sabat.link Help Worker': 'https://f.sabaat.link/',
@@ -59,7 +60,7 @@ def send_server_list(bot):
     # Send SSTP document
     channel = bot.get_chat("@SSTPV2RAY")
     bot.send_message(chat_id=channel.id, text=f'{persian_date} ✅')
-    bot.send_message(chat_id=channel.id, text=f' نیز موجود است.{sabaat}تمامی لینکها در این سایت : ')
+    
     bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
                       caption=f'SSTP Servers - {persian_date}')
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
