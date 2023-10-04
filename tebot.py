@@ -98,31 +98,20 @@ def send_server_list(bot):
     # Get the latest APK version and download URL
 
     additional_file_urls = [
-        'https://github.com/Gedsh/InviZible/releases/download/v6.3.0-stable/Invizible_Lite_ver.6.3.0.apk',
-        'https://github.com/Gedsh/InviZible/releases/download/v6.3.0-stable/Invizible_Lite_ver.6.3.0_arm64.apk'
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.0-beta/Invizible_Pro__beta_ver.2.0.0.apk',
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.0-beta/Invizible_Pro__beta_ver.2.0.0_arm64.apk'
     ]
-    additional_file_names = ['Invizible_Lite_ver.6.3.0.apk',
-        'Invizible_Lite_ver.6.3.0_arm64.apk'
+    additional_file_names = ['Invizible_Pro__beta_ver.2.0.0.apk',
+        'Invizible_Pro__beta_ver.2.0.0_arm64.apk'
     ]
 
 
-    tt = '''
-•	تور به نسخه ۴.۸.۵ به روز شده است. 
-•	DNSCrypt  به نسخه ۲.۱.۵ به روز شده است.
-
-•	SNI قابل سفارشی سازی برای اتصالات تور پیاده سازی شده است. 
-
-•	پشتیبانی از پل های تونل وب تور اضافه شده است.
-
-•	گزینه TrackHostExits به تنظیمات تور اضافه شده است.
-
-•	برای اتصالات تور از اثر انگشت TLS کرومیوم به جای اثر انگشت TLS منسوخ فایرفاکس استفاده می شود.
-
-•	مشکل راه اندازی ماژول ها زمانی که پورت‌ها مشغول هستند برطرف شده است. 
-
-•	ترجمه اوکراینی اضافه شده است.
-
-•	رفع اشکالات و بهینه سازی ها.
+    tt = '''•	تور به نسخه 4.8.7 بروز شد
+•	پرپل آی۲پی به نسخه 2.49.0 بروز شد
+•	اتصال پل اسنوفلیک آپدیت شد
+•	اضافه کردن پل‌های جدید اسنوفلیک آپدیت شد
+•	اتصال پل کانجر آپدیت شد
+•	تعمیرات و بهینه‌سازی‌ها
 
     '''
 
