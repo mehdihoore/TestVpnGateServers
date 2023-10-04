@@ -78,7 +78,7 @@ def send_server_list(bot):
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/trojan.txt',
 
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt',
-        'https://raw.githubusercontent.com/Bardiafa/Free-V2ray-Config/main/Splitted-By-Protocol/vmess.txt',
+       
 
         'https://raw.githubusercontent.com/yebekhe/V2Hub/main/merged_base64',
         'https://raw.githubusercontent.com/yebekhe/V2Hub/main/Split/Base64/vmess',
@@ -88,7 +88,6 @@ def send_server_list(bot):
     names = ['Worker .ir' , 'Worker .link', 'mahdibland Eternity',
          'mahdibland Eternity txt', 'mahdibland ssr', 'mahdibland ss',
          'mahdibland trojan', 'mahdibland vmess',
-         'Bardiafa vemss',
 
          'Telegram collector: merged_base64',
          'Telegram collector: Base64_vmess',
@@ -106,7 +105,8 @@ def send_server_list(bot):
     ]
 
 
-    tt = '''•	تور به نسخه 4.8.7 بروز شد
+    tt = '''
+•	تور به نسخه 4.8.7 بروز شد
 •	پرپل آی۲پی به نسخه 2.49.0 بروز شد
 •	اتصال پل اسنوفلیک آپدیت شد
 •	اضافه کردن پل‌های جدید اسنوفلیک آپدیت شد
@@ -229,23 +229,12 @@ def start(update: Update, context: CallbackContext):
         'Invizible_Pro__beta_ver.1.9.8_arm64.apk'
     ]
     tt = '''
-•	تور به نسخه ۴.۸.۵ به روز شده است. 
-•	DNSCrypt  به نسخه ۲.۱.۵ به روز شده است.
-
-•	SNI قابل سفارشی سازی برای اتصالات تور پیاده سازی شده است. 
-
-•	پشتیبانی از پل های تونل وب تور اضافه شده است.
-
-•	گزینه TrackHostExits به تنظیمات تور اضافه شده است.
-
-•	برای اتصالات تور از اثر انگشت TLS کرومیوم به جای اثر انگشت TLS منسوخ فایرفاکس استفاده می شود.
-
-•	مشکل راه اندازی ماژول ها زمانی که پورت‌ها مشغول هستند برطرف شده است. 
-
-•	ترجمه اوکراینی اضافه شده است.
-
-•	رفع اشکالات و بهینه سازی ها.
-
+•	تور به نسخه 4.8.7 بروز شد
+•	پرپل آی۲پی به نسخه 2.49.0 بروز شد
+•	اتصال پل اسنوفلیک آپدیت شد
+•	اضافه کردن پل‌های جدید اسنوفلیک آپدیت شد
+•	اتصال پل کانجر آپدیت شد
+•	تعمیرات و بهینه‌سازی‌ها
 
     '''
 
