@@ -55,11 +55,11 @@ def get_v2ray_data():
 def send_server_list(bot):
 
     persian_date = get_persian_date_time()
-
+    sabat='https://list.sabaat.ir'
     # Send SSTP document
     channel = bot.get_chat("@SSTPV2RAY")
     bot.send_message(chat_id=channel.id, text=f'{persian_date} ✅')
-
+    bot.send_message(chat_id=channel.id, text=f' نیز موجود است.{sabaat}تمامی لینکها در این سایت : ')
     bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
                       caption=f'SSTP Servers - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html', 'rb'),
