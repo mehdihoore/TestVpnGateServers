@@ -53,7 +53,7 @@ for row in rows:
 
 # Try to open the file where the proxies will be saved
 try:
-    with open('D:\code\SSTP\proxies\proxies.txt', 'w', encoding='utf-8') as f:
+    with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.txt', 'w', encoding='utf-8') as f:
         # Iterate over the list of proxies and write each proxy to the file, one per line
         for proxy in proxies:
             f.write(proxy + '\n')
@@ -69,7 +69,7 @@ for proxy in proxies:
 
 # Try to open the file where the Iran proxies will be saved
 try:
-    with open('D:\code\SSTP\proxies\iran_proxies.txt', 'w', encoding='utf-8') as f:
+    with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\iran_proxies.txt', 'w', encoding='utf-8') as f:
         # Iterate over the list of Iran proxies and write each proxy to the file, one per line
         for proxy in iran_proxies:
             f.write(proxy + '\n')
@@ -81,7 +81,7 @@ driver.quit()
 
 import subprocess
 
-subprocess.run(["git", "add", "D:\code\SSTP\proxies\proxies.txt"])
-subprocess.run(["git", "add", "D:\code\SSTP\proxies\iran_proxies.txt"])
+subprocess.run(["git", "add", r"D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.txt"])
+subprocess.run(["git", "add", r"D:\code\SSTP\testvpngate\TestVpnGateServers\iran_proxies.txt"])
 subprocess.run(["git", "commit", "-m", "Add Iran proxies and general proxies"])
 subprocess.run(["git", "push", "origin", "master"])
