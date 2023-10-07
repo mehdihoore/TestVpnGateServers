@@ -81,7 +81,12 @@ driver.quit()
 
 import subprocess
 
-subprocess.run(["git", "add", r"D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.txt"])
-subprocess.run(["git", "add", r"D:\code\SSTP\testvpngate\TestVpnGateServers\iran_proxies.txt"])
-subprocess.run(["git", "commit", "-m", "Add Iran proxies and general proxies"])
-subprocess.run(["git", "push", "origin", "master"])
+subprocess.run(["git", "fetch", "origin"])
+subprocess.run(["git", "rebase", "origin/main"])
+
+subprocess.run(["git", "add", "proxies.txt"])
+subprocess.run(["git", "add", "iran_proxies.txt"])
+
+subprocess.run(["git", "commit", "-m", "Add proxies"])
+
+subprocess.run(["git", "push", "origin", "main"])
