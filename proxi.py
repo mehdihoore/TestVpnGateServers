@@ -4,6 +4,7 @@ import time
 from bs4 import BeautifulSoup
 import datetime
 import re
+import jdatetime
 
 
 
@@ -80,13 +81,19 @@ except Exception as e:
 driver.quit()
 
 import subprocess
+from datetime import datetime, timezone, timedelta
 
+
+iran_tz = timezone(timedelta(hours=3, minutes=30))
+now_utc = datetime.now(timezone.utc)
+now_iran = now_utc.astimezone(iran_tz)
+now_iranf = now_iran.strftime("%Y-%m-%d %H:%M:%S")
 subprocess.run(["git", "fetch", "origin"])
 subprocess.run(["git", "rebase", "origin/main"])
 
 subprocess.run(["git", "add", "proxies.txt"])
 subprocess.run(["git", "add", "iran_proxies.txt"])
 
-subprocess.run(["git", "commit", "-m", "Add proxies"])
+subprocess.run(["git", "commit", "-m", f"🚀 proxies Updated-{now_iranf}"])
 
 subprocess.run(["git", "push", "origin", "main"])
