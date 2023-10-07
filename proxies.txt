@@ -1,5 +1,22 @@
 IP:PORT Location Proxy type Proxy kind Timeout
-50.7.67.29:51247 Unknown SOCKS5 Anonymous 10267 ms
+50.7.67.29:51247 Unknown SOCKS5 Anonymous 8033 ms
+43.248.27.8:4646 Unknown SOCKS5 Anonymous 2720 ms
+178.251.111.117:24572 Unknown SOCKS5 Anonymous 8040 ms
+34.124.238.191:10888 Singapore, Singapore SOCKS5 Anonymous 4422 ms
+103.234.27.198:9990 Bangladesh SOCKS5 Anonymous 3098 ms
+64.227.108.25:31908 United States, Santa Clara SOCKS5 Anonymous 7223 ms
+174.64.199.79:4145 Unknown SOCKS5 Anonymous 491 ms
+74.119.144.60:4145 Unknown SOCKS5 Anonymous 463 ms
+199.102.104.70:4145 Unknown SOCKS5 Anonymous 616 ms
+104.200.135.46:4145 Unknown SOCKS5 Anonymous 654 ms
+205.196.223.112:53666 United States SOCKS5 Anonymous 17610 ms
+61.134.48.51:7302 China, Xi'an SOCKS5 Anonymous 4937 ms
+144.76.32.106:53451 Germany SOCKS5 Anonymous 3286 ms
+192.111.137.35:4145 Unknown SOCKS5 Anonymous 433 ms
+65.169.38.73:26592 Unknown SOCKS5 Anonymous 1854 ms
+50.7.67.4:51247 Unknown SOCKS5 Anonymous 5059 ms
+184.95.235.194:1080 Unknown SOCKS5 Anonymous 15415 ms
+174.64.199.82:4145 Unknown SOCKS5 Anonymous 497 ms
 199.102.105.242:4145 Unknown SOCKS5 Anonymous 634 ms
 5.161.81.194:9696 Germany SOCKS5 Anonymous 133 ms
 5.161.131.42:38771 Germany SOCKS5 Anonymous 3793 ms
@@ -12,7 +29,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 104.248.234.59:37404 United States, North Bergen SOCKS5 Anonymous 15362 ms
 107.181.168.145:4145 Unknown SOCKS5 Anonymous 626 ms
 143.198.151.113:30038 Unknown SOCKS5 Anonymous 16098 ms
-50.7.67.4:51247 Unknown SOCKS5 Anonymous 3804 ms
 37.59.56.111:59166 France SOCKS5 Anonymous 838 ms
 158.179.19.45:1080 United Kingdom SOCKS5 Anonymous 16187 ms
 209.59.138.30:54733 United States SOCKS5 Anonymous 1234 ms
@@ -139,7 +155,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 66.42.224.229:41679 Unknown SOCKS5 Anonymous 5333 ms
 36.92.111.49:52471 Indonesia SOCKS5 Anonymous 14472 ms
 198.199.105.234:34264 United States, San Francisco SOCKS5 Anonymous 2093 ms
-174.64.199.79:4145 Unknown SOCKS5 Anonymous 484 ms
 159.65.172.240:59166 United States, Clifton SOCKS5 Anonymous 103 ms
 72.37.216.68:4145 Unknown SOCKS5 Anonymous 690 ms
 119.148.31.17:9898 Unknown SOCKS5 Anonymous 12686 ms
@@ -160,7 +175,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 192.241.149.84:37455 United States, North Bergen SOCKS5 Anonymous 5300 ms
 192.111.134.10:4145 Unknown SOCKS5 Anonymous 1069 ms
 184.170.249.65:4145 Unknown SOCKS5 Anonymous 430 ms
-144.76.32.106:53451 Germany SOCKS5 Anonymous 10789 ms
 144.76.32.106:60129 Unknown SOCKS5 Anonymous 4096 ms
 148.72.65.165:42832 United States, Ashburn SOCKS5 Anonymous 9567 ms
 103.125.50.63:80 Unknown SOCKS5 Anonymous 9137 ms
@@ -637,7 +651,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 23.107.176.65:32180 United States HTTPS Anonymous 4314 ms
 188.166.17.18:8881 Unknown HTTP Anonymous 344 ms
 162.241.66.135:41531 United States SOCKS5 Anonymous 16300 ms
-199.102.104.70:4145 Unknown SOCKS5 Anonymous 735 ms
 67.43.228.253:28063 Unknown HTTP Anonymous 3961 ms
 162.240.79.122:31083 Unknown SOCKS5 Anonymous 2884 ms
 185.97.120.123:8053 Italy, Cella Monte SOCKS5 Anonymous 2216 ms
@@ -758,7 +771,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 50.169.115.51:80 Unknown HTTP Anonymous 178 ms
 162.240.78.74:55421 Unknown SOCKS5 Anonymous 4038 ms
 27.79.171.84:40463 Vietnam, Lao Cai SOCKS5 Anonymous 6953 ms
-34.124.238.191:10888 Singapore, Singapore SOCKS5 Anonymous 5012 ms
 185.112.224.151:1080 Russia, Abakan SOCKS5 Anonymous 3660 ms
 198.74.99.187:1080 Unknown SOCKS5 Anonymous 16952 ms
 216.219.81.12:59839 Unknown SOCKS5 Anonymous 16778 ms
@@ -772,7 +784,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 195.114.209.50:80 Unknown HTTP Anonymous 5452 ms
 47.243.175.55:9002 Unknown SOCKS5 Anonymous 6497 ms
 176.165.55.74:80 Unknown HTTP Anonymous 2299 ms
-64.227.108.25:31908 United States, Santa Clara SOCKS5 Anonymous 6832 ms
 34.23.45.223:80 Unknown HTTP Anonymous 135 ms
 209.126.124.140:3128 United States, St Louis HTTPS Anonymous 1252 ms
 47.243.124.21:9091 Unknown SOCKS5 Anonymous 6500 ms
@@ -839,7 +850,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 50.171.32.230:80 Unknown HTTP Anonymous 161 ms
 50.169.115.53:80 Unknown HTTP Anonymous 173 ms
 50.170.90.24:80 Unknown HTTP Anonymous 213 ms
-184.95.235.194:1080 Canada, Montreal SOCKS5 Anonymous 3067 ms
 146.190.79.143:8888 Unknown HTTP Anonymous 46 ms
 50.169.23.170:80 Unknown HTTP Anonymous 172 ms
 50.206.25.107:80 Unknown HTTP Anonymous 213 ms
@@ -864,15 +874,12 @@ IP:PORT Location Proxy type Proxy kind Timeout
 50.169.115.54:80 Unknown HTTP Anonymous 174 ms
 50.168.210.234:80 Unknown HTTP Anonymous 166 ms
 50.206.25.108:80 Unknown HTTP Anonymous 212 ms
-174.64.199.82:4145 Unknown SOCKS5 Anonymous 499 ms
 67.201.33.10:25283 Unknown SOCKS5 Anonymous 750 ms
 72.195.34.60:27391 Unknown SOCKS5 Anonymous 487 ms
 174.77.111.198:49547 Unknown SOCKS5 Anonymous 481 ms
 70.166.167.38:57728 Unknown SOCKS5 Anonymous 482 ms
 37.59.50.81:5055 Germany SOCKS5 Anonymous 1679 ms
 31.211.130.237:8192 Bulgaria, Dolna Mitropolia SOCKS5 Anonymous 4445 ms
-192.111.137.35:4145 Unknown SOCKS5 Anonymous 1453 ms
-65.169.38.73:26592 Unknown SOCKS5 Anonymous 894 ms
 72.195.114.169:4145 Unknown SOCKS5 Anonymous 483 ms
 190.123.236.85:8080 Panama, Panama City HTTPS Anonymous 11579 ms
 162.223.94.163:80 Unknown HTTP Anonymous 160 ms
@@ -1031,7 +1038,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 123.205.68.113:8197 Unknown HTTP Anonymous 840 ms
 103.154.137.30:32650 Indonesia HTTPS Anonymous 5559 ms
 192.252.220.92:17328 Unknown SOCKS5 Anonymous 710 ms
-205.196.223.112:53666 United States SOCKS5 Anonymous 4259 ms
 142.93.244.49:62318 United States, North Bergen SOCKS5 Anonymous 4969 ms
 101.43.23.150:7891 China SOCKS5 Anonymous 2103 ms
 51.79.87.144:18636 Unknown SOCKS5 Anonymous 6572 ms
@@ -1179,7 +1185,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 47.245.34.161:118 Unknown SOCKS5 Anonymous 6528 ms
 103.154.230.105:5678 Indonesia HTTPS Anonymous 7736 ms
 200.116.199.179:6969 Colombia, Manizales HTTPS Anonymous 7321 ms
-103.234.27.198:9990 Bangladesh SOCKS5 Anonymous 2914 ms
 103.59.44.179:8080 Hong Kong HTTPS Anonymous 19540 ms
 103.82.246.35:8080 Indonesia HTTPS Anonymous 13090 ms
 189.127.190.105:8080 Brazil, Xapuri HTTPS Anonymous 18125 ms
@@ -1635,7 +1640,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 64.225.8.203:10003 Unknown HTTP Anonymous 16760 ms
 103.144.18.137:2002 Unknown SOCKS5 Anonymous 4604 ms
 103.9.125.34:80 Unknown HTTP Anonymous 6906 ms
-61.134.48.51:7302 China, Xi'an SOCKS5 Anonymous 11061 ms
 185.33.169.32:45391 Israel, Tel Aviv SOCKS5 Anonymous 6583 ms
 91.105.163.245:1080 Unknown SOCKS5 Anonymous 16253 ms
 103.174.178.132:1020 Unknown SOCKS5 Anonymous 19729 ms
@@ -1664,7 +1668,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 213.222.34.200:53281 Bulgaria HTTPS Anonymous 2919 ms
 102.39.215.83:9090 South Africa, Brackenfell HTTPS Anonymous 8531 ms
 167.99.120.193:47407 Unknown SOCKS5 Anonymous 7483 ms
-43.248.27.8:4646 Indonesia SOCKS5 Anonymous 10278 ms
 187.95.191.229:8080 Brazil, Jundiaí HTTPS Anonymous 10331 ms
 139.45.249.27:8081 Unknown HTTP Anonymous 2374 ms
 14.111.237.103:7891 China, Chongqing SOCKS5 Anonymous 6749 ms
@@ -1814,7 +1817,6 @@ IP:PORT Location Proxy type Proxy kind Timeout
 94.74.80.88:9090 Unknown SOCKS5 Anonymous 6512 ms
 115.127.78.1:9990 Unknown SOCKS5 Anonymous 2828 ms
 47.254.47.61:8118 Unknown SOCKS5 Anonymous 6138 ms
-104.200.135.46:4145 Unknown SOCKS5 Anonymous 548 ms
 110.238.111.229:18081 Unknown SOCKS5 Anonymous 6681 ms
 189.73.50.58:8080 Brazil, Paranaguá HTTPS Anonymous 19126 ms
 49.0.250.196:8080 Unknown SOCKS5 Anonymous 6479 ms
