@@ -69,7 +69,10 @@ def send_server_list(bot):
     os.rename('index.html','Mtproto.html')
     bot.send_document(chat_id=channel.id, document=open('Mtproto.html', 'rb'),
                       caption=f'MtProto Telegram Proxies - {persian_date}')
-
+    bot.send_document(chat_id=channel.id, document=open('iran_proxies.txt', 'rb'),
+                      caption=f'پروکسی سرورهای ایران/برای زمان اینترانت - {persian_date}')
+    bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
+                      caption=f'همه پروکسی سرورها- {persian_date}')
     v2ray_links = get_v2ray_data()
     links = [
         'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
