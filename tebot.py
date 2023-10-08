@@ -12,6 +12,7 @@ import datetime
 import pytz
 from time import sleep
 import textwrap
+import re
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
@@ -33,8 +34,24 @@ def get_persian_date_time():
     nowt = datetime.datetime(now.year, now.month, now.day, hour, minute, now.second, now.microsecond)
     persian_date_time = nowp.strftime("%A, %d %B %Y ") + nowt.strftime("%H:%M:%S")
     return persian_date_time
-# SSTP function (same as before)
-
+#get url and download v2flyNG apk app
+url = 'https://github.com/2dust/v2flyNG/tags'
+response = rs.get(url)
+soup = BeautifulSoup(response.text, 'lxml')
+# Find link by tag and class
+link = soup.find('a', class_='Link--primary', href=True)
+download_url = 'https://github.com' + link['href']
+# Get release page URL 
+release_page = download_url
+parts = release_page.split('/')
+tag = parts[-1]
+apk_url = f'{release_page}/v2flyNG_{tag}.apk'
+apk_url = apk_url.replace('tag','download')
+parts1 = apk_url.split('/')
+tag1 = parts1[-1]
+response = rs.get(apk_url)
+with open(f'{tag1}', 'wb') as f:
+    f.write(response.content)
 
 
 
@@ -52,7 +69,9 @@ def get_v2ray_data():
         v2ray_links = {}
 
     return v2ray_links
-
+textv2fly = """ برنامه‌ای سریع و ساده برای اجرای سورهای v2ray
+این برنامه را نصب کنید و سپس یکی از فایلهای .txt
+را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید."""
 def send_server_list(bot):
 
     persian_date = get_persian_date_time()
@@ -73,6 +92,8 @@ def send_server_list(bot):
                       caption=f'پروکسی سرورهای ایران/برای زمان اینترانت - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
                       caption=f'همه پروکسی سرورها- {persian_date}')
+    bot.send_document(chat_id=channel.id, document=open(f'{tag1}', 'rb'),
+                      caption=f'{textv2fly}-{persian_date}')
     v2ray_links = get_v2ray_data()
     links = [
         'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
@@ -273,8 +294,6 @@ def start(update: Update, context: CallbackContext):
     # Send the V2ray options with inline keyboard
     context.bot.send_message(chat_id=update.effective_chat.id, text="Select V2ray option:", reply_markup=reply_markup)
 
-if __name__ == '__main__':
-    updater = Updater(token='6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A', request_kwargs={'read_timeout': 30})
 if __name__ == '__main__':
     updater = Updater(token='6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A', request_kwargs={'read_timeout': 30})
 

@@ -112,7 +112,7 @@ with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.txt', 'r', encod
 
 # Render the template with the proxies data and save it to proxies.html
 rendered_template = template.render(proxies=proxies)
-with open('D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.html', 'w', encoding='utf-8') as output_file:
+with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.html', 'w', encoding='utf-8') as output_file:
     output_file.write(rendered_template)
 iran_tz = timezone(timedelta(hours=3, minutes=30))
 now_utc = datetime.now(timezone.utc)
