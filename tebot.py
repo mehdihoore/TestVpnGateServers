@@ -37,7 +37,7 @@ def get_persian_date_time():
 #get url and download v2flyNG apk app
 url = 'https://github.com/2dust/v2flyNG/tags'
 response = rs.get(url)
-soup = BeautifulSoup(response.text, 'lxml')
+soup = BeautifulSoup(response.text, 'html.parser')
 # Find link by tag and class
 link = soup.find('a', class_='Link--primary', href=True)
 download_url = 'https://github.com' + link['href']
@@ -69,6 +69,18 @@ def get_v2ray_data():
         v2ray_links = {}
 
     return v2ray_links
+def warpplus():
+    warplinks = {
+        'برنامه وارپ را دانلود کنید:': 'https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone',
+        'به این ربات تلگرامی بروید و دستور /generate را بزنید ':'https://t.me/generatewarpplusbot',
+        'سوال ریاضی را همراه با دستور قبلی پاسخ دهید به این صورت: /generate 123 ':'/generate 123',
+       
+    }
+    if warplinks is None:
+        warplinks = {}
+
+    return warplinks
+warplink= warpplus()
 textv2fly = """ برنامه‌ای سریع و ساده برای اجرای سورهای v2ray
 این برنامه را نصب کنید و سپس یکی از فایلهای .txt
 را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید."""
@@ -108,22 +120,11 @@ def send_server_list(bot):
 
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/trojan.txt',
 
-    'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt',
-       
-
-        'https://raw.githubusercontent.com/yebekhe/V2Hub/main/merged_base64',
-        'https://raw.githubusercontent.com/yebekhe/V2Hub/main/Split/Base64/vmess',
-        
-
-
+    'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt'
       ]
     names = ['Worker .ir' , 'Worker .link', 'mahdibland Eternity',
          'mahdibland Eternity txt', 'mahdibland ssr', 'mahdibland ss',
-         'mahdibland trojan', 'mahdibland vmess',
-
-         'Telegram collector: merged_base64',
-         'Telegram collector: Base64_vmess',
-
+         'mahdibland trojan', 'mahdibland vmess'
          ]
 
     # Get the latest APK version and download URL
@@ -186,6 +187,12 @@ def send_server_list(bot):
     for name, link in v2ray_links.items():
         inline_buttons.append([InlineKeyboardButton(name, url=link)])
     reply_markup = InlineKeyboardMarkup(inline_buttons)
+    try: 
+        for name, link in warplink.items():
+            inline_buttons.append([InlineKeyboardButton(name, url=link)])
+        reply_markup = InlineKeyboardMarkup(inline_buttons)
+    except:
+        print("nothing is in here")
 
 
 
