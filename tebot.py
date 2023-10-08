@@ -189,10 +189,10 @@ def send_server_list(bot):
         for name, link in warplink.items():
             inline_buttons.append([InlineKeyboardButton(name, url=link)])
         r_markup = InlineKeyboardMarkup(inb)
-    
+        bot.send_message(chat_id=channel.id, text=f'وارپ پر سرعت بدون عوض کردن ای پی ', reply_markup=r_markup)
+
     except:
         print("nothing is in here")
-    bot.send_message(chat_id=channel.id, text=f'وارپ پر سرعت بدون عوض کردن ای پی ', reply_markup=r_markup)
     inline_buttons = []
 
     for name, link in v2ray_links.items():
