@@ -82,16 +82,45 @@ driver.quit()
 
 import subprocess
 from datetime import datetime, timezone, timedelta
+import os
+from jinja2 import Environment, FileSystemLoader
+
 repo_dir = r'D:\code\SSTP\testvpngate\TestVpnGateServers'
 os.chdir(repo_dir)
 
+
+
+# Load the Jinja2 template from the file
+template_dir = r'D:\code\SSTP\testvpngate\TestVpnGateServers'
+env = Environment(loader=FileSystemLoader(template_dir))
+template = env.get_template('proxies_template.html')
+
+# Read the proxies from proxies.txt and parse them into a list of dictionaries
+proxies = []
+with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        parts = line.strip().split()
+        
+        proxy = {
+            'ip': parts[0],
+            'location': parts[1],
+            'proxy_type': parts[2],
+            'proxy_kind': parts[3],
+            'timeout': parts[4] 
+        }
+        proxies.append(proxy)
+
+# Render the template with the proxies data and save it to proxies.html
+rendered_template = template.render(proxies=proxies)
+with open('D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.html', 'w', encoding='utf-8') as output_file:
+    output_file.write(rendered_template)
 iran_tz = timezone(timedelta(hours=3, minutes=30))
 now_utc = datetime.now(timezone.utc)
 now_iran = now_utc.astimezone(iran_tz)
 now_iranf = now_iran.strftime("%Y-%m-%d %H:%M:%S")
 subprocess.run(["git", "fetch", "origin"])
 subprocess.run(["git", "rebase", "origin/main"])
-
+subprocess.run(["git", "add", "proxies.html"])
 subprocess.run(["git", "add", "proxies.txt"])
 subprocess.run(["git", "add", "iran_proxies.txt"])
 

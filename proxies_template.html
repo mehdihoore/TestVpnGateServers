@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Proxy List</title>
@@ -10,7 +11,8 @@
             width: 100%;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
@@ -22,47 +24,45 @@
     </style>
 
     <script>
-        var rows = document.querySelectorAll('tr');
+        // JavaScript function to filter the table by location
+        function filterByLocation(location) {
+            var rows = document.querySelectorAll('tr');
 
             rows.forEach(function (row) {
-
-                if (location == 'all') {
+                if (location === 'all') {
                     row.style.display = '';
-
-                } else if (row.dataset.location != location) {
+                } else if (row.dataset.location !== location) {
                     row.style.display = 'none';
-
                 } else {
                     row.style.display = '';
                 }
-
             });
+        }
     </script>
 </head>
+
 <body>
-    
-<select id="locationFilter" oninput="filterByLocation(this.value)">
-  <option value="all">All Locations</option>
-  
-  {% for proxy in proxies %}
-  <option value="{{ proxy.port }}">{{ proxy.port }}</option>
-  {% endfor %}
-  
-</select>
+
+    <select id="locationFilter" onchange="filterByLocation(this.value)">
+        <option value="all">All Locations</option>
+
+        {% for proxy in proxies %}
+        <option value="{{ proxy.location }}">{{ proxy.location }}</option>
+        {% endfor %}
+
+    </select>
     <h1>Proxy List</h1>
     <table>
         <tr>
             <th>IP</th>
-            
             <th>Location</th>
             <th>Proxy type</th>
             <th>Proxy kind</th>
             <th>Timeout</th>
         </tr>
         {% for proxy in proxies %}
-        <tr  data-location="{{proxy.location}}">
+        <tr data-location="{{ proxy.location }}">
             <td>{{ proxy.ip }}</td>
-            
             <td>{{ proxy.location }}</td>
             <td>{{ proxy.proxy_type }}</td>
             <td>{{ proxy.proxy_kind }}</td>
@@ -71,4 +71,5 @@
         {% endfor %}
     </table>
 </body>
+
 </html>
