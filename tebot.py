@@ -71,10 +71,10 @@ def get_v2ray_data():
     return v2ray_links
 def warpplus():
     warplinks = {
-        'برنامه وارپ را دانلود کنید:': 'https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone',
+        'برنامه وارپ را دانلود کنید android:': 'https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone',
         'به این ربات تلگرامی بروید و دستور /generate را بزنید ':'https://t.me/generatewarpplusbot',
         'سوال ریاضی را همراه با دستور قبلی پاسخ دهید به این صورت: /generate 123 ':'/generate 123',
-       
+        'windows app': 'https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-windows-1/distribution_groups/release'      
     }
     if warplinks is None:
         warplinks = {}
@@ -184,18 +184,21 @@ def send_server_list(bot):
             sleep(60)
 
         count += 1
-
+    inb=[]
+    try: 
+        for name, link in warplink.items():
+            inline_buttons.append([InlineKeyboardButton(name, url=link)])
+        r_markup = InlineKeyboardMarkup(inb)
+    
+    except:
+        print("nothing is in here")
+    bot.send_message(chat_id=channel.id, text=f'وارپ پر سرعت بدون عوض کردن ای پی ', reply_markup=r_markup)
     inline_buttons = []
 
     for name, link in v2ray_links.items():
         inline_buttons.append([InlineKeyboardButton(name, url=link)])
     reply_markup = InlineKeyboardMarkup(inline_buttons)
-    try: 
-        for name, link in warplink.items():
-            inline_buttons.append([InlineKeyboardButton(name, url=link)])
-        reply_markup = InlineKeyboardMarkup(inline_buttons)
-    except:
-        print("nothing is in here")
+   
 
 
 
