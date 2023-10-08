@@ -37,7 +37,7 @@ def get_persian_date_time():
 #get url and download v2flyNG apk app
 url = 'https://github.com/2dust/v2flyNG/tags'
 response = rs.get(url)
-soup = BeautifulSoup(response.text, 'lxml')
+soup = BeautifulSoup(response.text, 'html.parser')
 # Find link by tag and class
 link = soup.find('a', class_='Link--primary', href=True)
 download_url = 'https://github.com' + link['href']
