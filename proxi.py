@@ -82,7 +82,8 @@ driver.quit()
 
 import subprocess
 from datetime import datetime, timezone, timedelta
-
+repo_dir = r'D:\code\SSTP\testvpngate\TestVpnGateServers'
+os.chdir(repo_dir)
 
 iran_tz = timezone(timedelta(hours=3, minutes=30))
 now_utc = datetime.now(timezone.utc)

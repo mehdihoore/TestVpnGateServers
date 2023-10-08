@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proxy List</title>
+    <style>
+        /* Add your CSS styles here */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+    <script>
+        var rows = document.querySelectorAll('tr');
+
+            rows.forEach(function (row) {
+
+                if (location == 'all') {
+                    row.style.display = '';
+
+                } else if (row.dataset.location != location) {
+                    row.style.display = 'none';
+
+                } else {
+                    row.style.display = '';
+                }
+
+            });
+    </script>
+</head>
+<body>
+    
+<select id="locationFilter" oninput="filterByLocation(this.value)">
+  <option value="all">All Locations</option>
+  
+  
+  <option value=""></option>
+  
+  <option value=""></option>
+  
+  <option value=""></option>
+  
+  
+</select>
+    <h1>Proxy List</h1>
+    <table>
+        <tr>
+            <th>IP</th>
+            
+            <th>Location</th>
+            <th>Proxy type</th>
+            <th>Proxy kind</th>
+            <th>Timeout</th>
+        </tr>
+        
+        <tr  data-location="Unknown">
+            <td>127.35.33.133:4000</td>
+            
+            <td>Unknown</td>
+            <td>HTTP</td>
+            <td>Anonymous</td>
+            <td>-</td>
+        </tr>
+        
+        <tr  data-location="Unknown">
+            <td>127.0.0.1:4000</td>
+            
+            <td>Unknown</td>
+            <td>HTTP</td>
+            <td>Anonymous</td>
+            <td>-</td>
+        </tr>
+        
+        <tr  data-location="Unknown">
+            <td>127.189.179.187:4000</td>
+            
+            <td>Unknown</td>
+            <td>HTTP</td>
+            <td>Anonymous</td>
+            <td>-</td>
+        </tr>
+        
+    </table>
+</body>
+</html>
