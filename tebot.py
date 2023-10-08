@@ -74,7 +74,9 @@ def warpplus():
         'برنامه وارپ را دانلود کنید android:': 'https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone',
         'به این ربات تلگرامی بروید و دستور /generate را بزنید ':'https://t.me/generatewarpplusbot',
         'سوال ریاضی را همراه با دستور قبلی پاسخ دهید به این صورت: /generate 123 ':'/generate 123',
-        'windows app': 'https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-windows-1/distribution_groups/release'      
+        'windows app': 'https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-windows-1/distribution_groups/release',
+        'ios app': 'https://apps.apple.com/us/app/cloudflare-one-agent/id6443476492',
+        'linux app' : 'https://pkg.cloudflareclient.com/'    
     }
     if warplinks is None:
         warplinks = {}
