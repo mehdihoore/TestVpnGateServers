@@ -73,14 +73,13 @@ def warpplus():
     warplinks = {
         'برنامه وارپ را دانلود کنید android:': 'https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone',
         'به این ربات تلگرامی بروید و دستور /generate را بزنید ':'https://t.me/generatewarpplusbot',
-        'سوال ریاضی را همراه با دستور قبلی پاسخ دهید به این صورت: /generate 123 ':'/generate 123',
+        'شکل پاسخ به سوال: /generate 123 ':'https://t.me/generatewarpplusbot',
         'windows app': 'https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-windows-1/distribution_groups/release',
         'ios app': 'https://apps.apple.com/us/app/cloudflare-one-agent/id6443476492',
         'linux app' : 'https://pkg.cloudflareclient.com/'    
     }
     if warplinks is None:
         warplinks = {}
-
     return warplinks
 warplink= warpplus()
 textv2fly = """ برنامه‌ای سریع و ساده برای اجرای سورهای v2ray
@@ -105,10 +104,10 @@ def send_server_list(bot):
     bot.send_document(chat_id=channel.id, document=open('iran_proxies.txt', 'rb'),
                       caption=f'پروکسی سرورهای ایران/برای زمان اینترانت - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
-                      caption=f'همه پروکسی سرورها- {persian_date}\n {response}')
+                      caption=f'همه پروکسی سرورها- {persian_date}\n {apk_url}')
     try:
         bot.send_document(chat_id=channel.id, document=open(f'{tag1}', 'rb'),
-                          caption=f'{textv2fly}-{persian_date}')
+                          caption=f'{textv2fly}-{persian_date}\n {apk_url}')
     except:
             print('can not send')
     v2ray_links = get_v2ray_data()
@@ -188,10 +187,13 @@ def send_server_list(bot):
         count += 1
     inb=[]
     try: 
+        inb=[]
+
         for name, link in warplink.items():
-            inline_buttons.append([InlineKeyboardButton(name, url=link)])
+            inb.append([InlineKeyboardButton(name, url=link)])
         r_markup = InlineKeyboardMarkup(inb)
         bot.send_message(chat_id=channel.id, text=f'وارپ پر سرعت بدون عوض کردن ای پی ', reply_markup=r_markup)
+
 
     except:
         print("nothing is in here")
