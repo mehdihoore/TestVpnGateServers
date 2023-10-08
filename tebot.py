@@ -103,7 +103,7 @@ def send_server_list(bot):
     bot.send_document(chat_id=channel.id, document=open('iran_proxies.txt', 'rb'),
                       caption=f'پروکسی سرورهای ایران/برای زمان اینترانت - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
-                      caption=f'همه پروکسی سرورها- {persian_date}')
+                      caption=f'همه پروکسی سرورها- {persian_date}\n {response}')
     try:
         bot.send_document(chat_id=channel.id, document=open(f'{tag1}', 'rb'),
                           caption=f'{textv2fly}-{persian_date}')
