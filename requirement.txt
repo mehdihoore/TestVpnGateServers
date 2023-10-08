@@ -1,0 +1,12 @@
+# This is a requirements.txt file for Python
+# It lists the libraries and their versions that are needed for a project
+# To install them, run: pip install -r requirements.txt
+
+beautifulsoup4==4.9.3
+pandas==1.3.6
+requests==2.26.0
+jdatetime==3.6.2
+Jinja2==3.0.2
+python-telegram-bot==13.7
+pytz==2021.3
+datetime==4.3
