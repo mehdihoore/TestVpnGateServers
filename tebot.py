@@ -99,6 +99,7 @@ def send_server_list(bot):
 آموزش در یوتیوب و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: 
 {amozesh}\n آموزش متنی: {ssttextamozesh}')
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
+    iosv2ray='https://apps.apple.com/us/app/fair-vpn/id1533873488'
     with open('index.html', 'wb') as f:
                 f.write(proxi.content)
     os.rename('index.html','Mtproto.html')
@@ -110,7 +111,7 @@ def send_server_list(bot):
                       caption=f'همه پروکسی سرورها- {persian_date}\n {apk_url}')
     try:
         bot.send_document(chat_id=channel.id, document=open(f'{tag1}', 'rb'),
-                          caption=f'{textv2fly}-{persian_date}\n {apk_url}')
+                          caption=f'{textv2fly}-{persian_date}\n {apk_url}\n برنامه برای ios: {iosv2ray}')
     except:
             print('can not send')
     v2ray_links = get_v2ray_data()
