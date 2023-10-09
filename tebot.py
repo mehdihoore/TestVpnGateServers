@@ -73,7 +73,7 @@ def warpplus():
     warplinks = {
         'برنامه وارپ را دانلود کنید android:': 'https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone',
         'به این ربات تلگرامی بروید و دستور /generate را بزنید ':'https://t.me/generatewarpplusbot',
-        'شکل پاسخ به سوال: /generate 123 ':'https://t.me/generatewarpplusbot',
+        'شکل پاسخ به سوال: /generate 123  لینک ویديوی آموزشی:':'https://youtu.be/1X-yAbR8plM',
         'windows app': 'https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-windows-1/distribution_groups/release',
         'ios app': 'https://apps.apple.com/us/app/cloudflare-one-agent/id6443476492',
         'linux app' : 'https://pkg.cloudflareclient.com/'    
