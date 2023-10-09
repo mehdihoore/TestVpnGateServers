@@ -57,13 +57,13 @@ with open(f'{tag1}', 'wb') as f:
 
 def get_v2ray_data():
     v2ray_links = {
-        'لیست همه وی‌پی‌ان‌ها در وبسایت ': 'https://list.sabaat.ir',
+        'لیست وی‌پی‌ان‌ها در وبسایت ': 'https://list.sabaat.ir',
         'Invizible Pro Google Play':'https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp',
         'sabat.ir Help Worker': 'https://fin.sabaat.ir/',
         'sabat.link Help Worker': 'https://f.sabaat.link/',
         'mahdibland Github': 'https://github.com/mahdibland/V2RayAggregator',
-        'Bardiafa Github': 'https://github.com/Bardiafa/Free-V2ray-Config/blob/main/Persian-README.md',
-        'TelegramBot Github': 'https://github.com/yebekhe/TelegramV2rayCollector',
+        ' اندروید کلاینت v2ray ': 'https://play.google.com/store/apps/details?id=com.v2ray.ang',
+        'کلاینت sstp': 'https://play.google.com/store/apps/details?id=it.colucciweb.vpnclientpro&pcampaignid=web_share',
     }
     if v2ray_links is None:
         v2ray_links = {}
