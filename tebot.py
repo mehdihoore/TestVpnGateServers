@@ -62,8 +62,8 @@ def get_v2ray_data():
         'sabat.ir Help Worker': 'https://fin.sabaat.ir/',
         'sabat.link Help Worker': 'https://f.sabaat.link/',
         'mahdibland Github': 'https://github.com/mahdibland/V2RayAggregator',
-        ' اندروید کلاینت v2ray ': 'https://play.google.com/store/apps/details?id=com.v2ray.ang',
-        'کلاینت sstp': 'https://play.google.com/store/apps/details?id=it.colucciweb.vpnclientpro&pcampaignid=web_share',
+        ' اندروید کلاینت V2ray ': 'https://play.google.com/store/apps/details?id=com.v2ray.ang',
+        'کلاینت SSTP': 'https://play.google.com/store/apps/details?id=it.colucciweb.vpnclientpro&pcampaignid=web_share',
     }
     if v2ray_links is None:
         v2ray_links = {}
