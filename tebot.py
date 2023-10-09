@@ -97,7 +97,7 @@ def send_server_list(bot):
     bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
                       caption=f'SSTP Servers - {persian_date}\n
 آموزش در یوتیوب و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: 
-{amozesh}\n{ssttextamozesh}')
+{amozesh}\n آموزش متنی: {ssttextamozesh}')
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
     with open('index.html', 'wb') as f:
                 f.write(proxi.content)
