@@ -95,9 +95,7 @@ def send_server_list(bot):
     amozesh = 'https://youtu.be/tc-4-9gQzAo'
     ssttextamozesh= 'https://sabaat.ir/2023/07/25/%db%8c%da%a9-vpn-%d8%a8%d8%b1%d8%a7%db%8c-%d9%87%d9%85%d9%87-%d8%af%db%8c%d9%88%d8%a7%db%8c%d8%b3%d9%87%d8%a7/'
     bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
-                      caption=f'SSTP Servers - {persian_date}\n
-آموزش در یوتیوب و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: 
-{amozesh}\n آموزش متنی: {ssttextamozesh}')
+                      caption=f'SSTP Servers - {persian_date}\nآموزش در یوتیوب و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: {amozesh}\n آموزش متنی: {ssttextamozesh}')
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
     iosv2ray='https://apps.apple.com/us/app/fair-vpn/id1533873488'
     with open('index.html', 'wb') as f:
