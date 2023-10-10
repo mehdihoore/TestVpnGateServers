@@ -20,7 +20,7 @@ today = datetime.date.today()
 
 try:
     today_str = today.strftime("%Y-%m-%d")
-    url = f'https://checkerproxy.net/archive/{today_str}'
+    url = f'https://hidemy.io/en/proxy-list/'
 
     driver.get(url)
 
@@ -61,23 +61,7 @@ try:
 
 except Exception as e:
     print('Error saving proxies:', e)
-iran_proxies = []
 
-# Iterate over the list of proxies and extract the Iran proxies
-for proxy in proxies:
-    if re.search('Iran', proxy):
-        iran_proxies.append(proxy)
-
-# Try to open the file where the Iran proxies will be saved
-try:
-    with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\iran_proxies.txt', 'w', encoding='utf-8') as f:
-        # Iterate over the list of Iran proxies and write each proxy to the file, one per line
-        for proxy in iran_proxies:
-            f.write(proxy + '\n')
-
-except Exception as e:
-    print('Error saving Iran proxies:', e)
-# Close the browser
 driver.quit()
 
 import subprocess
@@ -114,6 +98,66 @@ with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.txt', 'r', encod
 rendered_template = template.render(proxies=proxies)
 with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\proxies.html', 'w', encoding='utf-8') as output_file:
     output_file.write(rendered_template)
+
+
+
+
+chromedriver_path1 = '"D:\code\chromedriver\chromedriver.exe"'
+service1 = webdriver.ChromeService(executable_path=chromedriver_path1)
+driver = webdriver.Chrome(service=service1)
+
+
+
+
+# Go to the website
+
+
+try:
+    today_str = today.strftime("%Y-%m-%d")
+    url = f'https://hidemy.io/en/proxy-list/?country=IR#list'
+
+    driver.get(url)
+
+except Exception as e:
+    print('Error getting proxies for today:', e)
+
+   
+
+# Find the tbody element
+time.sleep(20)
+
+# Get the page source and create a BeautifulSoup object
+page_source = driver.page_source
+soup = BeautifulSoup(page_source, 'html.parser')
+
+table = soup.find('table')
+rows = table.find_all('tr')
+
+# Create a list to store the proxies
+proxiesiran = []
+
+# Iterate over the rows in the table and extract the proxy information
+for row in rows:
+    cols = row.find_all('td')
+    proxyi_string = f'{cols[0].text} {cols[1].text} {cols[2].text} {cols[3].text} {cols[4].text}'
+    proxiesiran.append(proxyi_string)
+
+# Try to open the file where the proxies will be saved
+try:
+    with open(r'D:\code\SSTP\testvpngate\TestVpnGateServers\iran_proxies.txt', 'w', encoding='utf-8') as f:
+        # Iterate over the list of proxies and write each proxy to the file, one per line
+        for proxy in proxiesiran:
+            f.write(proxy + '\n')
+
+except Exception as e:
+    print('Error saving proxies:', e)
+
+# Close the browser
+driver.quit()
+
+
+
+
 iran_tz = timezone(timedelta(hours=3, minutes=30))
 now_utc = datetime.now(timezone.utc)
 now_iran = now_utc.astimezone(iran_tz)
