@@ -98,15 +98,17 @@ def send_server_list(bot):
                       caption=f'SSTP Servers - {persian_date}\nآموزش در یوتیوب (برای ویندوز بدون نیاز به نرم افزار) و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: {amozesh}\n آموزش متنی: {ssttextamozesh}')
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
     iosv2ray='https://apps.apple.com/us/app/fair-vpn/id1533873488'
+    iranproxy = 'https://hidemy.io/en/proxy-list/?country=IR#list'
+    proxylist = 'https://hidemy.io/en/proxy-list/'
     with open('index.html', 'wb') as f:
                 f.write(proxi.content)
     os.rename('index.html','Mtproto.html')
     bot.send_document(chat_id=channel.id, document=open('Mtproto.html', 'rb'),
                       caption=f'MtProto Telegram Proxies - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('iran_proxies.txt', 'rb'),
-                      caption=f'پروکسی سرورهای ایران/برای زمان اینترانت - {persian_date}')
+                      caption=f'پروکسی سرورهای ایران/برای زمان اینترانت -{persian_date}\n {iranproxy}')
     bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
-                      caption=f'همه پروکسی سرورها- {persian_date}\n {apk_url}')
+                      caption=f'همه پروکسی سرورها- {persian_date}\n {proxylist}')
     try:
         bot.send_document(chat_id=channel.id, document=open(f'{tag1}', 'rb'),
                           caption=f'{textv2fly}-{persian_date}\n {apk_url}\n برنامه برای ios: {iosv2ray}')
