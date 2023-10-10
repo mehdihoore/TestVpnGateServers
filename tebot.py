@@ -100,13 +100,14 @@ def send_server_list(bot):
     iosv2ray='https://apps.apple.com/us/app/fair-vpn/id1533873488'
     iranproxy = 'https://hidemy.io/en/proxy-list/?country=IR#list'
     proxylist = 'https://hidemy.io/en/proxy-list/'
+    intropro = 'https://sabaat.ir/2023/10/10/pcon/'
     with open('index.html', 'wb') as f:
                 f.write(proxi.content)
     os.rename('index.html','Mtproto.html')
     bot.send_document(chat_id=channel.id, document=open('Mtproto.html', 'rb'),
                       caption=f'MtProto Telegram Proxies - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('iran_proxies.txt', 'rb'),
-                      caption=f'پروکسی سرورهای ایران/برای زمان اینترانت -{persian_date}\n {iranproxy}')
+                      caption=f'پروکسی سرورهای ایران/برای زمان اینترانت -{persian_date}\n {iranproxy}\n آموزش استفاده: {intropro}')
     bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
                       caption=f'همه پروکسی سرورها- {persian_date}\n {proxylist}')
     try:
