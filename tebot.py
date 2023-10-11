@@ -93,7 +93,7 @@ def send_server_list(bot):
     channel = bot.get_chat("@SSTPV2RAY")
     bot.send_message(chat_id=channel.id, text=f'{persian_date} ✅')
     amozesh = 'https://youtu.be/tc-4-9gQzAo'
-    ssttextamozesh= 'https://sabaat.ir/2023/07/25/%db%8c%da%a9-vpn-%d8%a8%d8%b1%d8%a7%db%8c-%d9%87%d9%85%d9%87-%d8%af%db%8c%d9%88%d8%a7%db%8c%d8%b3%d9%87%d8%a7/'
+    ssttextamozesh= 'https://tinyurl.com/ywmfecsw'
     bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
                       caption=f'SSTP Servers - {persian_date}\nآموزش در یوتیوب (برای ویندوز بدون نیاز به نرم افزار) و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: {amozesh}\n آموزش متنی: {ssttextamozesh}')
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
