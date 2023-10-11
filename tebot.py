@@ -106,7 +106,7 @@ def send_server_list(bot):
                 f.write(proxi.content)
     os.rename('index.html','Mtproto.html')
     bot.send_document(chat_id=channel.id, document=open('Mtproto.html', 'rb'),
-                      caption=f'MtProto Telegram Proxies - {persian_date}')
+                      caption=f'پروکسی تلگرام  - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('iran_proxies.txt', 'rb'),
                       caption=f'پروکسی سرورهای ایران/برای زمان اینترانت -{persian_date}\n {iranproxy}\n آموزش استفاده: {intropro}')
     bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
