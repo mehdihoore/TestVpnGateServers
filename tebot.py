@@ -101,6 +101,7 @@ def send_server_list(bot):
     iranproxy = 'https://hidemy.io/en/proxy-list/?country=IR#list'
     proxylist = 'https://hidemy.io/en/proxy-list/'
     intropro = 'https://sabaat.ir/2023/10/10/pcon/'
+    v2raylearn = 'https://tinyurl.com/ylfe7tpc'
     with open('index.html', 'wb') as f:
                 f.write(proxi.content)
     os.rename('index.html','Mtproto.html')
@@ -112,7 +113,7 @@ def send_server_list(bot):
                       caption=f'همه پروکسی سرورها- {persian_date}\n {proxylist}')
     try:
         bot.send_document(chat_id=channel.id, document=open(f'{tag1}', 'rb'),
-                          caption=f'{textv2fly}-{persian_date}\n {apk_url}\n برنامه برای ios: {iosv2ray}')
+                          caption=f'{textv2fly}-{persian_date}\n {apk_url}\n برنامه برای ios: {iosv2ray}\n آموزش استفاده: {v2raylearn}')
     except:
             print('can not send')
     v2ray_links = get_v2ray_data()
