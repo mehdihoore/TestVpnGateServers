@@ -316,6 +316,9 @@ def start(update: Update, context: CallbackContext):
             sleep(60)
     # Send the V2ray options with inline keyboard
     context.bot.send_message(chat_id=update.effective_chat.id, text="Select V2ray option:", reply_markup=reply_markup)
+    sleep(60)
+    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray {v2raylearn}')
+    bot.send_message(chat_id=channel.id, text=f'مراحل استفاده از سرورهای VPNGATE در ویندوز SSTP{ssttextamozesh}')
 
 if __name__ == '__main__':
     updater = Updater(token='6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A', request_kwargs={'read_timeout': 30})
