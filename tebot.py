@@ -318,9 +318,11 @@ def start(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Select V2ray option:", reply_markup=reply_markup)
     sleep(60)
     iphon = 'https://tinyurl.com/ytagcjv6'
+    warplearn = 'https://telegra.ph/%D9%86%D8%AD%D9%88%D9%87-%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D8%A8%D9%87-%D9%88%D8%A7%D8%B1%D9%BE-%D9%88-%D8%AA%D8%A8%D8%AF%DB%8C%D9%84-%D8%A2%D9%86-%D8%A8%D9%87-%D9%88%D8%A7%D8%B1%D9%BE-%D9%BE%D9%84%D8%A7%D8%B3-10-11'
     bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در اندروید{v2raylearn}')
     bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در ایفون {iphon}')
     bot.send_message(chat_id=channel.id, text=f'مراحل استفاده از سرورهای VPNGATE در ویندوز SSTP{ssttextamozesh}')
+    bot.send_message(chat_id=channel.id, text=f'نصب وارپ و تبدیل آن به وارپ پلاس {warplearn}')
 
 if __name__ == '__main__':
     updater = Updater(token='6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A', request_kwargs={'read_timeout': 30})
