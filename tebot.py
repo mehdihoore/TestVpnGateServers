@@ -91,11 +91,11 @@ def send_server_list(bot):
     sabat='https://list.sabaat.ir'
     # Send SSTP document
     channel = bot.get_chat("@SSTPV2RAY")
-    bot.send_message(chat_id=channel.id, text=f'{persian_date} ✅')
+    
     amozesh = 'https://youtu.be/tc-4-9gQzAo'
     ssttextamozesh= 'https://tinyurl.com/ywmfecsw'
     bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
-                      caption=f'SSTP Servers - {persian_date}\nآموزش در یوتیوب (برای ویندوز بدون نیاز به نرم افزار) و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: {amozesh}\n آموزش متنی: {ssttextamozesh}')
+                      caption=f'SSTP Servers ✅- {persian_date}\nآموزش در یوتیوب (برای ویندوز بدون نیاز به نرم افزار) و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: {amozesh}\n آموزش متنی: {ssttextamozesh}')
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
     iosv2ray='https://apps.apple.com/us/app/fair-vpn/id1533873488'
     iranproxy = 'https://hidemy.io/en/proxy-list/?country=IR#list'
@@ -120,9 +120,6 @@ def send_server_list(bot):
     links = [
         'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
         'https://fin.hore.workers.dev/sub/fin.sabaat.ir',
-        'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity',
-
-    'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt',
 
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ssr.txt',
 
@@ -132,8 +129,7 @@ def send_server_list(bot):
 
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt'
       ]
-    names = ['Worker .ir' , 'Worker .link', 'mahdibland Eternity',
-         'mahdibland Eternity txt', 'mahdibland ssr', 'mahdibland ss',
+    names = ['Worker .ir' , 'Worker .link','mahdibland ssr', 'mahdibland ss',
          'mahdibland trojan', 'mahdibland vmess'
          ]
 
@@ -246,16 +242,9 @@ def start(update: Update, context: CallbackContext):
     links = [
         'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
         'https://fin.hore.workers.dev/sub/fin.sabaat.ir',
-        'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity',
-
-    'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt',
-
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ssr.txt',
-
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ss.txt',
-
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/trojan.txt',
-
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt',
         'https://raw.githubusercontent.com/Bardiafa/Free-V2ray-Config/main/Splitted-By-Protocol/vmess.txt',
 
@@ -264,8 +253,8 @@ def start(update: Update, context: CallbackContext):
 
 
       ]
-    names = ['Worker .ir' , 'Worker .link', 'mahdibland Eternity',
-         'mahdibland Eternity txt', 'mahdibland ssr', 'mahdibland ss',
+    names = ['Worker .ir' , 'Worker .link',
+         'mahdibland ssr', 'mahdibland ss',
          'mahdibland trojan', 'mahdibland vmess',
          'Bardiafa vemss',
 
@@ -316,7 +305,7 @@ def start(update: Update, context: CallbackContext):
             sleep(60)
     # Send the V2ray options with inline keyboard
     context.bot.send_message(chat_id=update.effective_chat.id, text="Select V2ray option:", reply_markup=reply_markup)
-    sleep(60)
+
     iphon = 'https://tinyurl.com/ytagcjv6'
     warplearn = 'https://tinyurl.com/ynbz9z2a'
     bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در اندروید{v2raylearn}')
