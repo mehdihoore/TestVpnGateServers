@@ -101,7 +101,7 @@ def send_server_list(bot):
     iranproxy = 'https://hidemy.io/en/proxy-list/?country=IR#list'
     proxylist = 'https://hidemy.io/en/proxy-list/'
     intropro = 'https://sabaat.ir/2023/10/10/pcon/'
-    v2raylearn = 'https://tinyurl.com/ylfe7tpc'
+    
     with open('index.html', 'wb') as f:
                 f.write(proxi.content)
     os.rename('index.html','Mtproto.html')
@@ -116,6 +116,13 @@ def send_server_list(bot):
                           caption=f'{textv2fly}-{persian_date}\n {apk_url}\n برنامه برای ios: {iosv2ray}\n آموزش استفاده: {v2raylearn}')
     except:
             print('can not send')
+    iphon = 'https://tinyurl.com/ytagcjv6'
+    warplearn = 'https://tinyurl.com/ynbz9z2a'
+    v2raylearn = 'https://tinyurl.com/ylfe7tpc'
+    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در اندروید{v2raylearn}')
+    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در ایفون {iphon}')
+    bot.send_message(chat_id=channel.id, text=f'مراحل استفاده از سرورهای VPNGATE در ویندوز SSTP{ssttextamozesh}')
+    bot.send_message(chat_id=channel.id, text=f'نصب وارپ و تبدیل آن به وارپ پلاس {warplearn}')
     v2ray_links = get_v2ray_data()
     links = [
         'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
@@ -306,12 +313,7 @@ def start(update: Update, context: CallbackContext):
     # Send the V2ray options with inline keyboard
     context.bot.send_message(chat_id=update.effective_chat.id, text="Select V2ray option:", reply_markup=reply_markup)
 
-    iphon = 'https://tinyurl.com/ytagcjv6'
-    warplearn = 'https://tinyurl.com/ynbz9z2a'
-    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در اندروید{v2raylearn}')
-    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در ایفون {iphon}')
-    bot.send_message(chat_id=channel.id, text=f'مراحل استفاده از سرورهای VPNGATE در ویندوز SSTP{ssttextamozesh}')
-    bot.send_message(chat_id=channel.id, text=f'نصب وارپ و تبدیل آن به وارپ پلاس {warplearn}')
+    
 
 if __name__ == '__main__':
     updater = Updater(token='6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A', request_kwargs={'read_timeout': 30})
