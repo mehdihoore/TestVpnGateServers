@@ -319,7 +319,7 @@ def start(update: Update, context: CallbackContext):
     sleep(60)
     iphon = 'https://tinyurl.com/ytagcjv6'
     bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در اندروید{v2raylearn}')
-     bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در ایفون {iphon}')
+    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در ایفون {iphon}')
     bot.send_message(chat_id=channel.id, text=f'مراحل استفاده از سرورهای VPNGATE در ویندوز SSTP{ssttextamozesh}')
 
 if __name__ == '__main__':
