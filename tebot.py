@@ -119,10 +119,10 @@ def send_server_list(bot):
     iphon = 'https://tinyurl.com/ytagcjv6'
     warplearn = 'https://tinyurl.com/ynbz9z2a'
     v2raylearn = 'https://tinyurl.com/ylfe7tpc'
-    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در اندروید{v2raylearn}')
-    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در ایفون {iphon}')
+    
+    
     bot.send_message(chat_id=channel.id, text=f'مراحل استفاده از سرورهای VPNGATE در ویندوز SSTP \n {ssttextamozesh}')
-    bot.send_message(chat_id=channel.id, text=f'نصب وارپ و تبدیل آن به وارپ پلاس {warplearn}')
+    
     v2ray_links = get_v2ray_data()
     links = [
         'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
@@ -170,6 +170,8 @@ def send_server_list(bot):
             bot.send_document(chat_id=channel.id, document=open(name, 'rb'), caption=f'{persian_date} \n{name}\n {url}\n {tt}')
         except Exception as e:
             print(f"Error sending {name}: {e}")
+    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در اندروید \n{v2raylearn}')
+    bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در ایفون \n{iphon}')
     count = 0
 
     for link in links:
@@ -194,6 +196,7 @@ def send_server_list(bot):
             sleep(60)
 
         count += 1
+    bot.send_message(chat_id=channel.id, text=f'نصب وارپ و تبدیل آن به وارپ پلاس {warplearn}')
     inb=[]
     try: 
         inb=[]
