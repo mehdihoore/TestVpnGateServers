@@ -121,7 +121,7 @@ def send_server_list(bot):
     v2raylearn = 'https://tinyurl.com/ylfe7tpc'
     bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در اندروید{v2raylearn}')
     bot.send_message(chat_id=channel.id, text=f'آموزش استفاده از V2ray در ایفون {iphon}')
-    bot.send_message(chat_id=channel.id, text=f'مراحل استفاده از سرورهای VPNGATE در ویندوز SSTP{ssttextamozesh}')
+    bot.send_message(chat_id=channel.id, text=f'مراحل استفاده از سرورهای VPNGATE در ویندوز SSTP \n {ssttextamozesh}')
     bot.send_message(chat_id=channel.id, text=f'نصب وارپ و تبدیل آن به وارپ پلاس {warplearn}')
     v2ray_links = get_v2ray_data()
     links = [
