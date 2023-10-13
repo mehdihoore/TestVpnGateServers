@@ -112,8 +112,10 @@ def send_server_list(bot):
     bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
                       caption=f'همه پروکسی سرورها- {persian_date}\n {proxylist}')
     try:
-        bot.send_document(chat_id=channel.id, document=open('v2flyNG_1.7.19.apk', 'rb'),
-                          caption=f'{textv2fly}-{persian_date}\n {apk_url}\n برنامه برای ios: {iosv2ray}\n آموزش استفاده: {v2raylearn}')
+        response = rs.get('https://github.com/2dust/v2flyNG/releases/download/1.7.19/v2flyNG_1.7.19.apk')
+        with open(f'v2flyNG_1.7.19.apk', 'wb') as f:
+            f.write(response.content)
+        bot.send_document(chat_id=channel.id, document=open('v2flyNG_1.7.19.apk', 'rb'),caption=f'{textv2fly}-{persian_date}\n https://github.com/2dust/v2flyNG/releases/download/1.7.19/v2flyNG_1.7.19.apk')
     except:
             print('can not send')
     iphon = 'https://tinyurl.com/ytagcjv6'
