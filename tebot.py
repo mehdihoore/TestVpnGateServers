@@ -145,8 +145,8 @@ def send_server_list(bot):
     # Get the latest APK version and download URL
 
     additional_file_urls = [
-        'https://github.com/Gedsh/InviZible/releases/download/v2.0.0-beta/Invizible_Pro__beta_ver.2.0.0.apk',
-        'https://github.com/Gedsh/InviZible/releases/download/v2.0.0-beta/Invizible_Pro__beta_ver.2.0.0_arm64.apk'
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1.apk',
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1_arm64.apk'
     ]
     additional_file_names = ['Invizible_Pro__beta_ver.2.0.0.apk',
         'Invizible_Pro__beta_ver.2.0.0_arm64.apk'
@@ -154,12 +154,13 @@ def send_server_list(bot):
 
 
     tt = '''
-•	تور به نسخه 4.8.7 بروز شد
-•	پرپل آی۲پی به نسخه 2.49.0 بروز شد
-•	اتصال پل اسنوفلیک آپدیت شد
-•	اضافه کردن پل‌های جدید اسنوفلیک آپدیت شد
-•	اتصال پل کانجر آپدیت شد
-•	تعمیرات و بهینه‌سازی‌ها
+•	به‌روزرسانی Tor به نسخه 4.8.8
+•	به‌روزرسانی پل Snowflake در Tor به نسخه 2.7.0
+•	به‌روزرسانی پل‌های Lirebird، WebTunnel و Conjure در Tor
+•	به‌روزرسانی DNSCrypt
+•	به‌روزرسانی تنظیمات پیش‌فرض DNSCrypt
+•	رفع مشکل نمایش دکمه روشن/خاموش فایروال
+•	رفع باگ‌ها و بهینه‌سازی‌
 
     '''
 
