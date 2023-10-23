@@ -148,8 +148,8 @@ def send_server_list(bot):
         'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1.apk',
         'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1_arm64.apk'
     ]
-    additional_file_names = ['Invizible_Pro__beta_ver.2.0.0.apk',
-        'Invizible_Pro__beta_ver.2.0.0_arm64.apk'
+    additional_file_names = ['Invizible_Pro__beta_ver.2.0.1.apk',
+        'Invizible_Pro__beta_ver.2.0.1_arm64.apk'
     ]
 
 
