@@ -279,11 +279,11 @@ def start(update: Update, context: CallbackContext):
     # Get the latest APK version and download URL
 
     additional_file_urls = [
-        'https://github.com/Gedsh/InviZible/releases/download/v1.9.8-beta/Invizible_Pro__beta_ver.1.9.8.apk',
-        'https://github.com/Gedsh/InviZible/releases/download/v1.9.8-beta/Invizible_Pro__beta_ver.1.9.8_arm64.apk'
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1.apk',
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1_arm64.apk'
     ]
-    additional_file_names = ['Invizible_Pro__beta_ver.1.9.8.apk',
-        'Invizible_Pro__beta_ver.1.9.8_arm64.apk'
+    additional_file_names = ['Invizible_Pro__beta_ver.2.0.1.apk',
+        'Invizible_Pro__beta_ver.2.0.1_arm64.apk'
     ]
     tt = '''
 •	تور به نسخه 4.8.7 بروز شد
