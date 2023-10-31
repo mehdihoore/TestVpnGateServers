@@ -133,7 +133,7 @@ def send_server_list(bot):
         'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
         'https://fin.hore.workers.dev/sub/fin.sabaat.ir',
     'https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_base64.txt',
-        'https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt'
+        'https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt',
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ssr.txt',
 
     'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ss.txt',
