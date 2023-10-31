@@ -101,7 +101,7 @@ def send_server_list(bot):
     soup = BeautifulSoup(proxi.content, "html.parser")
     mtprototext = soup.get_text()
     with open("mtproto.txt", "w") as f:
-    f.write(mtprototext)
+        f.write(mtprototext)
     iosv2ray='https://apps.apple.com/us/app/fair-vpn/id1533873488'
     iranproxy = 'https://hidemy.io/en/proxy-list/?country=IR#list'
     proxylist = 'https://hidemy.io/en/proxy-list/'
