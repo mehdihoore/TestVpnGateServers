@@ -109,7 +109,7 @@ def send_server_list(bot):
     
     
     bot.send_document(chat_id=channel.id, document=open('mtproto.txt', 'rb'),
-                      caption=f'پروکسی تلگرام  - {persian_date}')
+                      caption=f'پروکسی تلگرام \n https://mtproto.sabaat.ir/\n - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('iran_proxies.txt', 'rb'),
                       caption=f'پروکسی سرورهای ایران/برای زمان اینترانت -{persian_date}\n {iranproxy}\n آموزش استفاده: {intropro}')
     bot.send_document(chat_id=channel.id, document=open('proxies.txt', 'rb'),
