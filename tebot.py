@@ -96,16 +96,19 @@ def send_server_list(bot):
     ssttextamozesh= 'https://tinyurl.com/ywmfecsw'
     bot.send_document(chat_id=channel.id, document=open('sstps.csv', 'rb'),
                       caption=f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}\nآموزش در یوتیوب (برای ویندوز بدون نیاز به نرم افزار) و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: {amozesh}\n آموزش متنی: {ssttextamozesh}')
-    proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
+    proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/proxies')
+    
+    soup = BeautifulSoup(proxi.content, "html.parser")
+    mtprototext = soup.get_text()
+    with open("mtproto.txt", "w") as f:
+    f.write(text)
     iosv2ray='https://apps.apple.com/us/app/fair-vpn/id1533873488'
     iranproxy = 'https://hidemy.io/en/proxy-list/?country=IR#list'
     proxylist = 'https://hidemy.io/en/proxy-list/'
     intropro = 'https://sabaat.ir/2023/10/10/pcon/'
     
-    with open('index.html', 'wb') as f:
-                f.write(proxi.content)
-    os.rename('index.html','Mtproto.html')
-    bot.send_document(chat_id=channel.id, document=open('Mtproto.html', 'rb'),
+    
+    bot.send_document(chat_id=channel.id, document=open('mtproto.txt', 'rb'),
                       caption=f'پروکسی تلگرام  - {persian_date}')
     bot.send_document(chat_id=channel.id, document=open('iran_proxies.txt', 'rb'),
                       caption=f'پروکسی سرورهای ایران/برای زمان اینترانت -{persian_date}\n {iranproxy}\n آموزش استفاده: {intropro}')
