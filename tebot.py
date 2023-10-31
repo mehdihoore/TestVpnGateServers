@@ -94,8 +94,8 @@ def send_server_list(bot):
     
     amozesh = 'https://youtu.be/tc-4-9gQzAo'
     ssttextamozesh= 'https://tinyurl.com/ywmfecsw'
-    bot.send_document(chat_id=channel.id, document=open('filtered_sstp.html', 'rb'),
-                      caption=f'SSTP Servers ✅- {persian_date}\nآموزش در یوتیوب (برای ویندوز بدون نیاز به نرم افزار) و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: {amozesh}\n آموزش متنی: {ssttextamozesh}')
+    bot.send_document(chat_id=channel.id, document=open('sstps.csv', 'rb'),
+                      caption=f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}\nآموزش در یوتیوب (برای ویندوز بدون نیاز به نرم افزار) و آموزش متنی (لینک دوم) برای تنظیمات و متصل شدن: {amozesh}\n آموزش متنی: {ssttextamozesh}')
     proxi=rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/index.html')
     iosv2ray='https://apps.apple.com/us/app/fair-vpn/id1533873488'
     iranproxy = 'https://hidemy.io/en/proxy-list/?country=IR#list'
