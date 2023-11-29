@@ -3,7 +3,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from jdatetime import date as jdate
 
-etes = rs.get('http://103.201.129.226:14684/en/').text
+etes = rs.get('http://146.70.205.2:6283/en/').text
 soup = BeautifulSoup(etes, "html.parser")
 tbody = soup.find("table")
 if tbody is not None:
