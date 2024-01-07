@@ -1,78 +1,75 @@
 ,country,DDNS hostnameIP Address(ISP hostname),Ping Time,sstp,server,port
-0,Japan,vpn915250587.opengw.net111.216.193.222,2,vpn915250587.opengw.net:1939,vpn915250587.opengw.net,1939
-1,Japan,vpn737937816.opengw.net150.9.23.64,2,vpn737937816.opengw.net:1728,vpn737937816.opengw.net,1728
-2,Japan,vpn322450087.opengw.net126.126.127.160,3,vpn322450087.opengw.net:1776,vpn322450087.opengw.net,1776
-3,Japan,vpn849511280.opengw.net218.228.210.10,3,vpn849511280.opengw.net:1345,vpn849511280.opengw.net,1345
-4,Japan,vpn741349588.opengw.net183.177.141.146,3,vpn741349588.opengw.net:1931,vpn741349588.opengw.net,1931
-5,Japan,vpn712368643.opengw.net58.188.23.191,3,vpn712368643.opengw.net:1502,vpn712368643.opengw.net,1502
-6,Japan,vpn716400592.opengw.net126.51.97.178,3,vpn716400592.opengw.net:1432,vpn716400592.opengw.net,1432
-7,Japan,vpn712091614.opengw.net152.117.152.2(fp98759802.stmb107.ap.nuro.jp),3,vpn712091614.opengw.net:1779,vpn712091614.opengw.net,1779
-8,Japan,vpn370530845.opengw.net223.135.93.142,4,vpn370530845.opengw.net:1278,vpn370530845.opengw.net,1278
-9,United States,vpn431396938.opengw.net173.198.248.39,4,vpn431396938.opengw.net,vpn431396938.opengw.net,
-10,Japan,vpn269415892.opengw.net110.4.220.197,4,vpn269415892.opengw.net:1750,vpn269415892.opengw.net,1750
-11,Japan,vpn166005903.opengw.net119.230.68.109(119-230-68-109f1.nar1.eonet.ne.jp),5,vpn166005903.opengw.net:1966,vpn166005903.opengw.net,1966
-12,Japan,vpn620374010.opengw.net160.86.87.105(fpa0565769.mieg204.ap.nuro.jp),5,vpn620374010.opengw.net:1754,vpn620374010.opengw.net,1754
-13,Japan,vpn732214988.opengw.net36.8.18.206,5,vpn732214988.opengw.net:1820,vpn732214988.opengw.net,1820
-14,Japan,vpn186130027.opengw.net114.18.53.203,6,vpn186130027.opengw.net:1817,vpn186130027.opengw.net,1817
-15,Mexico,vpn824158593.opengw.net189.223.58.202,6,vpn824158593.opengw.net:1272,vpn824158593.opengw.net,1272
-16,Japan,vpn709586669.opengw.net118.106.46.183,6,vpn709586669.opengw.net:1529,vpn709586669.opengw.net,1529
-17,Japan,vpn732944836.opengw.net59.85.103.188,7,vpn732944836.opengw.net:1545,vpn732944836.opengw.net,1545
-18,Japan,vpn827634105.opengw.net122.221.165.227,7,vpn827634105.opengw.net:1680,vpn827634105.opengw.net,1680
-19,Japan,vpn571683071.opengw.net165.100.176.8(165-100-176-8.kanagawa.ap.gmo-isp.jp),8,vpn571683071.opengw.net:1297,vpn571683071.opengw.net,1297
-20,Japan,vpn732375767.opengw.net60.68.10.107,8,vpn732375767.opengw.net:1501,vpn732375767.opengw.net,1501
-21,Japan,vpn743284148.opengw.net124.211.146.144,9,vpn743284148.opengw.net:1201,vpn743284148.opengw.net,1201
-22,Japan,vpn502238747.opengw.net126.123.248.51,9,vpn502238747.opengw.net:1682,vpn502238747.opengw.net,1682
-23,Japan,vpn569777859.opengw.net126.77.114.68,9,vpn569777859.opengw.net:1757,vpn569777859.opengw.net,1757
-24,Japan,public-vpn-145.opengw.net219.100.37.118(public-vpn-08-06.vpngate.v4.open.ad.jp),10,public-vpn-145.opengw.net,public-vpn-145.opengw.net,
-25,Japan,kozakura1234.opengw.net180.1.45.103,10,kozakura1234.opengw.net,kozakura1234.opengw.net,
-26,Japan,vpn123068139.opengw.net92.203.76.41(fp5ccb4c29.fkol001.ap.nuro.jp),10,vpn123068139.opengw.net:1664,vpn123068139.opengw.net,1664
-27,Japan,public-vpn-130.opengw.net219.100.37.90(public-vpn-06-10.vpngate.v4.open.ad.jp),10,public-vpn-130.opengw.net,public-vpn-130.opengw.net,
-28,Japan,vpn673677210.opengw.net126.82.140.109,11,vpn673677210.opengw.net:1882,vpn673677210.opengw.net,1882
-29,Japan,vpn780552999.opengw.net126.109.98.86,12,vpn780552999.opengw.net:1713,vpn780552999.opengw.net,1713
-30,Japan,vpn440665050.opengw.net126.89.201.51,13,vpn440665050.opengw.net:1296,vpn440665050.opengw.net,1296
-31,Japan,public-vpn-187.opengw.net219.100.37.179(public-vpn-12-03.vpngate.v4.open.ad.jp),14,public-vpn-187.opengw.net,public-vpn-187.opengw.net,
-32,Japan,vpn313413917.opengw.net61.213.21.213,15,vpn313413917.opengw.net:1232,vpn313413917.opengw.net,1232
-33,Japan,public-vpn-208.opengw.net219.100.37.166(public-vpn-11-06.vpngate.v4.open.ad.jp),16,public-vpn-208.opengw.net,public-vpn-208.opengw.net,
-34,Japan,vpn894969506.opengw.net133.155.116.75(bai859b744b.bai.ne.jp),16,vpn894969506.opengw.net:1697,vpn894969506.opengw.net,1697
-35,Japan,public-vpn-38.opengw.net219.100.37.2(public-vpn-01-02.vpngate.v4.open.ad.jp),16,public-vpn-38.opengw.net,public-vpn-38.opengw.net,
-36,Japan,public-vpn-206.opengw.net219.100.37.165(public-vpn-11-05.vpngate.v4.open.ad.jp),16,public-vpn-206.opengw.net,public-vpn-206.opengw.net,
-37,Canada,vpn634940349.opengw.net99.255.130.182(cpe1033bfc8feca-cm1033bfc8fec8.cpe.net.cable.rogers.com),18,vpn634940349.opengw.net:1512,vpn634940349.opengw.net,1512
-38,United States,vpn232216409.opengw.net73.192.251.24,18,vpn232216409.opengw.net:1525,vpn232216409.opengw.net,1525
-39,Japan,public-vpn-155.opengw.net219.100.37.110(public-vpn-07-14.vpngate.v4.open.ad.jp),20,public-vpn-155.opengw.net,public-vpn-155.opengw.net,
-40,Viet Nam,vpn611864620.opengw.net42.112.157.7,20,vpn611864620.opengw.net:995,vpn611864620.opengw.net,995
-41,Japan,vpn603930053.opengw.net153.222.236.118,21,vpn603930053.opengw.net:1252,vpn603930053.opengw.net,1252
-42,Korea Republic of,vpn787518350.opengw.net121.174.149.110,22,vpn787518350.opengw.net:995,vpn787518350.opengw.net,995
-43,Korea Republic of,vpn735209276.opengw.net119.201.4.69,23,vpn735209276.opengw.net,vpn735209276.opengw.net,
-44,Korea Republic of,vpn551355761.opengw.net175.200.47.197,23,vpn551355761.opengw.net:1265,vpn551355761.opengw.net,1265
-45,Korea Republic of,vpn890048545.opengw.net211.219.254.42,25,vpn890048545.opengw.net:1489,vpn890048545.opengw.net,1489
-46,Korea Republic of,vpn337816025.opengw.net221.157.12.68,25,vpn337816025.opengw.net:995,vpn337816025.opengw.net,995
-47,Korea Republic of,vpn603793829.opengw.net118.38.31.29,26,vpn603793829.opengw.net:1311,vpn603793829.opengw.net,1311
-48,Korea Republic of,vpn320694097.opengw.net121.146.182.47,26,vpn320694097.opengw.net:995,vpn320694097.opengw.net,995
-49,Korea Republic of,vpn480605180.opengw.net121.175.153.221,26,vpn480605180.opengw.net:995,vpn480605180.opengw.net,995
-50,Viet Nam,vpn568856435.opengw.net1.54.18.5,27,vpn568856435.opengw.net:1585,vpn568856435.opengw.net,1585
-51,Korea Republic of,vpn864873062.opengw.net183.101.181.4,27,vpn864873062.opengw.net:995,vpn864873062.opengw.net,995
-52,Korea Republic of,vpn351780974.opengw.net211.220.8.176,27,vpn351780974.opengw.net:1549,vpn351780974.opengw.net,1549
-53,Korea Republic of,vpn854133748.opengw.net14.56.233.232,27,vpn854133748.opengw.net:1586,vpn854133748.opengw.net,1586
-54,United States,vpn758951896.opengw.net74.207.134.117(117.134.207.74.static.srtnet.com),27,vpn758951896.opengw.net:1738,vpn758951896.opengw.net,1738
-55,Korea Republic of,vpn366178699.opengw.net211.224.242.241,28,vpn366178699.opengw.net:995,vpn366178699.opengw.net,995
-56,Canada,vpn812469564.opengw.net50.99.210.81,28,vpn812469564.opengw.net:1467,vpn812469564.opengw.net,1467
-57,Korea Republic of,vpn496927409.opengw.net39.123.41.234,28,vpn496927409.opengw.net:1372,vpn496927409.opengw.net,1372
-58,Korea Republic of,vpn942117885.opengw.net168.126.148.54,28,vpn942117885.opengw.net:1762,vpn942117885.opengw.net,1762
-59,Korea Republic of,vpn925477529.opengw.net222.237.96.118,29,vpn925477529.opengw.net:1453,vpn925477529.opengw.net,1453
-60,Korea Republic of,vpn708709471.opengw.net220.88.89.140,30,vpn708709471.opengw.net:995,vpn708709471.opengw.net,995
-61,Korea Republic of,vpn289985964.opengw.net121.165.18.58,31,vpn289985964.opengw.net:995,vpn289985964.opengw.net,995
-62,Korea Republic of,vpn396411891.opengw.net218.39.137.52,32,vpn396411891.opengw.net:995,vpn396411891.opengw.net,995
-63,Korea Republic of,vpn937381862.opengw.net1.246.188.33,34,vpn937381862.opengw.net:1253,vpn937381862.opengw.net,1253
-64,Korea Republic of,vpn693929578.opengw.net39.114.254.49,34,vpn693929578.opengw.net:995,vpn693929578.opengw.net,995
-65,Korea Republic of,vpn422364214.opengw.net218.238.133.218,35,vpn422364214.opengw.net:1253,vpn422364214.opengw.net,1253
-66,Korea Republic of,vpn647741191.opengw.net220.127.62.28,36,vpn647741191.opengw.net:995,vpn647741191.opengw.net,995
-67,Korea Republic of,vpn970780334.opengw.net175.117.216.118,36,vpn970780334.opengw.net:1284,vpn970780334.opengw.net,1284
-68,Korea Republic of,vpn699936467.opengw.net106.247.65.135,36,vpn699936467.opengw.net:1317,vpn699936467.opengw.net,1317
-69,Korea Republic of,vpn273241885.opengw.net121.135.188.57,37,vpn273241885.opengw.net:995,vpn273241885.opengw.net,995
-70,Korea Republic of,vpn764936561.opengw.net110.14.24.39,37,vpn764936561.opengw.net:1234,vpn764936561.opengw.net,1234
-71,Korea Republic of,vpn142180822.opengw.net180.231.4.223,37,vpn142180822.opengw.net:995,vpn142180822.opengw.net,995
-72,Germany,vpn744751743.opengw.net92.116.212.198(i5C74D4C6.versanet.de),38,vpn744751743.opengw.net,vpn744751743.opengw.net,
-73,Korea Republic of,vpn988959232.opengw.net124.51.251.194,38,vpn988959232.opengw.net:1683,vpn988959232.opengw.net,1683
-74,Korea Republic of,vpn502115606.opengw.net125.191.143.26,39,vpn502115606.opengw.net:995,vpn502115606.opengw.net,995
-75,Korea Republic of,vpn842618547.opengw.net147.47.144.54,41,vpn842618547.opengw.net:1988,vpn842618547.opengw.net,1988
-76,Japan,vpn374885863.opengw.net116.220.210.116,55,vpn374885863.opengw.net:1370,vpn374885863.opengw.net,1370
+0,Japan,vpn762294076.opengw.net111.217.191.8,3,vpn762294076.opengw.net:1404,vpn762294076.opengw.net,1404
+1,Japan,vpn743901141.opengw.net39.111.108.49,4,vpn743901141.opengw.net:1652,vpn743901141.opengw.net,1652
+2,Japan,vpn484628781.opengw.net106.150.249.101(KD106150249101.ppp-bb.dion.ne.jp),4,vpn484628781.opengw.net:1636,vpn484628781.opengw.net,1636
+3,Japan,vpn326927534.opengw.net126.69.94.17,4,vpn326927534.opengw.net:1617,vpn326927534.opengw.net,1617
+4,Japan,vpn268059341.opengw.net123.48.32.166(123-48-32-166.area7b.commufa.jp),5,vpn268059341.opengw.net:1705,vpn268059341.opengw.net,1705
+5,Japan,vpn715156058.opengw.net122.222.125.254,5,vpn715156058.opengw.net:1943,vpn715156058.opengw.net,1943
+6,Japan,vpn933873384.opengw.net60.126.17.93,6,vpn933873384.opengw.net:1848,vpn933873384.opengw.net,1848
+7,Japan,vpn848243450.opengw.net180.199.30.116,7,vpn848243450.opengw.net:1311,vpn848243450.opengw.net,1311
+8,Japan,vpn149833068.opengw.net160.86.38.21,7,vpn149833068.opengw.net:1420,vpn149833068.opengw.net,1420
+9,Japan,vpn371139516.opengw.net60.99.235.12,8,vpn371139516.opengw.net:1641,vpn371139516.opengw.net,1641
+10,Japan,vpn318568590.opengw.net175.131.94.111,8,vpn318568590.opengw.net:1308,vpn318568590.opengw.net,1308
+11,Japan,public-vpn-145.opengw.net219.100.37.118(public-vpn-08-06.vpngate.v4.open.ad.jp),9,public-vpn-145.opengw.net,public-vpn-145.opengw.net,
+12,Japan,vpn838622014.opengw.net118.157.189.63,10,vpn838622014.opengw.net:1470,vpn838622014.opengw.net,1470
+13,Japan,vpn846081160.opengw.net126.142.60.178,10,vpn846081160.opengw.net:1245,vpn846081160.opengw.net,1245
+14,Japan,vpn748512588.opengw.net126.100.147.66,11,vpn748512588.opengw.net:1534,vpn748512588.opengw.net,1534
+15,Japan,vpn952591769.opengw.net126.54.123.179(softbank126054123179.bbtec.net),12,vpn952591769.opengw.net:1434,vpn952591769.opengw.net,1434
+16,Japan,public-vpn-233.opengw.net219.100.37.156(public-vpn-10-12.vpngate.v4.open.ad.jp),14,public-vpn-233.opengw.net,public-vpn-233.opengw.net,
+17,Japan,public-vpn-153.opengw.net219.100.37.109(public-vpn-07-13.vpngate.v4.open.ad.jp),14,public-vpn-153.opengw.net,public-vpn-153.opengw.net,
+18,Japan,vpn685303626.opengw.net111.97.61.103,15,vpn685303626.opengw.net:1860,vpn685303626.opengw.net,1860
+19,Japan,kozakura1234.opengw.net180.1.45.103,15,kozakura1234.opengw.net,kozakura1234.opengw.net,
+20,Japan,public-vpn-259.opengw.net219.100.37.176(public-vpn-11-16.vpngate.v4.open.ad.jp),15,public-vpn-259.opengw.net,public-vpn-259.opengw.net,
+21,Japan,public-vpn-172.opengw.net219.100.37.138(public-vpn-09-10.vpngate.v4.open.ad.jp),17,public-vpn-172.opengw.net,public-vpn-172.opengw.net,
+22,Japan,vpn992569476.opengw.net49.250.43.60,20,vpn992569476.opengw.net:1468,vpn992569476.opengw.net,1468
+23,United States,vpn684997919.opengw.net73.225.57.23,20,vpn684997919.opengw.net:1373,vpn684997919.opengw.net,1373
+24,Korea Republic of,vpn787518350.opengw.net121.174.149.110,22,vpn787518350.opengw.net:995,vpn787518350.opengw.net,995
+25,Viet Nam,vpn495779383.opengw.net118.71.209.209,22,vpn495779383.opengw.net:1332,vpn495779383.opengw.net,1332
+26,Korea Republic of,vpn741757213.opengw.net221.167.5.181,23,vpn741757213.opengw.net:995,vpn741757213.opengw.net,995
+27,Japan,public-vpn-198.opengw.net219.100.37.178(public-vpn-12-02.vpngate.v4.open.ad.jp),23,public-vpn-198.opengw.net,public-vpn-198.opengw.net,
+28,Germany,vpn744751743.opengw.net92.116.212.198,24,vpn744751743.opengw.net,vpn744751743.opengw.net,
+29,Japan,public-vpn-176.opengw.net219.100.37.136(public-vpn-09-08.vpngate.v4.open.ad.jp),24,public-vpn-176.opengw.net,public-vpn-176.opengw.net,
+30,Korea Republic of,vpn428111840.opengw.net175.200.84.194,25,vpn428111840.opengw.net:1799,vpn428111840.opengw.net,1799
+31,Korea Republic of,vpn923002541.opengw.net221.144.101.48,25,vpn923002541.opengw.net:995,vpn923002541.opengw.net,995
+32,Korea Republic of,vpn276252845.opengw.net221.144.127.42,25,vpn276252845.opengw.net:995,vpn276252845.opengw.net,995
+33,Viet Nam,vpn633188992.opengw.net183.81.51.249,25,vpn633188992.opengw.net:1900,vpn633188992.opengw.net,1900
+34,Viet Nam,vpn508714201.opengw.net42.117.23.90,26,vpn508714201.opengw.net:1440,vpn508714201.opengw.net,1440
+35,Korea Republic of,vpn145087847.opengw.net121.146.8.144,26,vpn145087847.opengw.net:995,vpn145087847.opengw.net,995
+36,Viet Nam,vpn739881300.opengw.net42.118.164.99,27,vpn739881300.opengw.net:1503,vpn739881300.opengw.net,1503
+37,Korea Republic of,vpn402466470.opengw.net211.57.240.158,27,vpn402466470.opengw.net:995,vpn402466470.opengw.net,995
+38,Korea Republic of,vpn696974275.opengw.net110.76.100.238,27,vpn696974275.opengw.net:995,vpn696974275.opengw.net,995
+39,Viet Nam,vpn887309670.opengw.net42.118.94.120,27,vpn887309670.opengw.net:1644,vpn887309670.opengw.net,1644
+40,Korea Republic of,vpn443843801.opengw.net220.123.129.71,27,vpn443843801.opengw.net:995,vpn443843801.opengw.net,995
+41,Japan,vpn577006867.opengw.net59.140.226.143,27,vpn577006867.opengw.net:1955,vpn577006867.opengw.net,1955
+42,Korea Republic of,vpn688405033.opengw.net119.194.195.52,28,vpn688405033.opengw.net:1353,vpn688405033.opengw.net,1353
+43,Korea Republic of,vpn393077248.opengw.net218.156.75.193,28,vpn393077248.opengw.net:1823,vpn393077248.opengw.net,1823
+44,Korea Republic of,vpn397468161.opengw.net175.196.146.233,28,vpn397468161.opengw.net:995,vpn397468161.opengw.net,995
+45,Thailand,vpn732079531.opengw.net58.136.189.73,28,vpn732079531.opengw.net:1816,vpn732079531.opengw.net,1816
+46,Korea Republic of,vpn665343211.opengw.net14.46.45.8,29,vpn665343211.opengw.net:1794,vpn665343211.opengw.net,1794
+47,Korea Republic of,vpn563951535.opengw.net1.240.122.238,29,vpn563951535.opengw.net:1759,vpn563951535.opengw.net,1759
+48,Korea Republic of,vpn783706956.opengw.net218.148.58.176,29,vpn783706956.opengw.net:995,vpn783706956.opengw.net,995
+49,Korea Republic of,vpn904757955.opengw.net121.146.230.245,29,vpn904757955.opengw.net:995,vpn904757955.opengw.net,995
+50,Korea Republic of,vpn397399001.opengw.net61.77.222.89,29,vpn397399001.opengw.net:1306,vpn397399001.opengw.net,1306
+51,Korea Republic of,vpn443644656.opengw.net221.155.183.136,30,vpn443644656.opengw.net:995,vpn443644656.opengw.net,995
+52,Korea Republic of,vpn417834023.opengw.net1.228.156.4,30,vpn417834023.opengw.net:995,vpn417834023.opengw.net,995
+53,Korea Republic of,vpn682567521.opengw.net125.133.192.47,30,vpn682567521.opengw.net:995,vpn682567521.opengw.net,995
+54,Korea Republic of,vpn559026359.opengw.net222.111.63.28,30,vpn559026359.opengw.net:1659,vpn559026359.opengw.net,1659
+55,Korea Republic of,vpn485805007.opengw.net125.140.219.134,31,vpn485805007.opengw.net:1923,vpn485805007.opengw.net,1923
+56,Korea Republic of,vpn138541234.opengw.net59.14.215.208,31,vpn138541234.opengw.net:995,vpn138541234.opengw.net,995
+57,Korea Republic of,vpn991643888.opengw.net211.243.25.97,31,vpn991643888.opengw.net:1656,vpn991643888.opengw.net,1656
+58,Korea Republic of,vpn277478068.opengw.net211.228.24.174,31,vpn277478068.opengw.net:995,vpn277478068.opengw.net,995
+59,Korea Republic of,vpn538527421.opengw.net118.42.253.194,31,vpn538527421.opengw.net:1840,vpn538527421.opengw.net,1840
+60,Korea Republic of,vpn689936704.opengw.net118.221.152.7,32,vpn689936704.opengw.net:1577,vpn689936704.opengw.net,1577
+61,Korea Republic of,vpn307241133.opengw.net110.14.87.144,32,vpn307241133.opengw.net:1650,vpn307241133.opengw.net,1650
+62,Korea Republic of,vpn545333652.opengw.net211.47.118.250,33,vpn545333652.opengw.net:995,vpn545333652.opengw.net,995
+63,Korea Republic of,vpn886469970.opengw.net218.238.88.225,34,vpn886469970.opengw.net:995,vpn886469970.opengw.net,995
+64,Korea Republic of,vpn640113747.opengw.net58.229.146.72,34,vpn640113747.opengw.net:1266,vpn640113747.opengw.net,1266
+65,Korea Republic of,vpn329354508.opengw.net222.233.187.211,34,vpn329354508.opengw.net:995,vpn329354508.opengw.net,995
+66,Korea Republic of,vpn726514224.opengw.net124.28.172.18,36,vpn726514224.opengw.net:1501,vpn726514224.opengw.net,1501
+67,Korea Republic of,vpn686650841.opengw.net14.52.64.45,36,vpn686650841.opengw.net:995,vpn686650841.opengw.net,995
+68,Korea Republic of,vpn910330456.opengw.net122.38.184.181,37,vpn910330456.opengw.net:1566,vpn910330456.opengw.net,1566
+69,Korea Republic of,vpn754862961.opengw.net121.130.190.165,37,vpn754862961.opengw.net:995,vpn754862961.opengw.net,995
+70,Korea Republic of,vpn745454457.opengw.net182.226.211.133,39,vpn745454457.opengw.net:995,vpn745454457.opengw.net,995
+71,Korea Republic of,vpn165253756.opengw.net210.220.14.11,40,vpn165253756.opengw.net:995,vpn165253756.opengw.net,995
+72,Korea Republic of,vpn965050303.opengw.net112.148.182.181,46,vpn965050303.opengw.net:1959,vpn965050303.opengw.net,1959
+73,Korea Republic of,vpn512979412.opengw.net49.171.39.73,63,vpn512979412.opengw.net:1560,vpn512979412.opengw.net,1560
