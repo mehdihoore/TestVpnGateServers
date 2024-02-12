@@ -118,7 +118,7 @@ def send_server_list(bot):
     except:
             print('can not send')
     iphon = 'https://tinyurl.com/ytagcjv6'
-    warplearn = 
+    warplearn = 'https://tinyurl.com/ynbz9z2a'
     v2raylearn = 'https://tinyurl.com/ylfe7tpc'
     
     
