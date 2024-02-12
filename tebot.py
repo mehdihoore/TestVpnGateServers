@@ -71,9 +71,8 @@ def get_v2ray_data():
 
     return v2ray_links
 def warpplus():
-    warplinks = {
-        'نرم افزار warp با اسم Oblivion برای اندروید ساخته شد از لینک زیر دانلود کنید. ': 'https://github.com/bepass-org/oblivion/releases/download/v0.0.5-test/app-release-unsigned-signed.apk',
-  'لیست کشورها (دو حرفی ) در لینک .خواستی لوکیشن رو عوض کنی از طریق تنظیمات، سایفون رو فعال کنید.':'https://github.com/Ptechgithub/wireguard-go'
+    warplinks = {'نرم افزار warp با اسم Oblivion برای اندروید ساخته شد از لینک زیر دانلود کنید. ': 'https://github.com/bepass-org/oblivion/releases/download/v0.0.5-test/app-release-unsigned-signed.apk',
+                 'لیست کشورها (دو حرفی ) در لینک .خواستی لوکیشن رو عوض کنی از طریق تنظیمات، سایفون رو فعال کنید.':'https://github.com/Ptechgithub/wireguard-go',
     }
     if warplinks is None:
         warplinks = {}
