@@ -64,6 +64,7 @@ def get_v2ray_data():
         'mahdibland Github': 'https://github.com/mahdibland/V2RayAggregator',
         ' اندروید کلاینت V2ray ': 'https://play.google.com/store/apps/details?id=com.v2ray.ang',
         'کلاینت SSTP': 'https://play.google.com/store/apps/details?id=it.colucciweb.vpnclientpro&pcampaignid=web_share',
+         'Oblivion وارپ جدید': 'https://github.com/bepass-org/oblivion/releases/download/v0.0.5-test/app-release-unsigned-signed.apk'
     }
     if v2ray_links is None:
         v2ray_links = {}
@@ -71,12 +72,8 @@ def get_v2ray_data():
     return v2ray_links
 def warpplus():
     warplinks = {
-        'برنامه وارپ را دانلود کنید android:': 'https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone',
-        'به این ربات تلگرامی بروید و دستور /generate را بزنید ':'https://t.me/generatewarpplusbot',
-        'شکل پاسخ به سوال: /generate 123  لینک ویديوی آموزشی:':'https://youtu.be/1X-yAbR8plM',
-        'windows app': 'https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-windows-1/distribution_groups/release',
-        'ios app': 'https://apps.apple.com/us/app/cloudflare-one-agent/id6443476492',
-        'linux app' : 'https://pkg.cloudflareclient.com/'    
+        'نرم افزار warp با اسم Oblivion برای اندروید ساخته شد از لینک زیر دانلود کنید. ': 'https://github.com/bepass-org/oblivion/releases/download/v0.0.5-test/app-release-unsigned-signed.apk',
+  'لیست کشورها (دو حرفی ) در لینک .خواستی لوکیشن رو عوض کنی از طریق تنظیمات، سایفون رو فعال کنید.':'https://github.com/Ptechgithub/wireguard-go'
     }
     if warplinks is None:
         warplinks = {}
@@ -122,7 +119,7 @@ def send_server_list(bot):
     except:
             print('can not send')
     iphon = 'https://tinyurl.com/ytagcjv6'
-    warplearn = 'https://tinyurl.com/ynbz9z2a'
+    warplearn = 
     v2raylearn = 'https://tinyurl.com/ylfe7tpc'
     
     
@@ -149,7 +146,7 @@ def send_server_list(bot):
     # Get the latest APK version and download URL
 
     additional_file_urls = [
-        'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1.apk',
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.7-beta/Invizible_Pro__beta_ver.2.0.7.apk',
         
     ]
     additional_file_names = ['Invizible_Pro__beta_ver.2.0.1.apk',
@@ -283,20 +280,17 @@ def start(update: Update, context: CallbackContext):
     # Get the latest APK version and download URL
 
     additional_file_urls = [
-        'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1.apk',
-        'https://github.com/Gedsh/InviZible/releases/download/v2.0.1-beta/Invizible_Pro__beta_ver.2.0.1_arm64.apk'
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.7-beta/Invizible_Pro__beta_ver.2.0.7.apk',
+        'https://github.com/Gedsh/InviZible/releases/download/v2.0.7-beta/Invizible_Pro__beta_ver.2.0.7_arm64.apk'
     ]
-    additional_file_names = ['Invizible_Pro__beta_ver.2.0.1.apk',
-        'Invizible_Pro__beta_ver.2.0.1_arm64.apk'
+    additional_file_names = ['Invizible_Pro__beta_ver.2.0.7.apk',
+        'Invizible_Pro__beta_ver.2.0.7_arm64.apk'
     ]
     tt = '''
-•	تور به نسخه 4.8.7 بروز شد
-•	پرپل آی۲پی به نسخه 2.49.0 بروز شد
-•	اتصال پل اسنوفلیک آپدیت شد
-•	اضافه کردن پل‌های جدید اسنوفلیک آپدیت شد
-•	اتصال پل کانجر آپدیت شد
-•	تعمیرات و بهینه‌سازی‌ها
-
+•	Various fixes to save battery power when network is unavailable.
+•	Added DormantClientTimeout option to Tor settings.
+•	Updated Tor Snowflake bridge to version v2.9.0.
+•	Fixes and optimizations.
     '''
 
     for link in links:
