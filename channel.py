@@ -132,16 +132,14 @@ def send_server_list(bot_token, chat_id):
 
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
     send_document(chat_id, "sstp.csv",f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}')
-    proxi = rs.get(
-        'https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/proxies')
+    proxi = rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/proxies')
 
     soup = BeautifulSoup(proxi.content, "html.parser")
     mtprototext = soup.get_text()
     with open("mtproto.txt", "w") as f:
         f.write(mtprototext)
 
-    send_document(chat_id, 'mtproto.txt',
-                  f'پروکسی تلگرام \n https://mtproto.sabaat.ir/\n - {persian_date}')
+    send_document(chat_id, 'mtproto.txt', f'پروکسی تلگرام \n https://mtproto.sabaat.ir/\n - {persian_date}')
 
     try:
         response = rs.get(
@@ -173,8 +171,7 @@ def send_server_list(bot_token, chat_id):
             file_name = f'{link.split("/")[-1]}.txt'
             with open(file_name, 'w') as f:
                 f.write(content)
-            send_document(chat_id, file_name, f'{
-                          persian_date} \n{name}\n {link}')
+            send_document(chat_id, file_name, f'برای استفاده در برنامه‌های v2ray \n{persian_date} \n{name}\n {link}')
         except rs.exceptions.RequestException as e:
             logging.error(f"Error retrieving {link}: {e}")
         except UnicodeEncodeError as e:
