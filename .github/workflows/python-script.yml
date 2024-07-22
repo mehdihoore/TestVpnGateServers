@@ -22,7 +22,7 @@ jobs:
         run: |
           python sstpTableWithSpeddtest.py
           python chsangeHTML.py
-          python tebot.py
+          python channel.py
           git config --global user.email "mehdi.hoore@gmail.com"
           git config --global user.name "mehdihoore"
           git add -A
