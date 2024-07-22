@@ -44,29 +44,28 @@ def get_latest_oblivion_apk():
     if response.status_code != 200:
         logging.error(f'Failed to fetch the latest release page. Status code: {
                       response.status_code}')
-        return None
+        return None, None
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Find the specific breadcrumb item
     breadcrumb_item = soup.find(
         'li', class_='breadcrumb-item breadcrumb-item-selected')
     if not breadcrumb_item:
         logging.error('No breadcrumb item found in the latest release.')
-        return None
+        return None, None
 
     release_tag = breadcrumb_item.find('a')['href']
-    release_url = f'https://github.com{release_tag}'.replace('tag', 'expanded_assets')
+    release_url = f'https://github.com{
+        release_tag}'.replace('tag', 'expanded_assets')
 
     response = rs.get(release_url)
     if response.status_code != 200:
         logging.error(f'Failed to fetch the release page. Status code: {
                       response.status_code}')
-        return None
+        return None, None
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Find the APK link
     apk_link = None
     for div in soup.find_all('div', class_='d-flex flex-justify-start col-12 col-lg-9'):
         a_tag = div.find('a', href=True)
@@ -76,7 +75,7 @@ def get_latest_oblivion_apk():
 
     if not apk_link:
         logging.error('No APK file found in the latest release.')
-        return None
+        return None, None
 
     logging.info(f'APK URL: {apk_link}')
 
@@ -84,20 +83,25 @@ def get_latest_oblivion_apk():
     if response.status_code != 200:
         logging.error(f'Failed to download the APK file. Status code: {
                       response.status_code}')
-        return None
+        return None, None
 
     apk_filename = os.path.basename(a_tag['href'])
     with open(apk_filename, 'wb') as f:
         f.write(response.content)
 
     logging.info(f'APK file downloaded: {apk_filename}')
-    return apk_filename
+    return apk_filename, apk_link
+
+
+apk_filename, apk_link = get_latest_oblivion_apk()
 
 
 def send_apk_to_telegram_channel(apk_filename, bot_token, chat_id):
+    persian_date = get_persian_date_time()
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
     files = {'document': open(apk_filename, 'rb')}
-    data = {'chat_id': chat_id}
+    data = {'chat_id': chat_id,
+            'caption': f"\n {apk_link}\n{persian_date}\n برنامه oblivion جایگزین وارپ"}
 
     response = rs.post(url, files=files, data=data)
     if response.status_code == 200:
@@ -105,6 +109,7 @@ def send_apk_to_telegram_channel(apk_filename, bot_token, chat_id):
     else:
         logging.error(f'Failed to send APK file. Status code: {
                       response.status_code}, Response: {response.text}')
+
 
 def get_v2ray_data():
     v2ray_links = {
@@ -114,13 +119,13 @@ def get_v2ray_data():
         'mahdibland Github': 'https://github.com/mahdibland/V2RayAggregator',
         ' اندروید کلاینت V2ray ': 'https://play.google.com/store/apps/details?id=com.v2ray.ang',
         'کلاینت SSTP': 'https://play.google.com/store/apps/details?id=it.colucciweb.vpnclientpro&pcampaignid=web_share',
-        'Oblivion وارپ جدید': 'https://github.com/bepass-org/oblivion/releases/download/v0.0.5-test/app-release-unsigned-signed.apk'
+        'Oblivion وارپ جدید': apk_link
     }
     return v2ray_links
 
 
 def warpplus():
-    warplinks = {'نرم افزار warp با اسم Oblivion برای اندروید ساخته شد از لینک زیر دانلود کنید. ': 'https://github.com/bepass-org/oblivion/releases/download/v0.0.5-test/app-release-unsigned-signed.apk',
+    warplinks = {'نرم افزار warp با اسم Oblivion برای اندروید ساخته شد از لینک زیر دانلود کنید. ': apk_link,
                  'لیست کشورها (دو حرفی ) در لینک .خواستی لوکیشن رو عوض کنی از طریق تنظیمات، سایفون رو فعال کنید.': 'https://github.com/Ptechgithub/wireguard-go',
                  }
     return warplinks
@@ -132,7 +137,7 @@ def send_server_list(bot_token, chat_id):
     warplink = warpplus()
 
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
-    send_document(chat_id, 'sstps.csv',
+    send_document(chat_id, "sstp.csv",
                   f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}')
     proxi = rs.get(
         'https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/proxies')
@@ -147,16 +152,16 @@ def send_server_list(bot_token, chat_id):
 
     try:
         response = rs.get(
-            'https://github.com/2dust/v2flyNG/releases/download/1.7.19/v2flyNG_1.7.19.apk')
-        with open('v2flyNG_1.7.19.apk', 'wb') as f:
+            'https://github.com/2dust/v2rayNG/releases/download/1.8.28/v2rayNG_1.8.28_universal.apk')
+        with open('v2rayNG_1.8.28_universal.apk', 'wb') as f:
             f.write(response.content)
-        send_document(chat_id, 'v2flyNG_1.7.19.apk',
+        send_document(chat_id, 'v2rayNG_1.8.28_universal.apk',
                       f'برنامه‌ای سریع و ساده برای اجرای سورهای v2ray\nاین برنامه را نصب کنید و سپس یکی از فایلهای .txt را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید.\n - {persian_date}')
     except:
-        logging.error('Cannot send v2flyNG_1.7.19.apk')
+        logging.error('Cannot send v2rayNG_1.8.28_universal.apk')
 
     links = [
-        'https://link.mehdi-hoore.workers.dev/sub/f.sabaat.link',
+        'https://vl.sabaat.ir/sub',
         'https://fin.hore.workers.dev/sub/fin.sabaat.ir',
         'https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_base64.txt',
         'https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt',
@@ -229,8 +234,8 @@ if __name__ == '__main__':
     bot_token = '6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A'
     chat_id = '@SSTPV2RAY'
 
-    apk_filename = get_latest_oblivion_apk()
-    if apk_filename:
+    apk_filename, apk_link = get_latest_oblivion_apk()
+    if apk_filename and apk_link:
         send_apk_to_telegram_channel(apk_filename, bot_token, chat_id)
         os.remove(apk_filename)
 
