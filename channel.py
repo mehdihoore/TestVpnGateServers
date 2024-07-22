@@ -121,8 +121,7 @@ def get_latest_v2ray_apk():
         return None, None
 
     release_tag = release_tag_element['href']
-    release_url = f'https://github.com{
-        release_tag}'.replace('/tag/', '/expanded_assets/')
+    release_url = f'https://github.com{release_tag}'.replace('/tag/', '/expanded_assets/')
 
     response = rs.get(release_url)
     if response.status_code != 200:
@@ -131,37 +130,37 @@ def get_latest_v2ray_apk():
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    apk_link = None
-    priorities = ['universal', 'arm64-v8a', 'armeabi-v7a', 'x86_64', 'x86']
+    apkv2ray_link = None
+    priorities = ['universal']
 
     for priority in priorities:
         for a_tag in soup.find_all('a', href=True):
             if a_tag['href'].endswith('.apk') and priority in a_tag['href'].lower():
-                apk_link = 'https://github.com' + a_tag['href']
+                apkv2ray_link = 'https://github.com' + a_tag['href']
                 break
         if apk_link:
             break
 
-    if not apk_link:
+    if not apkv2ray_link:
         # If no prioritized APK found, fall back to any APK
         for a_tag in soup.find_all('a', href=True):
             if a_tag['href'].endswith('.apk'):
-                apk_link = 'https://github.com' + a_tag['href']
+                apkv2ray_link = 'https://github.com' + a_tag['href']
                 break
 
-    if not apk_link:
+    if not apkv2ray_link:
         logging.error('No APK file found in the latest release.')
         return None, None
 
-    logging.info(f'APK URL: {apk_link}')
+    logging.info(f'APK URL: {apkv2ray_link}')
 
-    response = rs.get(apk_link)
+    response = rs.get(apkv2ray_link)
     if response.status_code != 200:
         logging.error(f'Failed to download the APK file. Status code: {response.status_code}')
         return None, None
 
-    apkv2ray_filename = os.path.basename(apk_link)
-    apkv2ray_link = apk_link
+    apkv2ray_filename = os.path.basename(apkv2ray_link)
+    
     with open(apkv2ray_filename, 'wb') as f:
         f.write(response.content)
 
