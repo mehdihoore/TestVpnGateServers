@@ -172,7 +172,7 @@ def get_latest_v2ray_apk():
 apkv2ray_filename, apkv2ray_link = get_latest_v2ray_apk()
 
 
-def send_apkv2ray_to_telegram_channel(apk_filename, bot_token, chat_id):
+def send_apkv2ray_to_telegram_channel(apkv2ray_filename, bot_token, chat_id):
     persian_date = get_persian_date_time()
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
     files = {'document': open(apkv2ray_filename, 'rb')}
@@ -299,8 +299,8 @@ if __name__ == '__main__':
         send_apk_to_telegram_channel(apk_filename, bot_token, chat_id)
         os.remove(apk_filename)
     if apkv2ray_filename and apkv2ray_link:
-        send_apk_to_telegram_channel(apkv2ray_filename, bot_token, chat_id)
-        os.remove(apk_filename)
+        send_apkv2ray_to_telegram_channel(apkv2ray_filename, bot_token, chat_id)
+        os.remove(apkv2ray_filename)
 
     send_server_list(bot_token, chat_id)
 
