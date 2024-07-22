@@ -132,7 +132,7 @@ def send_server_list(bot_token, chat_id):
     warplink = warpplus()
 
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
-    send_document(chat_id, r"F:\Code\sstp.csv",
+    send_document(chat_id, 'sstps.csv',
                   f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}')
     proxi = rs.get(
         'https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/proxies')
