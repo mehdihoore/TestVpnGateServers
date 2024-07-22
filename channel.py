@@ -42,8 +42,7 @@ def get_latest_oblivion_apk():
     response = rs.get(url)
 
     if response.status_code != 200:
-        logging.error(f'Failed to fetch the latest release page. Status code: {
-                      response.status_code}')
+        logging.error(f'Failed to fetch the latest release page. Status code: {response.status_code}')
         return None, None
 
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -55,13 +54,11 @@ def get_latest_oblivion_apk():
         return None, None
 
     release_tag = breadcrumb_item.find('a')['href']
-    release_url = f'https://github.com{
-        release_tag}'.replace('tag', 'expanded_assets')
+    release_url = f'https://github.com{release_tag}'.replace('tag', 'expanded_assets')
 
     response = rs.get(release_url)
     if response.status_code != 200:
-        logging.error(f'Failed to fetch the release page. Status code: {
-                      response.status_code}')
+        logging.error(f'Failed to fetch the release page. Status code: {response.status_code}')
         return None, None
 
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -81,8 +78,7 @@ def get_latest_oblivion_apk():
 
     response = rs.get(apk_link)
     if response.status_code != 200:
-        logging.error(f'Failed to download the APK file. Status code: {
-                      response.status_code}')
+        logging.error(f'Failed to download the APK file. Status code: {response.status_code}')
         return None, None
 
     apk_filename = os.path.basename(a_tag['href'])
@@ -100,15 +96,13 @@ def send_apk_to_telegram_channel(apk_filename, bot_token, chat_id):
     persian_date = get_persian_date_time()
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
     files = {'document': open(apk_filename, 'rb')}
-    data = {'chat_id': chat_id,
-            'caption': f"\n {apk_link}\n{persian_date}\n برنامه oblivion جایگزین وارپ"}
+    data = {'chat_id': chat_id,'caption': f"\n {apk_link}\n{persian_date}\n برنامه oblivion جایگزین وارپ"}
 
     response = rs.post(url, files=files, data=data)
     if response.status_code == 200:
         logging.info('APK file sent successfully.')
     else:
-        logging.error(f'Failed to send APK file. Status code: {
-                      response.status_code}, Response: {response.text}')
+        logging.error(f'Failed to send APK file. Status code: {response.status_code}, Response: {response.text}')
 
 
 def get_v2ray_data():
@@ -137,8 +131,7 @@ def send_server_list(bot_token, chat_id):
     warplink = warpplus()
 
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
-    send_document(chat_id, "sstp.csv",
-                  f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}')
+    send_document(chat_id, "sstp.csv",f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}')
     proxi = rs.get(
         'https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/proxies')
 
@@ -171,8 +164,7 @@ def send_server_list(bot_token, chat_id):
         'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt'
     ]
 
-    names = ['Worker .ir', 'Worker .link', 'mahdibland Base64', 'mahdibland MIX',
-             'mahdibland ssr', 'mahdibland ss', 'mahdibland trojan', 'mahdibland vmess']
+    names = ['Worker .ir', 'Worker .link', 'mahdibland Base64', 'mahdibland MIX', 'mahdibland ssr', 'mahdibland ss', 'mahdibland trojan', 'mahdibland vmess']
 
     for link, name in zip(links, names):
         try:
@@ -213,8 +205,7 @@ def send_document(chat_id, document_path, caption):
     if response.status_code == 200:
         logging.info(f'Document {document_path} sent successfully.')
     else:
-        logging.error(f'Failed to send document {document_path}. Status code: {
-                      response.status_code}, Response: {response.text}')
+        logging.error(f'Failed to send document {document_path}. Status code: {response.status_code}, Response: {response.text}')
 
 
 def send_message(chat_id, text, reply_markup=None):
@@ -226,8 +217,7 @@ def send_message(chat_id, text, reply_markup=None):
     if response.status_code == 200:
         logging.info('Message sent successfully.')
     else:
-        logging.error(f'Failed to send message. Status code: {
-                      response.status_code}, Response: {response.text}')
+        logging.error(f'Failed to send message. Status code: {response.status_code}, Response: {response.text}')
 
 
 if __name__ == '__main__':
