@@ -104,6 +104,86 @@ def send_apk_to_telegram_channel(apk_filename, bot_token, chat_id):
     else:
         logging.error(f'Failed to send APK file. Status code: {response.status_code}, Response: {response.text}')
 
+def get_latest_v2ray_apk():
+    url = 'https://github.com/2dust/v2rayNG/releases/'
+    response = rs.get(url)
+
+    if response.status_code != 200:
+        logging.error(f'Failed to fetch the latest release page. Status code: {response.status_code}')
+        return None, None
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    release_tag_element = soup.find(
+        'a', class_='Link--primary', href=lambda href: href and '/releases/tag/' in href)
+    if not release_tag_element:
+        logging.error('No release tag found in the latest release.')
+        return None, None
+
+    release_tag = release_tag_element['href']
+    release_url = f'https://github.com{
+        release_tag}'.replace('/tag/', '/expanded_assets/')
+
+    response = rs.get(release_url)
+    if response.status_code != 200:
+        logging.error(f'Failed to fetch the release page. Status code: {response.status_code}')
+        return None, None
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    apk_link = None
+    priorities = ['universal', 'arm64-v8a', 'armeabi-v7a', 'x86_64', 'x86']
+
+    for priority in priorities:
+        for a_tag in soup.find_all('a', href=True):
+            if a_tag['href'].endswith('.apk') and priority in a_tag['href'].lower():
+                apk_link = 'https://github.com' + a_tag['href']
+                break
+        if apk_link:
+            break
+
+    if not apk_link:
+        # If no prioritized APK found, fall back to any APK
+        for a_tag in soup.find_all('a', href=True):
+            if a_tag['href'].endswith('.apk'):
+                apk_link = 'https://github.com' + a_tag['href']
+                break
+
+    if not apk_link:
+        logging.error('No APK file found in the latest release.')
+        return None, None
+
+    logging.info(f'APK URL: {apk_link}')
+
+    response = rs.get(apk_link)
+    if response.status_code != 200:
+        logging.error(f'Failed to download the APK file. Status code: {response.status_code}')
+        return None, None
+
+    apkv2ray_filename = os.path.basename(apk_link)
+    apkv2ray_link = apk_link
+    with open(apkv2ray_filename, 'wb') as f:
+        f.write(response.content)
+
+    logging.info(f'APK file downloaded: {apkv2ray_filename}')
+    return apkv2ray_filename, apkv2ray_link
+
+
+apkv2ray_filename, apkv2ray_link = get_latest_v2ray_apk()
+
+
+def send_apkv2ray_to_telegram_channel(apk_filename, bot_token, chat_id):
+    persian_date = get_persian_date_time()
+    url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
+    files = {'document': open(apkv2ray_filename, 'rb')}
+    data = {'chat_id': chat_id,
+            'caption': f"\n {apkv2ray_link}\n{persian_date}\n برنامه‌ای سریع و ساده برای اجرای سورهای v2ray\nاین برنامه را نصب کنید و سپس یکی از فایلهای .txt را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید. "}
+
+    response = rs.post(url, files=files, data=data)
+    if response.status_code == 200:
+        logging.info('APK file sent successfully.')
+    else:
+        logging.error(f'Failed to send APK file. Status code: {response.status_code}, Response: {response.text}')
 
 def get_v2ray_data():
     v2ray_links = {
@@ -141,15 +221,6 @@ def send_server_list(bot_token, chat_id):
 
     send_document(chat_id, 'mtproto.txt', f'پروکسی تلگرام \n https://mtproto.sabaat.ir/\n - {persian_date}')
 
-    try:
-        response = rs.get(
-            'https://github.com/2dust/v2rayNG/releases/download/1.8.28/v2rayNG_1.8.28_universal.apk')
-        with open('v2rayNG_1.8.28_universal.apk', 'wb') as f:
-            f.write(response.content)
-        send_document(chat_id, 'v2rayNG_1.8.28_universal.apk',
-                      f'برنامه‌ای سریع و ساده برای اجرای سورهای v2ray\nاین برنامه را نصب کنید و سپس یکی از فایلهای .txt را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید.\n - {persian_date}')
-    except:
-        logging.error('Cannot send v2rayNG_1.8.28_universal.apk')
 
     links = [
         'https://vl.sabaat.ir/sub',
@@ -221,9 +292,14 @@ if __name__ == '__main__':
     bot_token = '6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A'
     chat_id = '@SSTPV2RAY'
 
+    
+    apkv2ray_filename, apkv2ray_link = get_latest_v2ray_apk()
     apk_filename, apk_link = get_latest_oblivion_apk()
     if apk_filename and apk_link:
         send_apk_to_telegram_channel(apk_filename, bot_token, chat_id)
+        os.remove(apk_filename)
+    if apkv2ray_filename and apkv2ray_link:
+        send_apk_to_telegram_channel(apkv2ray_filename, bot_token, chat_id)
         os.remove(apk_filename)
 
     send_server_list(bot_token, chat_id)
