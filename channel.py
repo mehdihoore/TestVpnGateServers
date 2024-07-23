@@ -141,8 +141,7 @@ def get_latest_v2ray_apk():
         return None, None
 
     release_tag = release_tag_element['href']
-    release_url = f'https://github.com{
-        release_tag}'.replace('/tag/', '/expanded_assets/')
+    release_url = f'https://github.com{release_tag}'.replace('/tag/', '/expanded_assets/')
 
     response = rs.get(release_url)
     if response.status_code != 200:
