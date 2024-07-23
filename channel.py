@@ -9,11 +9,16 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import pytz
 from time import sleep
 import re
+from requests.exceptions import RequestException, SSLError
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
+
+
+def get_file_size(file_path):
+    return os.path.getsize(file_path) / (1024 * 1024)  # Size in MB
 
 
 def get_persian_date_time():
@@ -30,10 +35,8 @@ def get_persian_date_time():
         hour -= 24
 
     nowp = jdatetime.datetime.now()
-    nowt = datetime.datetime(now.year, now.month, now.day,
-                             hour, minute, now.second, now.microsecond)
-    persian_date_time = nowp.strftime(
-        "%A, %d %B %Y ") + nowt.strftime("%H:%M:%S")
+    nowt = datetime.datetime(now.year, now.month, now.day,hour, minute, now.second, now.microsecond)
+    persian_date_time = nowp.strftime("%A, %d %B %Y ") + nowt.strftime("%H:%M:%S")
     return persian_date_time
 
 
@@ -76,12 +79,18 @@ def get_latest_oblivion_apk():
 
     logging.info(f'APK URL: {apk_link}')
 
+    apk_filename = os.path.basename(a_tag['href'])
+
+    # Check if file already exists
+    if os.path.exists(apk_filename):
+        logging.info(f'APK file already exists: {apk_filename}')
+        return apk_filename, apk_link
+
     response = rs.get(apk_link)
     if response.status_code != 200:
         logging.error(f'Failed to download the APK file. Status code: {response.status_code}')
         return None, None
 
-    apk_filename = os.path.basename(a_tag['href'])
     with open(apk_filename, 'wb') as f:
         f.write(response.content)
 
@@ -95,14 +104,25 @@ apk_filename, apk_link = get_latest_oblivion_apk()
 def send_apk_to_telegram_channel(apk_filename, bot_token, chat_id):
     persian_date = get_persian_date_time()
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
+
+    if get_file_size(apk_filename) > 50:  # Adjust 50 MB limit as necessary
+        logging.info(
+            f'File size {apk_filename} is too large. Sending link instead.')
+        send_message(chat_id, f"\n {apk_link}\n{persian_date}\n برنامه oblivion جایگزین وارپ")
+        return
+
     files = {'document': open(apk_filename, 'rb')}
-    data = {'chat_id': chat_id,'caption': f"\n {apk_link}\n{persian_date}\n برنامه oblivion جایگزین وارپ"}
+    data = {'chat_id': chat_id,
+            'caption': f"\n {apk_link}\n{persian_date}\n برنامه oblivion جایگزین وارپ"}
 
     response = rs.post(url, files=files, data=data)
     if response.status_code == 200:
         logging.info('APK file sent successfully.')
     else:
         logging.error(f'Failed to send APK file. Status code: {response.status_code}, Response: {response.text}')
+        send_message(chat_id, f"\n {apk_link}\n{persian_date}\n برنامه oblivion جایگزین وارپ")
+    files['document'].close()
+
 
 def get_latest_v2ray_apk():
     url = 'https://github.com/2dust/v2rayNG/releases/'
@@ -121,7 +141,8 @@ def get_latest_v2ray_apk():
         return None, None
 
     release_tag = release_tag_element['href']
-    release_url = f'https://github.com{release_tag}'.replace('/tag/', '/expanded_assets/')
+    release_url = f'https://github.com{
+        release_tag}'.replace('/tag/', '/expanded_assets/')
 
     response = rs.get(release_url)
     if response.status_code != 200:
@@ -138,7 +159,7 @@ def get_latest_v2ray_apk():
             if a_tag['href'].endswith('.apk') and priority in a_tag['href'].lower():
                 apkv2ray_link = 'https://github.com' + a_tag['href']
                 break
-        if apk_link:
+        if apkv2ray_link:
             break
 
     if not apkv2ray_link:
@@ -154,13 +175,18 @@ def get_latest_v2ray_apk():
 
     logging.info(f'APK URL: {apkv2ray_link}')
 
+    apkv2ray_filename = os.path.basename(apkv2ray_link)
+
+    # Check if file already exists
+    if os.path.exists(apkv2ray_filename):
+        logging.info(f'APK file already exists: {apkv2ray_filename}')
+        return apkv2ray_filename, apkv2ray_link
+
     response = rs.get(apkv2ray_link)
     if response.status_code != 200:
         logging.error(f'Failed to download the APK file. Status code: {response.status_code}')
         return None, None
 
-    apkv2ray_filename = os.path.basename(apkv2ray_link)
-    
     with open(apkv2ray_filename, 'wb') as f:
         f.write(response.content)
 
@@ -168,21 +194,39 @@ def get_latest_v2ray_apk():
     return apkv2ray_filename, apkv2ray_link
 
 
+session = rs.Session()
 apkv2ray_filename, apkv2ray_link = get_latest_v2ray_apk()
 
 
-def send_apkv2ray_to_telegram_channel(apkv2ray_filename, bot_token, chat_id):
+def send_apkv2ray_to_telegram_channel(apkv2ray_filename, bot_token, chat_id, max_retries=3):
     persian_date = get_persian_date_time()
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
+
+    if get_file_size(apkv2ray_filename) > 50:  # Adjust 50 MB limit as necessary
+        logging.info(f'File size {apkv2ray_filename} is too large. Sending link instead.')
+        send_message(chat_id, f"\n {apkv2ray_link}\n{persian_date}\n برنامه‌ای سریع و ساده برای اجرای سرورهای v2ray\nاین برنامه را نصب کنید و سپس یکی از فایلهای .txt را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید. ")
+
+        return
+
     files = {'document': open(apkv2ray_filename, 'rb')}
     data = {'chat_id': chat_id,
-            'caption': f"\n {apkv2ray_link}\n{persian_date}\n برنامه‌ای سریع و ساده برای اجرای سورهای v2ray\nاین برنامه را نصب کنید و سپس یکی از فایلهای .txt را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید. "}
+            'caption': f"\n {apkv2ray_link}\n{persian_date}\n برنامه‌ای سریع و ساده برای اجرای سرورهای v2ray\nاین برنامه را نصب کنید و سپس یکی از فایلهای .txt را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید. "}
 
-    response = rs.post(url, files=files, data=data)
-    if response.status_code == 200:
-        logging.info('APK file sent successfully.')
-    else:
-        logging.error(f'Failed to send APK file. Status code: {response.status_code}, Response: {response.text}')
+    for attempt in range(max_retries):
+        try:
+            response = rs.post(url, files=files, data=data)
+            response.raise_for_status()
+            logging.info('APK file sent successfully.')
+            return
+        except (RequestException, SSLError) as e:
+            logging.error(f'Attempt {attempt + 1} failed: {str(e)}')
+            if attempt < max_retries - 1:
+                sleep(5)  # Wait for 5 seconds before retrying
+            else:
+                send_message(chat_id, f"\n {apkv2ray_link}\n{persian_date}\n برنامه‌ای سریع و ساده برای اجرای سرورهای v2ray\nاین برنامه را نصب کنید و سپس یکی از فایلهای .txt را باز کرده و محتوای آن را در برنامه کپی کنید یا اگر زیاد بود share کنید. ")
+        finally:
+            files['document'].close()
+
 
 def get_v2ray_data():
     v2ray_links = {
@@ -210,52 +254,96 @@ def send_server_list(bot_token, chat_id):
     warplink = warpplus()
 
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
-    send_document(chat_id, "sstp.csv",f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}')
-    proxi = rs.get('https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/proxies')
 
+    # Send SSTP Servers document
+    send_document(chat_id, r"sstp.csv",f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}')
+
+    # Download and send MTProto proxies
+    proxi = rs.get(
+        'https://raw.githubusercontent.com/soroushmirzaei/telegram-proxies-collector/main/proxies')
     soup = BeautifulSoup(proxi.content, "html.parser")
     mtprototext = soup.get_text()
     with open("mtproto.txt", "w") as f:
         f.write(mtprototext)
+    send_document(chat_id, 'mtproto.txt',f'پروکسی تلگرام \n https://mtproto.sabaat.ir/\n - {persian_date}')
 
-    send_document(chat_id, 'mtproto.txt', f'پروکسی تلگرام \n https://mtproto.sabaat.ir/\n - {persian_date}')
-
-
+    # Define links and their names
     links = [
-        'https://vl.sabaat.ir/sub',
-        'https://fin.hore.workers.dev/sub/fin.sabaat.ir',
-        'https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_base64.txt',
-        'https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt',
-        'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ssr.txt',
-        'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ss.txt',
-        'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/trojan.txt',
-        'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt'
+        ('https://vl.sabaat.ir/sub'),
+        ('https://fin.hore.workers.dev/sub/fin.sabaat.ir.txt'),
+        ('https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_base64.txt'),
+        ('https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt'),
+        ('https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ssr.txt'),
+        ('https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ss.txt'),
+        ('https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/trojan.txt'),
+        ('https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt')
     ]
+    names = ['Worker .ir', 'Worker .link', 'mahdibland Base64', 'mahdibland MIX',
+             'mahdibland ssr', 'mahdibland Shadowsucks', 'mahdibland trojan', 'mahdibland vmess']
 
-    names = ['Worker .ir', 'Worker .link', 'mahdibland Base64', 'mahdibland MIX', 'mahdibland ssr', 'mahdibland ss', 'mahdibland trojan', 'mahdibland vmess']
-
+    # Assuming links and names are lists of equal length
     for link, name in zip(links, names):
-        try:
-            response = rs.get(link)
-            content = response.text
-            file_name = f'{link.split("/")[-1]}.txt'
-            with open(file_name, 'w') as f:
-                f.write(content)
-            send_document(chat_id, file_name, f'برای استفاده در برنامه‌های v2ray \n{persian_date} \n{name}\n {link}')
-        except rs.exceptions.RequestException as e:
-            logging.error(f"Error retrieving {link}: {e}")
-        except UnicodeEncodeError as e:
-            logging.error(f"Error writing {link} content: {e}")
+        # Check if the link ends with '.txt'
+        if link.endswith('.txt'):
+            file_name = link.split("/")[-1]  # Extract file name from URL
+            try:
+                response = rs.get(link)
+                response.raise_for_status()  # Raise exception for HTTP errors
 
+                content = response.text
+
+                # Save content to a .txt file
+                with open(file_name, 'w', encoding='utf-8') as f:  # Specify encoding
+                    f.write(content)
+
+                # Send the .txt file
+                send_document(chat_id, file_name, f'برای استفاده در برنامه‌های v2ray \n{persian_date} \n{name}\n {link}')
+
+            except rs.exceptions.RequestException as e:
+                logging.error(f"Error retrieving {link}: {e}")
+            except UnicodeEncodeError as e:
+                logging.error(f"Error writing {link} content: {e}")
+            finally:
+                if os.path.exists(file_name):  # Clean up the file
+                    os.remove(file_name)
+
+        else:
+            # For links that do not end with '.txt', append '.txt' and handle them similarly
+            txt_link = f"{link}.txt"
+            # Extract file name from URL
+            file_name = f"{txt_link.split('/')[-1]}"
+            try:
+                response = rs.get(txt_link)
+                response.raise_for_status()  # Raise exception for HTTP errors
+
+                content = response.text
+
+                # Save content to a .txt file
+                with open(file_name, 'w', encoding='utf-8') as f:  # Specify encoding
+                    f.write(content)
+
+                # Send the .txt file
+                send_document(chat_id, file_name, f'برای استفاده در برنامه‌های v2ray \n{persian_date} \n{name} (treated as .txt)\n {txt_link}')
+
+            except rs.exceptions.RequestException as e:
+                logging.error(f"Error retrieving {txt_link}: {e}")
+            except UnicodeEncodeError as e:
+                logging.error(f"Error writing {txt_link} content: {e}")
+            finally:
+                if os.path.exists(file_name):  # Clean up the file
+                    os.remove(file_name)
+
+    # Send warp links
     inb = []
     try:
         for name, link in warplink.items():
             inb.append([InlineKeyboardButton(name, url=link)])
         r_markup = InlineKeyboardMarkup(inb)
         send_message(chat_id, f'وارپ پر سرعت بدون عوض کردن ای پی', r_markup)
-    except:
-        logging.error("Error sending warp links")
+    except Exception as e:
+        logging.error(f"Error sending warp links: {e}")
 
+    # Send V2Ray links
     inline_buttons = []
     for name, link in v2ray_links.items():
         inline_buttons.append([InlineKeyboardButton(name, url=link)])
@@ -288,19 +376,21 @@ def send_message(chat_id, text, reply_markup=None):
 
 
 if __name__ == '__main__':
-    bot_token = '6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A'
-    chat_id = '@SSTPV2RAY'
+    try:
+        bot_token = '6210383014:AAHGwo4q87zwKTjO1WgJWrbjEgx5V-TO8_A'
+        chat_id = '@SSTPV2RAY'
+        apkv2ray_filename, apkv2ray_link = get_latest_v2ray_apk()
+        apk_filename, apk_link = get_latest_oblivion_apk()
 
-    
-    apkv2ray_filename, apkv2ray_link = get_latest_v2ray_apk()
-    apk_filename, apk_link = get_latest_oblivion_apk()
-    if apk_filename and apk_link:
-        send_apk_to_telegram_channel(apk_filename, bot_token, chat_id)
-        os.remove(apk_filename)
-    if apkv2ray_filename and apkv2ray_link:
-        send_apkv2ray_to_telegram_channel(apkv2ray_filename, bot_token, chat_id)
-        os.remove(apkv2ray_filename)
+        if apk_filename and apk_link:
+            send_apk_to_telegram_channel(apk_filename, bot_token, chat_id)
+            os.remove(apk_filename)
 
-    send_server_list(bot_token, chat_id)
+        if apkv2ray_filename and apkv2ray_link:
+            send_apkv2ray_to_telegram_channel(
+                apkv2ray_filename, bot_token, chat_id)
+            os.remove(apkv2ray_filename)
 
-
+        send_server_list(bot_token, chat_id)
+    except Exception as e:
+        logging.exception("An unexpected error occurred:")
