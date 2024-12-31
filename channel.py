@@ -265,7 +265,12 @@ def send_server_list(bot_token, chat_id):
     with open("mtproto.txt", "w") as f:
         f.write(mtprototext)
     send_document(chat_id, 'mtproto.txt',f'پروکسی تلگرام \n https://mtproto.sabaat.ir/\n - {persian_date}')
-
+    warpk = rs.get("https://raw.githubusercontent.com/ircfspace/warpkey/main/plus/lite").text
+    warpkeystxt = warpk.replace("\", \"", "\n")
+    
+    with open("warpkeys.txt", "w") as f:
+        f.write(warpkeystxt)
+    send_document(chat_id, 'warpkeys.txt',f'کلیدهای وارپ برای فعالسازی وارپ \n https://raw.githubusercontent.com/ircfspace/warpkey/main/plus/lite/\n - {persian_date}')
     # Define links and their names
     links = [
         ('https://vl.aihoore.ir/sub'),
