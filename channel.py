@@ -229,7 +229,7 @@ def send_apkv2ray_to_telegram_channel(apkv2ray_filename, bot_token, chat_id, max
 
 def get_v2ray_data():
     v2ray_links = {
-        'لیست وی‌پی‌ان‌ها در وبسایت ': 'https://list.sabaat.ir',
+        'لیست وی‌پی‌ان‌ها در وبسایت ': 'https://list.aihoore.ir',
         'sabat.ir Help Worker': 'https://fin.sabaat.ir/',
         'sabat.link Help Worker': 'https://f.sabaat.link/',
         'mahdibland Github': 'https://github.com/mahdibland/V2RayAggregator',
@@ -255,7 +255,7 @@ def send_server_list(bot_token, chat_id):
     url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
 
     # Send SSTP Servers document
-    send_document(chat_id, r"sstp.csv",f'SSTP Servers https://evhr.sabaat.ir/ ✅- {persian_date}')
+    send_document(chat_id, r"sstp.csv",f'SSTP Servers https://list.aihoore.ir/ ✅- {persian_date}')
 
     # Download and send MTProto proxies
     proxi = rs.get(
@@ -268,7 +268,7 @@ def send_server_list(bot_token, chat_id):
 
     # Define links and their names
     links = [
-        ('https://vl.sabaat.ir/sub'),
+        ('https://vl.aihoore.ir/sub'),
         ('https://fin.hore.workers.dev/sub/fin.sabaat.ir.txt'),
         ('https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_base64.txt'),
         ('https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt'),
