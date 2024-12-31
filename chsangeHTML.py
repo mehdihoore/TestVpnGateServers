@@ -139,7 +139,7 @@ html_content = f'''
       }}
     </style>
     
-    <h1><a href="https://list.sabaat.ir">VpnList</a></h1>
+    <h1><a href="https://list.aihoore.ir">VpnList</a></h1>
      <h2><a href="https://sabaat.ir">Sabaat</a></h2>
 </head>
 <body>
